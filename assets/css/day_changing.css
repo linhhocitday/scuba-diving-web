@@ -1,0 +1,19 @@
+.black-color-100 {
+  color: #03182d;
+}
+
+.black-color-80 {
+  color: rgba(3, 24, 45, 0.8);
+}
+
+.black-color-60 {
+  color: rgba(3, 24, 45, 0.6);
+}
+
+.white-bg-100 {
+  background-color: #fffaf3;
+}
+
+.black-bg-8 {
+  background-color: rgba(3, 24, 45, 0.08);
+}

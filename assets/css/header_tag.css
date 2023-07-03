@@ -1,0 +1,43 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1111111111;
+}
+
+.header-div {
+  padding: 20px 0;
+}
+
+.header-wrapper {
+  justify-content: space-between;
+  padding: 12px 40px;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.logo-wrapper {
+  font-size: 24px;
+}
+
+.logo-wrapper p {
+  margin-left: 12px;
+}
+
+.header-right-col .item {
+  margin-left: 32px;
+}
+
+.header-right-col .item a {
+  padding: 10px;
+  font-size: 14px;
+}
+
+.header-right-col .item a:hover {
+  color: rgb(255, 250, 243);
+}
+
+.header-right-col .item a.white-text {
+  color: #fffaf3;
+}
