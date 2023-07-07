@@ -32,6 +32,26 @@ ul li {
   flex-wrap: wrap;
 }
 
+.col2 {
+  flex: 0 0 16.67%;
+  max-width: 16.67%;
+}
+
+.col5 {
+  flex: 0 0 41.67%;
+  max-width: 41.67%;
+}
+
+.col7 {
+  flex: 0 0 58.33%;
+  max-width: 58.33%;
+}
+
+.col10 {
+  flex: 0 0 83.33%;
+  max-width: 83.33%;
+}
+
 .grid-block {
   display: grid;
 }
@@ -76,6 +96,10 @@ ul li {
   background-color: #af78c9;
 }
 
+.green {
+  background-color: #19846b;
+}
+
 .background-text {
   font-family: "Anton", sans-serif;
   position: relative;
@@ -103,8 +127,7 @@ ul li {
 }
 
 .small-text {
-  word-spacing: 2px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   line-height: 24px;
   font-weight: 200;
 }
@@ -149,6 +172,14 @@ ul li {
 
 .pd-top-4-3 {
   padding-top: calc(4 / 3 * 100%);
+}
+
+.pd-top-4-6 {
+  padding-top: calc(4 / 6 * 100%);
+}
+
+.pd-top-4-7 {
+  padding-top: calc(4 / 7 * 100%);
 }
 
 .pd-top-100 {
@@ -212,6 +243,10 @@ ul li {
 
 .text-align-right {
   text-align: right;
+}
+
+.text-align-left {
+  text-align: left;
 }
 
 .vertical-line {

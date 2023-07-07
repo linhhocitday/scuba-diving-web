@@ -31,21 +31,3 @@ export async function removeLoader() {
 	});
 }
 
-export let fish = [
-	{
-		name: 'Nemo',
-		image: 'assets/images/slide4_fish1.jpg',
-		intro: 'Or we normally call “clownfish”. Depending on the species, clownfish are overall yellow, orange, or a reddish or blackish color, and many show white bars or patches.'
-	},
-	{
-		name: 'Dory',
-		image: 'assets/images/slide4_fish2.jpg',
-		intro: 'Blue tangs are small fish native to coral reefs in the Indo-Pacific. The animals are easy to spot, thanks to their characteristically vibrant colorations of royal blue and canary yellow.'
-	},
-	{
-		name: 'Gill',
-		image: 'assets/images/slide4_fish3.webp',
-		intro: 'The Moorish Idol has a very long, white, sickle-shaped dorsal fin, two broad black bars on the body, and a yellow saddle across the snout. There is a small, bony projection in front of both eyes of adults.'
-	}
-]
-
