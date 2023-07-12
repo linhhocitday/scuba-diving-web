@@ -9,7 +9,4 @@ app.listen(3000, () => console.log('Services start :>'));
 app.get('/*', (req, res, next) => {
     res.setHeader('Content-Type', 'text/html');
     res.send(clientView.html());
-})
-
-index.js
-
+});
