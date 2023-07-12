@@ -7,7 +7,7 @@ export async function renderHeader() {
             <div class=" header-wrapper flex-block align-center">
                 <a class="block logo-a-tag" href="/">
                     <div class="logo-wrapper flex-block align-center">
-                        <img class="logo" src="assets/images/logo.png" alt="" />
+                        <img class="logo" src="/assets/images/logo.png" alt="" />
                         <p class="uppercase">Blur</p>
                     </div>
                 </a>

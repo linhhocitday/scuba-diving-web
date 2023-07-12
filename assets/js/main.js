@@ -39,6 +39,11 @@ async function initApp() {
         let renderCourse = await page.renderCourse();
         main.appendChild(await renderCourse);
     }
+    if (location.pathname.includes('go-diving/detail')) {
+        let page = await import('./pages/product_booking.js');
+        let renderProductBooking = await page.renderProductBooking();
+        main.appendChild(await renderProductBooking);
+    }
 
     // await changeColor();
 }

@@ -13,19 +13,25 @@ module.exports = {
 
                 <!-- my css -->
                 <!-- loading css -->
-                <link rel="stylesheet" href="assets/css/loading_scene.css" />
+                <link rel="stylesheet" href="/assets/css/loading_scene.css" />
                 <!-- main css -->
-                <link rel="stylesheet" href="assets/css/main.css" />
+                <link rel="stylesheet" href="/assets/css/main.css" />
                 <!-- responsive css -->
-                <link rel="stylesheet" href="assets/css/responsive.css" />
+                <link rel="stylesheet" href="/assets/css/responsive.css" />
                 <!-- header css -->
-                <link rel="stylesheet" href="assets/css/header_tag.css" />
-                <!-- main css -->
-                <link rel="stylesheet" href="assets/css/main_tag.css" />
+                <link rel="stylesheet" href="/assets/css/header_tag.css" />
+                <!-- home css -->
+                <link rel="stylesheet" href="/assets/css/home_page.css" />
+                <!-- about page css -->
+                <link rel="stylesheet" href="/assets/css/about_page.css" />
+                <!-- booking page css -->
+                <link rel="stylesheet" href="/assets/css/booking_page.css" />
+                <!-- course page css -->
+                <link rel="stylesheet" href="/assets/css/course_page.css" />
                 <!-- footer css -->
-                <link rel="stylesheet" href="assets/css/footer_tag.css" />                
+                <link rel="stylesheet" href="/assets/css/footer_tag.css" />                
                 <!-- color changing css -->
-                <link rel="stylesheet" href="assets/css/day_changing.css" />
+                <link rel="stylesheet" href="/assets/css/day_changing.css" />
 
                 <!-- google font -->
                 <link rel="preconnect" href="https://fonts.googleapis.com" />

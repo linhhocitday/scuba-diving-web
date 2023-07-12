@@ -5,26 +5,10 @@ import {
     removeLoader
 } from "../helper.js";
 
-let fish = [
-	{
-		name: "It's Nemo, isn't it?",
-        color: 'red-line',
-		image: 'assets/images/slide4_fish1.jpg',
-		intro: 'Or we normally call “clownfish”. Depending on the species, clownfish are overall yellow, orange, or a reddish or blackish color, and many show white bars or patches.'
-	},
-	{
-		name: 'Dory is that you?',
-        color: 'blue-line',
-		image: 'assets/images/slide4_fish2.jpg',
-		intro: 'Blue tangs are small fish native to coral reefs in the Indo-Pacific. The animals are easy to spot, thanks to their characteristically vibrant colorations of royal blue and canary yellow.'
-	},
-	{
-		name: 'Omg so many Gill!',
-        color: 'yellow-line',
-		image: 'assets/images/slide4-fish3.webp',
-		intro: 'The Moorish Idol has a very long, white, sickle-shaped dorsal fin, two broad black bars on the body, and a yellow saddle across the snout. There is a small, bony projection in front of both eyes of adults.'
-	}
-]
+import { 
+    fish, 
+    instructorsInfor 
+} from "../fake_data.js";
 
 //
 // fishes render
@@ -47,7 +31,7 @@ async function fishes(fish) {
             <div class="col7">
                 <div class="fish-pd-flex">
                     <h3 class="font-weight-200 uppercase">${species['name']}</h3>
-                    <div class="${species['color']} slide4-line"></div>
+                    <div class="gradient-line slide4-line"></div>
                     <div class="small-text">${species['intro']}</div>
                 </div>
             </div>
@@ -75,18 +59,33 @@ async function instructors(p) {
 
     async function renderInstructor(p) {
         document.querySelector('.instructors').innerHTML = '';
-        for (let instructor of p) {
-            let {name, instructorSpeech} = instructor;
+        for (let i = 0; i < 4; i++) {
+            let {name, instructorSpeech} = p[i];
 
             let div = document.createElement('div');
             div.classList.add('instructor');
             
             div.innerHTML = `
-            <p>${name}</p>
-            <p>${instructorSpeech}</p>
+            <div class="staff-image" id="staff${i}">
+            </div>
+            <div class="slide6-staff text-align-center position-rel">
+                <h3 class="font-weight-400">${name}</h3>
+                <p class="small-text">${instructorSpeech}</p>
+            </div>
             `;
 
             document.querySelector('.instructors').appendChild(div);
+        }
+
+        for (let i = 0; i < 4; i++) {
+            let imageWrapper = document.getElementById(`staff${i}`);
+            
+            let image = document.createElement('div');
+            image.classList.add('image', 'pd-top-100', 'slide6-staff-image');
+            image.style.backgroundImage = `url(${instructorsInfor[i]['image']})`;
+            image.innerHTML = '';
+
+            imageWrapper.appendChild(image);
         }
     }
 
@@ -102,21 +101,21 @@ export async function renderHome() {
     template.innerHTML = `
     <div class="position-abs home-s1-bg-div">
         <div class="container">
-            <div div class="home-s1-bg-grid grid-block">
-                <div class="ellipse home-s1-ell position-rel"></div>
+            <div div class="home-s1-bg-grid grid-block mobile-grid-1-col">
+                <div class="ellipse home-s1-ell position-rel mobile-display-none"></div>
                 <div class="home-s1-bg-wrapper">
-                    <div class="image home-s1-bg pd-top-4-3" style="background-image: url(assets/images/home_s1_bg.jpg)"></div>
+                    <div class="image home-s1-bg pd-top-4-3 mobile-pd-top-2-4" style="background-image: url(/assets/images/home_s1_bg.jpg)"></div>
                 </div>
-                <div class="position-abs home-s1-jellyfish-wrapper z-index-111">
-                    <div class="image pd-top-100 home-s1-jellyfish" style="background-image: url(assets/images/jelly_fish.png)"></div>
+                <div class="position-abs home-s1-jellyfish-wrapper z-index-111 mobile-display-none">
+                    <div class="image pd-top-100 home-s1-jellyfish" style="background-image: url(/assets/images/jelly_fish.png)"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <section class="slide1 pd-top-bttm-200">
+    <section class="slide1">
         <div class="container">
-            <div class="row row1-slide1 grid-block">
+            <div class="row row1-slide1 grid-block mobile-grid-1-col">
                 <div class="position-rel">
                     <h1 class="uppercase home-h1 font-weight-200 width-50vw z-index-11">Undersea exploration</h1>
                     <div class="width-30vw z-index-11">
@@ -125,7 +124,7 @@ export async function renderHome() {
                             need to explore the ocean and proficient in scuba diving.
                         </p>
                         <a class="uppercase see-more-btn white-color-100" href="/booking">
-                            See more
+                            Book now
                         </a>
                     </div>
                 </div>
@@ -137,10 +136,10 @@ export async function renderHome() {
         <div class="container position-rel">
             <div class="row row1-slide2 z-index-111 grid-block">
                 <div>
-                    <div class="image pd-top-4-7" style="background-image: url(assets/images/slide2_pic1.jpg)"></div>
+                    <div class="image pd-top-4-7" style="background-image: url(/assets/images/slide2_pic1.jpg)"></div>
                 </div>
                 <div class="slide2-intro-text">
-                    <div class="light-blue-color-100">Something about us</div>
+                    <div class="gradient-text colorful-text uppercase">Something about us</div>
                     <h2 class="font-weight-200 intro-para uppercase">We are BLUR, one of the best scuba diving centers in Vietnam.</h2>
                     <div class="small-text">
                         We can cater to everybody, through our diving courses from Beginner to Professional, fun dives for certified divers, freediving for those who want to do it all natural by breath holding, and snorkeling for those who prefer to stay at the surface.
@@ -160,26 +159,26 @@ export async function renderHome() {
             <div class="row row1-slide3">
                 <div class="row1-slide3-wrapper grid-block z-index-111">
                     <div class="slide3-img-wrapper">
-                        <div class="image pd-top-4-3" style="background-image: url(assets/images/slide3_pic1.jpg)"></div>
-                        <div class="uppercase text-align-center light-blue-color-100">Mistical creatures</div>
+                        <div class="image pd-top-4-3" style="background-image: url(/assets/images/slide3_pic1.jpg)"></div>
+                        <div class="uppercase text-align-center gradient-text colorful-text">Mistical creatures</div>
                         <h3 class="uppercase text-align-center font-weight-200">Right in front of your eyes</h3>
                     </div>
                     <div class="position-rel slide3-text-middle">
                         <div class="vertical-line" style="height: 200px"></div>
-                        <div class="uppercase text-align-center light-blue-color-100">Connect</div>
+                        <div class="uppercase text-align-center gradient-text colorful-text">Connect</div>
                         <div class="horizontal-line"></div>
                         <h2 class="uppercase font-weight-600 text-align-center">With the ocean</h2>
                         <div class="vertical-line" style="height: 600px"></div>
                     </div>
                     <div class="slide3-img-wrapper">
-                        <div class="image pd-top-4-3" style="background-image: url(assets/images/slide3_pic2.jpg)"></div>
-                        <div class="uppercase text-align-center light-blue-color-100">Visiting</div>
+                        <div class="image pd-top-4-3" style="background-image: url(/assets/images/slide3_pic2.jpg)"></div>
+                        <div class="uppercase text-align-center gradient-text colorful-text">Visiting</div>
                         <h3 class="uppercase text-align-center font-weight-200">The stunning coral reefs yourself</h3>
                     </div>
                 </div>
                 <div class="position-abs slides-bg-wrapper bg-wrapper-slide3 z-index-1">
                     <div class="blue dot slide3-dot1"></div>
-                    <div class="purple dot slide3-dot2"></div>
+                    <div class="red dot slide3-dot2"></div>
                 </div>
             </div>
         </div>
@@ -191,13 +190,13 @@ export async function renderHome() {
                 <div class="row1-slide4-wrapper z-index-111">
                     <h2 class="uppercase font-weight-200">Are you a big fan of Disney?</h2>
                     <div class="uppercase text-align-right check-this-out-text">Then check this out!</div>
-                    <div class="uppercase text-align-right light-blue-color-100 slide4-small-text">We have some friends from "finding nemo"</div>
+                    <div class="uppercase text-align-right gradient-text slide4-small-text colorful-text">We have some friends from "finding nemo"</div>
                     <div class="fishes-wrapper"></div>
                 </div>
                 <div class="position-abs slides-bg-wrapper bg-wrapper-slide4 z-index-1">
                     <div class="uppercase background-text">Species</div>
                     <div class="blue dot slide4-dot1"></div>
-                    <div class="yellow dot slide4-dot2"></div>
+                    <div class="red dot slide4-dot2"></div>
                 </div>
             </div>
         </div>
@@ -206,13 +205,13 @@ export async function renderHome() {
     <section class="pd-top-bttm-200">
         <div class="slide5-container position-rel">
             <div class="row row1-slide5 z-index-111">
-                <div class="uppercase text-align-center light-blue-color-100">And many other "actors"</div>
+                <div class="uppercase text-align-center gradient-text colorful-text">And many other "actors"</div>
                 <h2 class="uppercase text-align-center font-weight-200">Wanna find out what species they are?</h2>
                 <div class="grid-block slide5-choice-grid">
-                    <div class="position-rel">
-                        <div class="image pd-top-4-6" style="background-image: url(assets/images/slide5_pic1.jpg)"></div>
+                    <div class="position-rel over-flow-hidden">
+                        <div class="image pd-top-4-6" style="background-image: url(/assets/images/slide5_pic1.jpg)"></div>
                         <div class="position-abs slide5-dark-bg">
-                            <div class="position-abs text-align-center">
+                            <div class="position-abs text-align-center slide5-choice">
                                 <h3 class="uppercase font-weight-600">Go diving</h3>
                                 <div class="slide5-hidden-list">
                                     <div class="small-text">Scuba diving lessons are detailed and focused on an individual’s need. Available for any level of diver, from complete beginners right through to competition divers.</div>
@@ -240,7 +239,7 @@ export async function renderHome() {
                                             </div>
                                         </div>
                                         <div class="col10">
-                                            <div class="slide5-location">From 80$ / week</div>
+                                            <div class="slide5-location">From 78$ / pax</div>
                                             <div class="font-weight-200">Per person, included all taxes and equipments.</div>
                                         </div>
                                     </div>
@@ -249,10 +248,10 @@ export async function renderHome() {
                             </div>
                         </div>
                     </div>
-                    <div class="position-rel">
-                        <div class="image pd-top-4-6" style="background-image: url(assets/images/slide5_pic2.jpg)"></div>
+                    <div class="position-rel over-flow-hidden">
+                        <div class="image pd-top-4-6" style="background-image: url(/assets/images/slide5_pic2.jpg)"></div>
                         <div class="position-abs slide5-dark-bg">
-                            <div class="position-abs text-align-center">
+                            <div class="position-abs text-align-center slide5-choice">
                                 <h3 class="uppercase font-weight-600">Dive course</h3>
                                 <div class="slide5-hidden-list">
                                     <div class="small-text">Scuba diving lessons are detailed and focused on an individual’s need. Available for any level of diver, from complete beginners right through to competition divers.</div>
@@ -280,7 +279,7 @@ export async function renderHome() {
                                             </div>
                                         </div>
                                         <div class="col10">
-                                            <div class="slide5-location">From 80$ / week</div>
+                                            <div class="slide5-location">From 185$ / pax</div>
                                             <div class="font-weight-200">Per person, included all taxes and equipments.</div>
                                         </div>
                                     </div>
@@ -293,7 +292,7 @@ export async function renderHome() {
             </div>
             <div class="position-abs slides-bg-wrapper bg-wrapper-slide5 z-index-1">
                 <div class="uppercase background-text">Services</div>
-                <div class="green dot slide5-dot1"></div>
+                <div class="red dot slide5-dot1"></div>
                 <div class="blue dot slide5-dot2"></div>
             </div>
         </div>
@@ -303,11 +302,12 @@ export async function renderHome() {
         <div class="container position-rel">
             <div class="row row1-slide6 z-index-111">
                 <h2 class="uppercase font-weight-200 text-align-center">Our instructors will accompany you</h2>
-                <div class="instructors">${instructors()}</div>
+                <div class="uppercase gradient-text colorful-text text-align-center">"Move your mouse pointer to their image"</div>
+                <div class="instructors grid-block">${instructors()}</div>
             </div>
             <div class="position-abs slides-bg-wrapper bg-wrapper-slide6 z-index-1">
                 <div class="uppercase background-text">Staff</div>
-                <div class="green dot slide6-dot1"></div>
+                <div class="red dot slide6-dot1"></div>
             </div>
         </div>
     </section>

@@ -36,6 +36,7 @@
 .header-right-col .item a {
   padding: 10px;
   font-size: 14px;
+  transition: color 0.2s;
 }
 
 .header-right-col .item a:hover {
