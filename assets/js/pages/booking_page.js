@@ -9,6 +9,9 @@ import {
     booking 
 } from "../fake_data.js";
 
+//
+// render booking choices
+//
 async function bookingChoices(p) {
     let getBooking = {
         apiUrl: apiUrl,
@@ -16,11 +19,11 @@ async function bookingChoices(p) {
         method: 'GET',
         async callback(p) {
             await removeLoader();
-            await renderBooking(p);
+            await renderBookingChoices(p);
         }
     }
 
-    async function renderBooking(p) {
+    async function renderBookingChoices(p) {
         document.querySelector('.booking-choices').innerHTML = '';
         for (let i = 0; i < 4; i++) {
             let {id} = p[i];
@@ -54,6 +57,9 @@ async function bookingChoices(p) {
     await fetchData(getBooking);
 }
 
+//
+// main function
+//
 export async function renderBooking() {
     let template = document.createElement('div');
     template.classList.add('booking-page');
@@ -69,6 +75,7 @@ export async function renderBooking() {
                 </div>
             </div>
             <div class="position-abs slides-bg-wrapper booking-slide1-bg z-index-1">
+                <div class="uppercase position-abs scroll-text">Scroll</div>
                 <div class="blue dot booking-slide1-dot1"></div>
             </div>
         </div>
@@ -90,7 +97,7 @@ export async function renderBooking() {
     </section>
     `;
 
-    let bookingText = document.querySelector('.booking');
+    let bookingText = document.querySelector('.book');
     bookingText.classList.add('white-text');
 
     return template;

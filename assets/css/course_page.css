@@ -31,10 +31,10 @@
 }
 
 .course-slide1-dot1 {
-  width: 280px;
-  height: 280px;
-  left: 4%;
-  transform: translate(0, 40%);
+  width: 400px;
+  height: 400px;
+  left: 80%;
+  transform: translate(0, 20%);
 }
 
 .course-slide2 {
@@ -95,15 +95,15 @@
 .course-slide2-dot1 {
   width: 320px;
   height: 320px;
-  left: 80%;
-  transform: translate(0, -140%);
+  left: 20%;
+  transform: translate(0, -180%);
 }
 
 .course-slide2-dot2 {
   width: 420px;
   height: 420px;
   left: -24%;
-  transform: translate(0, -100%);
+  transform: translate(0, -180%);
 }
 
 .course-hidden-text {

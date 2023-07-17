@@ -86,12 +86,6 @@
   line-height: 32px;
 }
 
-.slides-bg-wrapper {
-  top: 0;
-  left: 0;
-  width: 100%;
-}
-
 .slide2-intro-text .colorful-text {
   margin-bottom: 4px;
 }
@@ -205,11 +199,6 @@
   padding: 24px 0;
 }
 
-.fish-infor-wrapper {
-  align-items: center;
-  justify-content: space-between;
-}
-
 .fish-pd-flex {
   padding: 0 24px;
 }
@@ -225,18 +214,6 @@
   width: 100%;
   margin-bottom: 28px;
 }
-
-/* .red-line {
-  background-color: rgba(181, 74, 2, 0.6);
-}
-
-.blue-line {
-  background-color: rgba(1, 63, 219, 0.6);
-}
-
-.yellow-line {
-  background-color: rgba(248, 234, 78, 0.6);
-} */
 
 .bg-wrapper-slide4 .background-text {
   font-size: 320px;

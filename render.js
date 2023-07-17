@@ -9,7 +9,7 @@ module.exports = {
                 <title>BLUR</title>
 
                 <!-- favicon -->
-                <link rel="icon" type="image/x-icon" href="assets/images/logo.png" />
+                <link rel="icon" type="image/x-icon" href="/assets/images/logo.png" />
 
                 <!-- my css -->
                 <!-- loading css -->
@@ -28,6 +28,8 @@ module.exports = {
                 <link rel="stylesheet" href="/assets/css/booking_page.css" />
                 <!-- course page css -->
                 <link rel="stylesheet" href="/assets/css/course_page.css" />
+                <!-- product page css -->
+                <link rel="stylesheet" href="/assets/css/product_page.css" />
                 <!-- footer css -->
                 <link rel="stylesheet" href="/assets/css/footer_tag.css" />                
                 <!-- color changing css -->

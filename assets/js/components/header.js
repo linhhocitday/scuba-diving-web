@@ -15,8 +15,8 @@ export async function renderHeader() {
                     <div class="header-right-col flex-block align-center flex-row flex-column">
                         <div class="item uppercase"><a class="home white-color-60" href="/">Home</a></div>
                         <div class="item uppercase"><a class="about white-color-60" href="/about">About</a></div>
-                        <div class="item uppercase"><a class="booking white-color-60" href="/booking">Booking</a></div>
-                        <div class="item uppercase"><a class="course white-color-60" href="/course">Courses</a></div>
+                        <div class="item uppercase"><a class="book white-color-60" href="/booking">Booking</a></div>
+                        <div class="item uppercase"><a class="courses white-color-60" href="/course">Courses</a></div>
                     </div>
                 </div>
                 <div class="header-res-bg"></div>

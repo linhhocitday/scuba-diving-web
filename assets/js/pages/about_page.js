@@ -9,6 +9,9 @@ import {
     instructorsInfor
 } from "../fake_data.js";
 
+//
+// render staff information
+//
 async function instructors(p) {
     let getInstructor = {
         apiUrl: apiUrl,
@@ -56,6 +59,9 @@ async function instructors(p) {
     await fetchData(getInstructor);
 }
 
+//
+// main function
+//
 export async function renderAbout() {
     let template = document.createElement('div');
     template.classList.add('about-page');
@@ -63,7 +69,7 @@ export async function renderAbout() {
     <section class="about-slide1">
         <div class="container position-rel">
             <div class="row about-slide1-row1 z-index-111">
-                <div class="flex-block">
+                <div class="flex-block flex-align-justify">
                     <h2 class="uppercase inline-block font-weight-200">Our</h2>
                     <h2 class="uppercase inline-block font-weight-200 z-index-111">Story</h2>
                     <div class="position-abs about-jelly-fish">
@@ -72,6 +78,7 @@ export async function renderAbout() {
                 </div>
             </div>
             <div class="position-abs slides-bg-wrapper about-slide1-bg z-index-1">
+                <div class="uppercase position-abs scroll-text">Scroll</div>
                 <div class="blue dot about-slide1-dot1"></div>
             </div>
         </div>
@@ -80,7 +87,7 @@ export async function renderAbout() {
     <section class="about-slide2">
         <div class="container position-rel">
             <div class="row">
-                <div class="about-slide2-row1 flex-block z-index-111">
+                <div class="about-slide2-row1 flex-block z-index-111 flex-align-justify">
                     <div class="col7">
                         <div class="ab-slide2-row1-pd">
                             <h1 class="uppercase font-weight-200">Our mission</h1>

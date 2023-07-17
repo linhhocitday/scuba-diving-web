@@ -8,11 +8,6 @@
   margin: 0 auto;
 }
 
-.about-slide1-row1 .flex-block {
-  align-items: center;
-  justify-content: space-between;
-}
-
 .about-jelly-fish {
   max-width: 720px;
   width: 100%;
@@ -30,12 +25,6 @@
   font-size: 188px;
 }
 
-.about-slide2 .row {
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
-}
-
 .about-slide1-dot1 {
   width: 400px;
   height: 400px;
@@ -43,13 +32,17 @@
   transform: translate(0, 40%);
 }
 
+.about-slide2 .row {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .about-slide2 {
   padding: 200px 0;
 }
 
 .about-slide2-row1 {
-  align-items: center;
-  justify-content: space-between;
   margin: 0 -40px;
 }
 

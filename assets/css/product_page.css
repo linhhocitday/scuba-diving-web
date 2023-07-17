@@ -1,0 +1,159 @@
+.product-slide1 {
+  padding: 160px 0;
+}
+
+.product-name {
+  font-size: 64px;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  font-size: 40px;
+  margin-bottom: 80px;
+}
+
+.product-description {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product-slide1-bg .background-text {
+  font-size: 400px;
+  left: 36%;
+  transform: translate(0, -32%);
+}
+
+.product-slide1-dot1 {
+  width: 400px;
+  height: 400px;
+  left: -20%;
+  transform: translate(0, -120%);
+}
+
+.product-slide1-dot2 {
+  width: 320px;
+  height: 320px;
+  left: 80%;
+  transform: translate(0, -140%);
+}
+
+.product-slide2 {
+  padding: 200px 0 400px;
+}
+
+.product-slide2-row1 h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.product-slide2-row1 .gradient-text {
+  font-size: 24px;
+  margin-bottom: 100px;
+}
+
+.product-input-wrapper {
+  backdrop-filter: blur(32px);
+  background-color: rgba(255, 250, 243, 0.04);
+  padding: 52px;
+  justify-content: space-between;
+}
+
+.input-label {
+  font-size: 24px;
+  font-weight: 400px;
+  margin-bottom: 24px;
+}
+
+.product-input {
+  padding: 18px 20px;
+  background-color: inherit;
+  border: 1px solid rgba(255, 250, 243, 0.4);
+  outline: none;
+  color: #fffaf3;
+  width: 280px;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.no-pd {
+  padding: 0;
+}
+
+.amount-btn {
+  cursor: pointer;
+  padding: 19px 20px;
+  color: rgba(255, 250, 243, 0.4);
+  transition: color 0.2s;
+}
+
+.amount-btn:hover {
+  color: #fffaf3;
+}
+
+.product-input:focus {
+  border: 1px solid rgb(255, 250, 243);
+}
+
+.alert-text {
+  color: #de0a5e;
+  font-size: 14px;
+}
+
+.product-booking-btn {
+  border: 1px solid #fffaf3;
+  padding: 18px 48px;
+  font-size: 20px;
+  transition: background-color 0.4s;
+}
+
+.product-booking-btn:hover {
+  background-color: rgba(255, 250, 243, 0.2);
+}
+
+.destination-choices input {
+  opacity: 0;
+}
+
+.destination-choice-wrapper {
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.custom-checkbox {
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  border: 2px solid #fffaf3;
+  cursor: pointer;
+}
+
+.checked-dot {
+  background-color: #fffaf3;
+}
+
+.destination-choice-text {
+  font-size: 20px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+
+.product-slide2-bg {
+  z-index: 1111;
+}
+
+.product-jellyfish-wrapper {
+  max-width: 600px;
+  width: 100%;
+  position: relative;
+  left: 64%;
+  transform: translate(0, 196%);
+}
+
+.product-jellyfish-wrapper .image {
+  background-size: contain;
+}
+
+#departure {
+  color-scheme: dark;
+}

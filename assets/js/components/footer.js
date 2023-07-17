@@ -38,7 +38,10 @@ export async function renderFooter() {
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom-text white-color-60 font-size-14">© 2023 BLUR. All rights reserved.</div>
+            <div class="flex-block flex-align-justify">
+                <div class="footer-bottom-text white-color-60 font-size-14">© 2023 BLUR. All rights reserved.</div>
+                <div class="footer-bottom-text white-color-60 font-size-14">Web design and copywriting: <strong>Linh Dang</strong></div>
+            </div>
         </div>
     </div>
     `;

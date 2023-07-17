@@ -22,7 +22,7 @@ async function fishes(fish) {
         let aFish = document.createElement('div');
         aFish.classList.add('fish');
         aFish.innerHTML = `
-        <div class="flex-block fish-infor-wrapper">
+        <div class="flex-block fish-infor-wrapper flex-align-justify">
             <div class="col5">
                 <div class="fish-pd-flex">
                     <div class="image pd-top-4-3" style="background-image: url(${species['image']})"></div>

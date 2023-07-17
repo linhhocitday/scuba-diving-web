@@ -78,38 +78,51 @@ export let socialMedia = [
 export let booking = [
     {
         image: '/assets/images/booking1.jpg',
-        choice: 'Bubblemaker'
+        choice: 'Bubblemaker',
+        price: 78,
+        description: 'Introducing Bubblemaker, a fun and safe scuba diving experience for kids over 8 years old. With a private BLUR instructor, children will receive a brief lesson on basic diving skills and equipment, tailored to their size. Once they’re comfortable, it’s time to jump in and explore the underwater world! Time to make bubbles!'
     },
     {
         image: '/assets/images/booking2.jpg',
-        choice: 'Beginner dive (non-certified divers)'
+        choice: 'Beginner dive (non-certified divers)',
+        price: 78,
+        description: 'Looking for a new adventure during your holiday? Join us for an unforgettable diving adventure! Our beginner dive, also known as a “try dive”, is perfect for those who want to experience the underwater world without committing to a full BLUR certification course. With clear instruction from our instructor, you’ll learn basic safety guidelines and skills, and then dive into the vibrant marine life. You’ll quickly see why diving is so thrilling and captivating. This beginner dive can even count towards your BLUR Open Water Certification if you get hooked. Discover a new passion with us today!'
     },
     {
         image: '/assets/images/booking3.jpg',
-        choice: 'Fun dive (certified divers)'
+        choice: 'Fun dive (certified divers)',
+        price: 92,
+        description: 'Dive with our experienced Instructors and Divemasters to explore the vibrant reef around Islands. With depths ranging from 18 meters for the majority of dives to 30 meters for advanced divers, you’ll get to experience a mix of multi-level and drift dives. Our dive sites are carefully selected based on conditions, and we have a variety of options to choose from, including popular locations. Join us for an unforgettable underwater adventure!'
     },
     {
         image: '/assets/images/booking4.jpg',
-        choice: 'Private Tour'
+        choice: 'Private Tour',
+        price: 160,
+        description: 'Enjoy a personalized experience with our Private Tour. Your group will have a private speed boat with a capacity of 10 guests and 3 crew members. Explore the best snorkeling and diving sites while avoiding tourist crowds. Visit one of our three destinations, where you can discover the local island life, swim in crystal-clear waters and relax on the beach. Indulge in a delicious a delicious BBQ meal or choose from a variety of options, including vegetarian options, to suit your taste. The tour departs at 9:30 AM and includes refreshments on the boat. Create your perfect day, whether you prefer relaxation or adventure, with the freedom to make it truly your own.'
     }
 ]
 
 export let course = [
     {
         image: '/assets/images/course3.webp',
-        choice: 'Advanced course'
+        choice: 'Advanced course',
+        price: 320
 
     },
     {
         image: '/assets/images/course2.webp',
-        choice: 'Open water course'
+        choice: 'Open water course',
+        price: 400
     },
     {
         image: '/assets/images/course1.jpg',
-        choice: 'Emergency first response course'
+        choice: 'Emergency first response course',
+        price: 185
     },
     {
         image: '/assets/images/course4.webp',
-        choice: 'Rescue diver course'
+        choice: 'Rescue diver course',
+        price: 375
     }
 ]
+

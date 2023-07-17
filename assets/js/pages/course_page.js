@@ -9,6 +9,9 @@ import {
     course 
 } from "../fake_data.js";
 
+//
+// render course choices
+//
 async function courses(p) {
     let getCourses = {
         apiUrl: apiUrl,
@@ -16,11 +19,11 @@ async function courses(p) {
         method: 'GET',
         async callback(p) {
             await removeLoader();
-            await rendercourse(p);
+            await renderCourseChoices(p);
         }
     }
 
-    async function rendercourse(p) {
+    async function renderCourseChoices(p) {
         document.querySelector('.course-choices').innerHTML = '';
         for (let i = 0; i < 4; i++) {
             let {id} = p[i];
@@ -54,6 +57,9 @@ async function courses(p) {
     await fetchData(getCourses);
 }
 
+//
+// main function
+//
 export async function renderCourse() {
     let template = document.createElement('div');
     template.classList.add('course-page');
@@ -69,6 +75,7 @@ export async function renderCourse() {
                 </div>
             </div>
             <div class="position-abs slides-bg-wrapper course-slide1-bg z-index-1">
+                <div class="uppercase position-abs scroll-text">Scroll</div>
                 <div class="blue dot course-slide1-dot1"></div>
             </div>
         </div>
@@ -90,7 +97,8 @@ export async function renderCourse() {
     </section>
     `;
     
-    let courseText = document.querySelector('.course');
+    let courseText = document.querySelector('.courses');
+    console.log(courseText)
     courseText.classList.add('white-text');
 
     return template;
