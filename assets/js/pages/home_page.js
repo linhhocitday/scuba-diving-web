@@ -7,7 +7,6 @@ import {
 
 import { 
     fish, 
-    instructorsInfor 
 } from "../fake_data.js";
 
 //
@@ -60,32 +59,29 @@ async function instructors(p) {
     async function renderInstructor(p) {
         document.querySelector('.instructors').innerHTML = '';
         for (let i = 0; i < 4; i++) {
-            let {name, instructorSpeech} = p[i];
-
             let div = document.createElement('div');
             div.classList.add('instructor');
             
+            // div.innerHTML = `
+            // <div class="staff-image">
+            //     <div class="image pd-top-100 slide6-staff-image" style="background-image: url(${avatar})"></div>
+            // </div>
+            // <div class="slide6-staff text-align-center position-rel">
+            //     <h3 class="font-weight-400">${name}</h3>
+            //     <p class="small-text">${instructorSpeech}</p>
+            // </div>
+            // `;
+
             div.innerHTML = `
-            <div class="staff-image" id="staff${i}">
+            <div class="position-rel img-wrapper over-flow-hidden" id="staff-image-${i}">
+                <div class="hidden-speech-bg position-abs"><div class="hidden-speech position-abs">${p[i]['instructorSpeech']}</div></div>
+                <div class="image pd-top-100" style="background-image: url(${p[i]['avatar']})"></div>
             </div>
-            <div class="slide6-staff text-align-center position-rel">
-                <h3 class="font-weight-400">${name}</h3>
-                <p class="small-text">${instructorSpeech}</p>
-            </div>
+            <p class="staff-job uppercase gradient-text">${p[i]['job']}</p>
+            <h3 class="font-weight-400">${p[i]['name']}</h3>
             `;
 
             document.querySelector('.instructors').appendChild(div);
-        }
-
-        for (let i = 0; i < 4; i++) {
-            let imageWrapper = document.getElementById(`staff${i}`);
-            
-            let image = document.createElement('div');
-            image.classList.add('image', 'pd-top-100', 'slide6-staff-image');
-            image.style.backgroundImage = `url(${instructorsInfor[i]['image']})`;
-            image.innerHTML = '';
-
-            imageWrapper.appendChild(image);
         }
     }
 

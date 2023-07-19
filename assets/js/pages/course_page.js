@@ -5,9 +5,6 @@ import {
     removeLoader,
 } from "../helper.js";
 
-import { 
-    course 
-} from "../fake_data.js";
 
 //
 // render course choices
@@ -15,7 +12,7 @@ import {
 async function courses(p) {
     let getCourses = {
         apiUrl: apiUrl,
-        endPoint: endPoint.diving,
+        endPoint: endPoint.product,
         method: 'GET',
         async callback(p) {
             await removeLoader();
@@ -25,32 +22,21 @@ async function courses(p) {
 
     async function renderCourseChoices(p) {
         document.querySelector('.course-choices').innerHTML = '';
-        for (let i = 0; i < 4; i++) {
-            let {id} = p[i];
-
+        for (let i = 0; i < p.length; i++) {
             let div = document.createElement('div');
-            div.classList.add('course', `course-grid-img-${id}`, 'position-rel');
+            div.classList.add('course', `course-grid-img-${p[i]['id']}`, 'position-rel');
             
             div.innerHTML = `
-            <div class="block image course-img" id="course-img-${i}"></div>
-            <a href="/learn-diving/detail=${id}" class="gradient-bg course-gradient-bg position-abs">
+            <div class="block image course-img" style="background-image: url(${p[i]['courseImage']})"></div>
+            <a href="/learn-diving/detail=${p[i]['id']}" class="gradient-bg course-gradient-bg position-abs">
                 <div class="position-abs text-align-left">
                     <p class="uppercase course-hidden-text">Book now</p>
-                    <h3 id="course-h3-${i}" class="uppercase"></h3>
+                    <h3 class="uppercase">${p[i]['course']}</h3>
                 </div>
             </a>
             `;
 
             document.querySelector('.course-choices').appendChild(div);
-        }
-
-        for (let i = 0; i < course.length; i++) {
-            let h3 = document.getElementById(`course-h3-${i}`);
-            let imageWrapper = document.getElementById(`course-img-${i}`);
-
-            imageWrapper.style.backgroundImage = `url(${course[i]['image']})`;
-
-            h3.innerHTML = `${course[i]['choice']}`;
         }
     }
 

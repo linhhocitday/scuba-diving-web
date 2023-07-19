@@ -39,7 +39,7 @@
 }
 
 .product-slide2 {
-  padding: 200px 0 400px;
+  padding: 200px 0 300px;
 }
 
 .product-slide2-row1 h2 {
@@ -105,6 +105,7 @@
   padding: 18px 48px;
   font-size: 20px;
   transition: background-color 0.4s;
+  cursor: pointer;
 }
 
 .product-booking-btn:hover {
@@ -121,8 +122,8 @@
 }
 
 .custom-checkbox {
-  height: 16px;
-  width: 16px;
+  height: 14px;
+  width: 14px;
   border-radius: 50%;
   border: 2px solid #fffaf3;
   cursor: pointer;
@@ -147,7 +148,7 @@
   width: 100%;
   position: relative;
   left: 64%;
-  transform: translate(0, 196%);
+  transform: translate(0, 188%);
 }
 
 .product-jellyfish-wrapper .image {

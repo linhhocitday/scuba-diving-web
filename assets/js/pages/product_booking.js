@@ -5,9 +5,49 @@ import {
     removeLoader,
 } from "../helper.js";
 
-import { 
-    booking 
-} from "../fake_data.js";
+
+let clientCart = '';
+
+if (localStorage.getItem('cart')) {
+    clientCart = JSON.parse(localStorage.getItem('cart'));
+}
+
+async function setLocalStorage(p) {
+    let destination = p.querySelector('input:checked').id;
+    let departure = p.querySelector('#departure').value;
+    let participants = p.querySelector('.people-number').textContent;
+
+    let choseItem = {
+        destination: destination,
+        departure: departure,
+        participants: participants,
+    }
+
+    clientCart = choseItem;
+
+    console.log(clientCart);
+
+    localStorage.setItem('cart', JSON.stringify(clientCart));
+}
+
+//
+// render clientCart
+//
+async function renderClientCart(p) {
+    let {clientCart, template} = p;
+    console.log(clientCart);
+
+    let checkedInput = template.querySelector(`input#${clientCart['destination']}`);
+    checkedInput.checked = 'checked';
+    template.querySelector('.checked-dot').classList.remove('checked-dot');
+    template.querySelector(`.${clientCart['destination']}`).classList.add('checked-dot');
+
+    let departure = template.querySelector('#departure');
+    departure.value = clientCart['departure'];
+
+    let participants = template.querySelector('.people-number');
+    participants.innerHTML = clientCart['participants'];
+}
 
 //
 // change number => money (usd)
@@ -25,7 +65,7 @@ async function bookingChoices(p) {
     pathname = pathname.split('/')[2].replace('detail=', '');
     let getBookingProduct = {
         apiUrl: apiUrl,
-        endPoint: endPoint.diving + '/' + pathname,
+        endPoint: endPoint.product + '/' + pathname,
         method: 'GET',
         async callback(p) {
             await removeLoader();
@@ -37,10 +77,21 @@ async function bookingChoices(p) {
         let product = document.querySelector('.booking-product');
 
         product.innerHTML = `
-        <h1 class="product-name uppercase font-weight-600">${booking[p['id'] - 1]['choice']}</h1>
-        <p class="product-price uppercase gradient-text">${formatter.format(booking[p['id'] - 1]['price'])} / pax</p>
-        <p class="product-description small-text">${booking[p['id'] - 1]['description']}</p>
+        <h1 class="product-name uppercase font-weight-600">${p['booking']}</h1>
+        <p class="product-price uppercase gradient-text">${formatter.format(p['bookingPrice'])} / pax</p>
+        <p class="product-description small-text">${p['bookingDescription']}</p>
         `;
+
+        let total = document.querySelector('#total-price');
+        total.innerHTML = formatter.format(p['bookingPrice']*Number(clientCart['participants']));
+
+        document.querySelector('.decrease').addEventListener('click', () => {
+            total.innerHTML = formatter.format(p['bookingPrice']*Number(clientCart['participants']));
+        });
+    
+        document.querySelector('.increase').addEventListener('click', () => {
+            total.innerHTML = formatter.format(p['bookingPrice']*Number(clientCart['participants']));
+        });
     }
     await fetchData(getBookingProduct);
 }
@@ -54,12 +105,13 @@ async function checkedDestination(p) {
         i.addEventListener('click', () => {
             p.querySelector('.checked-dot').classList.remove('checked-dot');
             p.querySelector(`.${i.id}`).classList.add('checked-dot');
+            setLocalStorage(p);
         });
     }
 }
 
 //
-// limit date input 
+// limit date input, set default date, get and save date data 
 //
 async function limitDate(p) {
     let departure = p.querySelector('#departure');
@@ -73,55 +125,57 @@ async function limitDate(p) {
 
 
     departure.min = `${year}-${month}-${day}`;
+    departure.value = `${year}-${month}-${day}`;
+
+    departure.addEventListener('change', () => {
+        setLocalStorage(p);
+    });
 }
 
 //
 // add function for minus and plus button
 // 
-async function changeNumber(p) {
-    let {type, number} = p;
-
-    if (type == 'decrease') {
-        number = number - 1;
-    }
-
-    if (type == 'increase') {
-        number += 1;
-    }
-}
-
 async function changeNumberBtn(p) {
     let participants = p.querySelector('.people-number');
 
     let number = 1;
+    if (clientCart != '') number = Number(clientCart['participants']);
     participants.innerHTML = number;
 
     p.querySelector('.decrease').addEventListener('click', () => {
-        changeNumber({
-            type: 'decrease',
-            number: number
-        });
+        if (number == 1) {
+            return false;
+        }
+        number -= 1;
         participants.innerHTML = number;
+
+        setLocalStorage(p);
+    });
+
+    p.querySelector('.increase').addEventListener('click', () => {
+        number += 1;
+        participants.innerHTML = number;
+
+        setLocalStorage(p);
     });
 }
 
 //
-// calculate total money
+// get form information
 //
 async function inputValue(p) {
     let btn = p.querySelector('.product-booking-btn');
     btn.addEventListener('click', () => {
-        let destination = p.querySelector('input:checked').id;
         let departure = p.querySelector('#departure').value;
-        let participants = p.querySelector('.people-number');
-        let total = p.querySelector('#total-price');
         
         if (!departure) {
-            p.querySelector('.departure-alert').innerHTML = '*Time must be in the future';
-            return false
+            p.querySelector('.departure-alert').innerHTML = '*Time must be available';
+            return false;
         }
 
-        console.log(`${destination}-${departure}-${participants}`);
+        setLocalStorage(p);
+
+        location.href = '#';
     });
 }
 
@@ -134,7 +188,7 @@ export async function renderProductBooking(p) {
     <section class="product-slide1">
         <div class="container position-rel">
             <div class="row z-index-111">
-                <div class="booking-product text-align-center">${bookingChoices()}</div>
+                <div class="booking-product text-align-center"></div>
             </div>
             <div class="position-abs slides-bg-wrapper product-slide1-bg z-index-1">
                 <div class="uppercase background-text">Detail</div>
@@ -154,17 +208,17 @@ export async function renderProductBooking(p) {
                         <div class="uppercase input-label">Destination:</div>
                         <div class="destination-choices">
                             <div class="flex-block destination-choice-wrapper">
-                                <input type="radio" id="dn" name="destination" checked="checked" class="position-abs destination-input">
+                                <input type="radio" id="dn" name="destination" checked="checked" class="position-abs destination-input" />
                                 <label for="dn" class="custom-checkbox position-rel block dn checked-dot"></label>
                                 <label for="dn" class="destination-choice-text">Da Nang</label>
                             </div>
                             <div class="flex-block destination-choice-wrapper">
-                                <input type="radio" id="nt" name="destination" class="position-abs destination-input">
+                                <input type="radio" id="nt" name="destination" class="position-abs destination-input" />
                                 <label for="nt" class="custom-checkbox position-rel block nt"></label>
                                 <label for="nt" class="destination-choice-text">Nha Trang</label>
                             </div>
                             <div class="flex-block destination-choice-wrapper">
-                                <input type="radio" id="pq" name="destination" class="position-abs destination-input">
+                                <input type="radio" id="pq" name="destination" class="position-abs destination-input" />
                                 <label for="pq" class="custom-checkbox position-rel block pq"></label>
                                 <label for="pq" class="destination-choice-text">Phu Quoc</label>
                             </div>
@@ -172,7 +226,7 @@ export async function renderProductBooking(p) {
                     </div>
                     <div class="product-departure-choices">
                         <label for="departure" class="uppercase block input-label">Departure:</label>
-                        <input type="date" id="departure" class="product-input">
+                        <input type="date" id="departure" class="product-input" />
                         <p><i class="departure-alert alert-text"></i></p>
                     </div>
                     <div>
@@ -187,7 +241,7 @@ export async function renderProductBooking(p) {
                     </div>
                     <div>
                         <div class="uppercase input-label">Total: <strong id="total-price"></strong></div>
-                        <a href="#" class="uppercase product-booking-btn">Book now</a>
+                        <a class="uppercase product-booking-btn">Book now</a>
                     </div>
                 </div>
             </div>
@@ -200,13 +254,22 @@ export async function renderProductBooking(p) {
     </section>
     `;
 
+    bookingChoices();
+
     await limitDate(template);
 
     await checkedDestination(template);
 
-    await changeNumberBtn(template)
+    await changeNumberBtn(template);
 
     await inputValue(template);
+
+    if (localStorage.getItem('cart')) {
+        await renderClientCart({
+            clientCart: clientCart,
+            template: template
+        });
+    }
 
     return template;
 }

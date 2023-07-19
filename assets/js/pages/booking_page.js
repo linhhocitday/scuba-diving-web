@@ -5,9 +5,6 @@ import {
     removeLoader,
 } from "../helper.js";
 
-import { 
-    booking 
-} from "../fake_data.js";
 
 //
 // render booking choices
@@ -15,7 +12,7 @@ import {
 async function bookingChoices(p) {
     let getBooking = {
         apiUrl: apiUrl,
-        endPoint: endPoint.diving,
+        endPoint: endPoint.product,
         method: 'GET',
         async callback(p) {
             await removeLoader();
@@ -25,32 +22,21 @@ async function bookingChoices(p) {
 
     async function renderBookingChoices(p) {
         document.querySelector('.booking-choices').innerHTML = '';
-        for (let i = 0; i < 4; i++) {
-            let {id} = p[i];
-
+        for (let i = 0; i < p.length; i++) {
             let div = document.createElement('div');
-            div.classList.add('booking', `booking-grid-img-${id}`, 'position-rel');
+            div.classList.add('booking', `booking-grid-img-${p[i]['id']}`, 'position-rel');
             
             div.innerHTML = `
-            <div class="block image booking-img" id="booking-img-${i}"></div>
-            <a href="/go-diving/detail=${id}" class="gradient-bg booking-gradient-bg position-abs">
+            <div class="block image booking-img" style="background-image: url(${p[i]['bookingImage']})"></div>
+            <a href="/go-diving/detail=${p[i]['id']}" class="gradient-bg booking-gradient-bg position-abs">
                 <div class="position-abs text-align-left">
                     <p class="uppercase booking-hidden-text">Book now</p>
-                    <h3 id="booking-h3-${i}" class="uppercase"></h3>
+                    <h3 class="uppercase">${p[i]['booking']}</h3>
                 </div>
             </a>
             `;
 
             document.querySelector('.booking-choices').appendChild(div);
-        }
-
-        for (let i = 0; i < booking.length; i++) {
-            let h3 = document.getElementById(`booking-h3-${i}`);
-            let imageWrapper = document.getElementById(`booking-img-${i}`);
-
-            imageWrapper.style.backgroundImage = `url(${booking[i]['image']})`;
-
-            h3.innerHTML = `${booking[i]['choice']}`;
         }
     }
 

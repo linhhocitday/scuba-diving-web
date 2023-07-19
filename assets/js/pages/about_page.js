@@ -5,9 +5,6 @@ import {
     removeLoader,
 } from "../helper.js";
 
-import { 
-    instructorsInfor
-} from "../fake_data.js";
 
 //
 // render staff information
@@ -26,33 +23,19 @@ async function instructors(p) {
     async function renderInstructor(p) {
         document.querySelector('.about-instructors').innerHTML = '';
         for (let i = 0; i < p.length; i++) {
-            let {name, instructorSpeech} = p[i];
-
             let div = document.createElement('div');
             div.classList.add('about-instructor');
             
             div.innerHTML = `
             <div class="position-rel about-img-wrapper over-flow-hidden" id="about-staff-image-${i}">
-                <div class="about-hidden-speech-bg position-abs"><div class="about-hidden-speech position-abs">${instructorSpeech}</div></div>
+                <div class="about-hidden-speech-bg position-abs"><div class="about-hidden-speech position-abs">${p[i]['instructorSpeech']}</div></div>
+                <div class="image pd-top-100" style="background-image: url(${p[i]['avatar']})"></div>
             </div>
-            <p class="about-staff-job uppercase gradient-text" id="about-staff-job-${i}"></p>
-            <h3 class="font-weight-400">${name}</h3>
+            <p class="about-staff-job uppercase gradient-text">${p[i]['job']}</p>
+            <h3 class="font-weight-400">${p[i]['name']}</h3>
             `;
 
             document.querySelector('.about-instructors').appendChild(div);
-        }
-
-        for (let i = 0; i < instructorsInfor.length; i++) {
-            let imageWrapper = document.getElementById(`about-staff-image-${i}`);
-            let jobWrapper = document.getElementById(`about-staff-job-${i}`);
-
-            let image = document.createElement('div');
-            image.classList.add('image', 'pd-top-100');
-            image.style.backgroundImage = `url(${instructorsInfor[i]['image']})`;
-            image.innerHTML = '';
-            imageWrapper.appendChild(image)
-
-            jobWrapper.innerHTML = instructorsInfor[i]['job'];
         }
     }
 
