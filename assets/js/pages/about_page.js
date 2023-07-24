@@ -74,8 +74,8 @@ export async function renderAbout() {
                     <div class="col7">
                         <div class="ab-slide2-row1-pd">
                             <h1 class="uppercase font-weight-200">Our mission</h1>
-                            <p class="small-text">BLUR was established in 2002 by Mr.Linh, a passionate adventurers who wanted to live and work differently. With over 20 years of experience in diving and tourism, BLUR has become one of the largest dive centers in Vietnam.</p>
-                            <p class="small-text">Our multilingual instructors are PADI Five Star IDC certified and passionate about sharing their love and knowledge of the ocean with guests.</p>
+                            <p class="small-text"><b>BLUR</b> was established in 2002 by Mr.Linh, a passionate adventurers who wanted to live and work differently. With over 20 years of experience in diving and tourism, <b>BLUR</b> has become one of the largest dive centers in Vietnam.</p>
+                            <p class="small-text">Our multilingual instructors are <b>BLUR Five Star IDC certified</b> and passionate about sharing their love and knowledge of the ocean with guests.</p>
                             <p class="small-text">Our mission is to provide exceptional customer satisfaction and unforgettable diving and snorkeling experiences in Vietnam.</p>
                             </div>
                     </div>

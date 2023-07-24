@@ -28,6 +28,8 @@ module.exports = {
                 <link rel="stylesheet" href="/assets/css/booking_page.css" />
                 <!-- course page css -->
                 <link rel="stylesheet" href="/assets/css/course_page.css" />
+                <!-- contact page css -->
+                <link rel="stylesheet" href="/assets/css/contact_page.css" />
                 <!-- product page css -->
                 <link rel="stylesheet" href="/assets/css/product_page.css" />
                 <!-- footer css -->

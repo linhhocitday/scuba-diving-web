@@ -332,13 +332,4 @@ ul li {
   bottom: -12%;
   letter-spacing: 1px;
   transform: translate(-50%, 0);
-  /* animation: bounce 1s infinite alternate; */
 }
-/* @keyframes bounce {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(0, -140%);
-  }
-} */

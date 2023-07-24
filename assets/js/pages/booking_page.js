@@ -54,7 +54,7 @@ export async function renderBooking() {
         <div class="container position-rel">
             <div class="row booking-slide1-row1 z-index-111">
                 <div class="text-align-center">
-                    <h2 class="uppercase inline-block font-weight-200 z-index-111">Booking</h2>
+                    <h1 class="uppercase inline-block font-weight-200 z-index-111">Booking</h1>
                     <div class="position-abs booking-jelly-fish">
                         <div class="image pd-top-1-2" style="background-image: url(/assets/images/jelly_fish.png)"></div>
                     </div>

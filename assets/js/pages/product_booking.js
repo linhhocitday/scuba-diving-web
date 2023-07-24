@@ -6,7 +6,7 @@ import {
 } from "../helper.js";
 
 
-let clientCart = '';
+let clientCart = {};
 
 if (localStorage.getItem('cart')) {
     clientCart = JSON.parse(localStorage.getItem('cart'));
@@ -23,7 +23,12 @@ async function setLocalStorage(p) {
         participants: participants,
     }
 
-    clientCart = choseItem;
+    let pathname = location.pathname;
+    pathname = pathname.split('/')[2].replace('detail=', '');
+
+    let key = `booking-${pathname}`
+
+    clientCart[key] = choseItem;
 
     console.log(clientCart);
 
@@ -37,16 +42,20 @@ async function renderClientCart(p) {
     let {clientCart, template} = p;
     console.log(clientCart);
 
-    let checkedInput = template.querySelector(`input#${clientCart['destination']}`);
+    let pathname = location.pathname;
+    pathname = pathname.split('/')[2].replace('detail=', '');
+    let key = `booking-${pathname}`
+
+    let checkedInput = template.querySelector(`input#${clientCart[key]['destination']}`);
     checkedInput.checked = 'checked';
     template.querySelector('.checked-dot').classList.remove('checked-dot');
-    template.querySelector(`.${clientCart['destination']}`).classList.add('checked-dot');
+    template.querySelector(`.${clientCart[key]['destination']}`).classList.add('checked-dot');
 
     let departure = template.querySelector('#departure');
-    departure.value = clientCart['departure'];
+    departure.value = clientCart[key]['departure'];
 
     let participants = template.querySelector('.people-number');
-    participants.innerHTML = clientCart['participants'];
+    participants.innerHTML = clientCart[key]['participants'];
 }
 
 //
@@ -82,15 +91,21 @@ async function bookingChoices(p) {
         <p class="product-description small-text">${p['bookingDescription']}</p>
         `;
 
+        let pathname = location.pathname;
+        pathname = pathname.split('/')[2].replace('detail=', '');
+        let key = `booking-${pathname}`
+
         let total = document.querySelector('#total-price');
-        total.innerHTML = formatter.format(p['bookingPrice']*Number(clientCart['participants']));
+        let price = formatter.format(p['bookingPrice'])
+        if (clientCart[key]) price = formatter.format(p['bookingPrice']*Number(clientCart[key]['participants']));
+        total.innerHTML = price;
 
         document.querySelector('.decrease').addEventListener('click', () => {
-            total.innerHTML = formatter.format(p['bookingPrice']*Number(clientCart['participants']));
+            total.innerHTML = formatter.format(p['bookingPrice']*Number(clientCart[key]['participants']));
         });
     
         document.querySelector('.increase').addEventListener('click', () => {
-            total.innerHTML = formatter.format(p['bookingPrice']*Number(clientCart['participants']));
+            total.innerHTML = formatter.format(p['bookingPrice']*Number(clientCart[key]['participants']));
         });
     }
     await fetchData(getBookingProduct);
@@ -138,8 +153,12 @@ async function limitDate(p) {
 async function changeNumberBtn(p) {
     let participants = p.querySelector('.people-number');
 
+    let pathname = location.pathname;
+    pathname = pathname.split('/')[2].replace('detail=', '');
+    let key = `booking-${pathname}`
+
     let number = 1;
-    if (clientCart != '') number = Number(clientCart['participants']);
+    if (clientCart[key]) number = Number(clientCart[key]['participants']);
     participants.innerHTML = number;
 
     p.querySelector('.decrease').addEventListener('click', () => {
@@ -264,7 +283,10 @@ export async function renderProductBooking(p) {
 
     await inputValue(template);
 
-    if (localStorage.getItem('cart')) {
+    let pathname = location.pathname;
+    pathname = pathname.split('/')[2].replace('detail=', '');
+    let key = `booking-${pathname}`
+    if (clientCart[key]) {
         await renderClientCart({
             clientCart: clientCart,
             template: template

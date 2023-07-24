@@ -54,7 +54,7 @@ export async function renderCourse() {
         <div class="container position-rel">
             <div class="row course-slide1-row1 z-index-111">
                 <div class="text-align-center">
-                    <h2 class="uppercase inline-block font-weight-200 z-index-111">Courses</h2>
+                    <h1 class="uppercase inline-block font-weight-200 z-index-111">Courses</h1>
                     <div class="position-abs course-jelly-fish">
                         <div class="image pd-top-1-2" style="background-image: url(/assets/images/jelly_fish.png)"></div>
                     </div>
@@ -84,7 +84,6 @@ export async function renderCourse() {
     `;
     
     let courseText = document.querySelector('.courses');
-    console.log(courseText)
     courseText.classList.add('white-text');
 
     return template;
