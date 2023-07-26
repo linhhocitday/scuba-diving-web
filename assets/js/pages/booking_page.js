@@ -61,7 +61,7 @@ export async function renderBooking() {
                 </div>
             </div>
             <div class="position-abs slides-bg-wrapper booking-slide1-bg z-index-1">
-                <div class="uppercase position-abs scroll-text">Scroll</div>
+                <div class="uppercase position-abs scroll-text l-visible mb-hidden">Scroll</div>
                 <div class="blue dot booking-slide1-dot1"></div>
             </div>
         </div>
@@ -70,12 +70,12 @@ export async function renderBooking() {
     <section class="booking-slide2">
         <div class="container position-rel">
             <div class="row text-align-center z-index-111">
-                <h2 class="uppercase font-weight-200">Let’s see which one is suitable for you</h2>
+                <h2 class="uppercase font-weight-200">Which one is suitable for you</h2>
                 <p class="uppercase gradient-text inline-block">Choose one!</p>
                 <div class="booking-choices grid-block">${bookingChoices()}</div>
             </div>
             <div class="position-abs slides-bg-wrapper booking-slide2-bg z-index-1">
-            <div class="uppercase background-text">Choices</div>
+                <div class="uppercase background-text">Choices</div>
                 <div class="red dot booking-slide2-dot1"></div>
                 <div class="blue dot booking-slide2-dot2"></div>
             </div>

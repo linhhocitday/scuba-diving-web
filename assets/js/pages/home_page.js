@@ -21,13 +21,13 @@ async function fishes(fish) {
         let aFish = document.createElement('div');
         aFish.classList.add('fish');
         aFish.innerHTML = `
-        <div class="flex-block fish-infor-wrapper flex-align-justify">
-            <div class="col5">
+        <div class="block l-flex-block fish-infor-wrapper flex-align-justify">
+            <div class="l-col5 mb-mg">
                 <div class="fish-pd-flex">
-                    <div class="image pd-top-4-3" style="background-image: url(${species['image']})"></div>
+                    <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(${species['image']})"></div>
                 </div>
             </div>
-            <div class="col7">
+            <div class="l-col7">
                 <div class="fish-pd-flex">
                     <h3 class="font-weight-200 uppercase">${species['name']}</h3>
                     <div class="gradient-line slide4-line"></div>
@@ -61,16 +61,6 @@ async function instructors(p) {
         for (let i = 0; i < 4; i++) {
             let div = document.createElement('div');
             div.classList.add('instructor');
-            
-            // div.innerHTML = `
-            // <div class="staff-image">
-            //     <div class="image pd-top-100 slide6-staff-image" style="background-image: url(${avatar})"></div>
-            // </div>
-            // <div class="slide6-staff text-align-center position-rel">
-            //     <h3 class="font-weight-400">${name}</h3>
-            //     <p class="small-text">${instructorSpeech}</p>
-            // </div>
-            // `;
 
             div.innerHTML = `
             <div class="position-rel img-wrapper over-flow-hidden" id="staff-image-${i}">
@@ -100,7 +90,7 @@ export async function renderHome() {
             <div div class="home-s1-bg-grid grid-block mobile-grid-1-col">
                 <div class="ellipse home-s1-ell position-rel mobile-display-none"></div>
                 <div class="home-s1-bg-wrapper">
-                    <div class="image home-s1-bg pd-top-4-3 mobile-pd-top-2-4" style="background-image: url(/assets/images/home_s1_bg.jpg)"></div>
+                    <div class="image home-s1-bg pd-top-4-3 mobile-pd-top-6-7" style="background-image: url(/assets/images/home_s1_bg.jpg)"></div>
                 </div>
                 <div class="position-abs home-s1-jellyfish-wrapper z-index-111 mobile-display-none">
                     <div class="image pd-top-100 home-s1-jellyfish" style="background-image: url(/assets/images/jelly_fish.png)"></div>
@@ -111,10 +101,10 @@ export async function renderHome() {
 
     <section class="slide1">
         <div class="container">
-            <div class="row row1-slide1 grid-block mobile-grid-1-col">
-                <div class="position-rel">
-                    <h1 class="uppercase home-h1 font-weight-200 width-50vw z-index-11">Undersea exploration</h1>
-                    <div class="width-30vw z-index-11">
+            <div class="row mb-max-width row1-slide1 grid-block mobile-grid-1-col">
+                <div class="position-rel text-align-center l-text-align-left">
+                    <h1 class="uppercase home-h1 font-weight-200 l-width-50vw z-index-11">Undersea exploration</h1>
+                    <div class="l-width-30vw z-index-11">
                         <p class="small-text intro-text white-color-60">
                             Welcome to BLUR! Our goal is to provide you with everything you
                             need to explore the ocean and proficient in scuba diving.
@@ -134,9 +124,9 @@ export async function renderHome() {
                 <div>
                     <div class="image pd-top-4-7" style="background-image: url(/assets/images/slide2_pic1.jpg)"></div>
                 </div>
-                <div class="slide2-intro-text">
-                    <div class="gradient-text colorful-text uppercase">Something about us</div>
-                    <h2 class="font-weight-200 intro-para uppercase">We are BLUR, one of the best scuba diving centers in Vietnam.</h2>
+                <div class="slide2-intro-text text-align-center l-text-align-left">
+                    <div class="gradient-text uppercase mb-colorful-text l-colorful-text">Something about us</div>
+                    <h2 class="font-weight-200 uppercase">We are BLUR, one of the best scuba diving centers in Vietnam.</h2>
                     <div class="small-text">
                         We can cater to everybody, through our diving courses from Beginner to Professional, fun dives for certified divers, freediving for those who want to do it all natural by breath holding, and snorkeling for those who prefer to stay at the surface.
                     </div>
@@ -155,20 +145,20 @@ export async function renderHome() {
             <div class="row row1-slide3">
                 <div class="row1-slide3-wrapper grid-block z-index-111">
                     <div class="slide3-img-wrapper">
-                        <div class="image pd-top-4-3" style="background-image: url(/assets/images/slide3_pic1.jpg)"></div>
-                        <div class="uppercase text-align-center gradient-text colorful-text">Mistical creatures</div>
+                        <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(/assets/images/slide3_pic1.jpg)"></div>
+                        <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Mistical creatures</div>
                         <h3 class="uppercase text-align-center font-weight-200">Right in front of your eyes</h3>
                     </div>
                     <div class="position-rel slide3-text-middle">
-                        <div class="vertical-line" style="height: 200px"></div>
-                        <div class="uppercase text-align-center gradient-text colorful-text">Connect</div>
+                        <div class="vertical-line l-visible mb-hidden" style="height: 200px"></div>
+                        <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Connect</div>
                         <div class="horizontal-line"></div>
                         <h2 class="uppercase font-weight-600 text-align-center">With the ocean</h2>
-                        <div class="vertical-line" style="height: 600px"></div>
+                        <div class="vertical-line l-visible mb-hidden" style="height: 600px"></div>
                     </div>
                     <div class="slide3-img-wrapper">
-                        <div class="image pd-top-4-3" style="background-image: url(/assets/images/slide3_pic2.jpg)"></div>
-                        <div class="uppercase text-align-center gradient-text colorful-text">Visiting</div>
+                        <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(/assets/images/slide3_pic2.jpg)"></div>
+                        <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Visiting</div>
                         <h3 class="uppercase text-align-center font-weight-200">The stunning coral reefs yourself</h3>
                     </div>
                 </div>
@@ -185,8 +175,8 @@ export async function renderHome() {
             <div class="row row1-slide4">
                 <div class="row1-slide4-wrapper z-index-111">
                     <h2 class="uppercase font-weight-200">Are you a big fan of Disney?</h2>
-                    <div class="uppercase text-align-right check-this-out-text">Then check this out!</div>
-                    <div class="uppercase text-align-right gradient-text slide4-small-text colorful-text">We have some friends from "finding nemo"</div>
+                    <div class="uppercase text-align-right font-weight-200 check-this-out-text">Then check this out!</div>
+                    <div class="uppercase text-align-right gradient-text slide4-small-text mb-colorful-text l-colorful-text">We have some friends from "finding nemo"</div>
                     <div class="fishes-wrapper"></div>
                 </div>
                 <div class="position-abs slides-bg-wrapper bg-wrapper-slide4 z-index-1">
@@ -201,11 +191,11 @@ export async function renderHome() {
     <section class="pd-top-bttm-200">
         <div class="slide5-container position-rel">
             <div class="row row1-slide5 z-index-111">
-                <div class="uppercase text-align-center gradient-text colorful-text">And many other "actors"</div>
+                <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">And many other "actors"</div>
                 <h2 class="uppercase text-align-center font-weight-200">Wanna find out what species they are?</h2>
                 <div class="grid-block slide5-choice-grid">
                     <div class="position-rel over-flow-hidden">
-                        <div class="image pd-top-4-6" style="background-image: url(/assets/images/slide5_pic1.jpg)"></div>
+                        <div class="image pd-top-100" style="background-image: url(/assets/images/slide5_pic1.jpg)"></div>
                         <div class="position-abs slide5-dark-bg">
                             <div class="position-abs text-align-center slide5-choice">
                                 <h3 class="uppercase font-weight-600">Go diving</h3>
@@ -221,8 +211,8 @@ export async function renderHome() {
                                             </div>
                                         </div>
                                         <div class="col10">
-                                            <div class="slide5-location">Da Nang / Nha Trang / Phu Quoc</div>
-                                            <div class="font-weight-200">We operate  lessons at 3 locations.</div>
+                                            <div class="slide5-location font-weight-500">Da Nang / Nha Trang / Phu Quoc</div>
+                                            <div class="font-weight-200 mb-font-14 l-font-16">We operate  lessons at 3 locations.</div>
                                         </div>
                                     </div>
                                     <div class="flex-block slide5-infor-wrapper text-align-left">
@@ -235,8 +225,8 @@ export async function renderHome() {
                                             </div>
                                         </div>
                                         <div class="col10">
-                                            <div class="slide5-location">From 78$ / pax</div>
-                                            <div class="font-weight-200">Per person, included all taxes and equipments.</div>
+                                            <div class="slide5-location font-weight-500">From 78$ / pax</div>
+                                            <div class="font-weight-200 mb-font-14 l-font-16">Per person, included all taxes and equipments.</div>
                                         </div>
                                     </div>
                                     <a href="/booking" class="uppercase">More details</a>
@@ -245,7 +235,7 @@ export async function renderHome() {
                         </div>
                     </div>
                     <div class="position-rel over-flow-hidden">
-                        <div class="image pd-top-4-6" style="background-image: url(/assets/images/slide5_pic2.jpg)"></div>
+                        <div class="image pd-top-100" style="background-image: url(/assets/images/slide5_pic2.jpg)"></div>
                         <div class="position-abs slide5-dark-bg">
                             <div class="position-abs text-align-center slide5-choice">
                                 <h3 class="uppercase font-weight-600">Dive course</h3>
@@ -261,8 +251,8 @@ export async function renderHome() {
                                             </div>
                                         </div>
                                         <div class="col10">
-                                            <div class="slide5-location">Da Nang / Nha Trang</div>
-                                            <div class="font-weight-200">We operate  lessons at 2 locations.</div>
+                                            <div class="slide5-location font-weight-500">Da Nang / Nha Trang</div>
+                                            <div class="font-weight-200 mb-font-14 l-font-16">We operate  lessons at 2 locations.</div>
                                         </div>
                                     </div>
                                     <div class="flex-block slide5-infor-wrapper text-align-left">
@@ -275,8 +265,8 @@ export async function renderHome() {
                                             </div>
                                         </div>
                                         <div class="col10">
-                                            <div class="slide5-location">From 185$ / pax</div>
-                                            <div class="font-weight-200">Per person, included all taxes and equipments.</div>
+                                            <div class="slide5-location font-weight-500">From 185$ / pax</div>
+                                            <div class="font-weight-200 mb-font-14 l-font-16">Per person, included all taxes and equipments.</div>
                                         </div>
                                     </div>
                                     <a href="/course" class="uppercase">More details</a>
@@ -298,7 +288,7 @@ export async function renderHome() {
         <div class="container position-rel">
             <div class="row row1-slide6 z-index-111">
                 <h2 class="uppercase font-weight-200 text-align-center">Our instructors will accompany you</h2>
-                <div class="uppercase gradient-text colorful-text text-align-center">"Move your mouse pointer to their image"</div>
+                <div class="uppercase gradient-text text-align-center mb-colorful-text l-colorful-text">"Move your mouse pointer to their image"</div>
                 <div class="instructors grid-block">${instructors()}</div>
             </div>
             <div class="position-abs slides-bg-wrapper bg-wrapper-slide6 z-index-1">

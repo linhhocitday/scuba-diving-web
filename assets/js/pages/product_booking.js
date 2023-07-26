@@ -194,7 +194,9 @@ async function inputValue(p) {
 
         setLocalStorage(p);
 
-        location.href = '#';
+        let pathname = location.pathname;
+        pathname = pathname.split('/')[2].replace('detail=', '');
+        location.href = `/form/booking=${pathname}`
     });
 }
 
@@ -222,8 +224,8 @@ export async function renderProductBooking(p) {
             <div class="row product-slide2-row1">
                 <h2 class="uppercase font-weight-200 text-align-center">We need some basic information</h2>
                 <div class="uppercase text-align-center gradient-text">To make a transaction</div>
-                <div class="product-input-wrapper flex-block">
-                    <div class="product-destination-choices">
+                <div class="product-input-wrapper block l-flex-block">
+                    <div class="product-destination-choices mb-mg">
                         <div class="uppercase input-label">Destination:</div>
                         <div class="destination-choices">
                             <div class="flex-block destination-choice-wrapper">
@@ -243,14 +245,13 @@ export async function renderProductBooking(p) {
                             </div>
                         </div>
                     </div>
-                    <div class="product-departure-choices">
+                    <div class="product-departure-choices mb-mg">
                         <label for="departure" class="uppercase block input-label">Departure:</label>
                         <input type="date" id="departure" class="product-input" />
                         <p><i class="departure-alert alert-text"></i></p>
                     </div>
-                    <div>
+                    <div class="mb-mg">
                         <div for="participants" class="uppercase block input-label">No of participants:</div>
-                        <!--<input type="number" id="participants" class="product-input" min="1" value="1">-->
                         <div id="participants" class="product-input flex-block flex-align-justify no-pd">
                             <div class="decrease amount-btn">-</div>
                             <div class="people-number"></div>
@@ -259,8 +260,8 @@ export async function renderProductBooking(p) {
                         <p><i class="participants-alert alert-text"></i></p>
                     </div>
                     <div>
-                        <div class="uppercase input-label">Total: <strong id="total-price"></strong></div>
-                        <a class="uppercase product-booking-btn">Book now</a>
+                        <div class="uppercase input-label mb-font">Total: <strong id="total-price"></strong></div>
+                        <a class="uppercase product-booking-btn text-align-center">Book now</a>
                     </div>
                 </div>
             </div>

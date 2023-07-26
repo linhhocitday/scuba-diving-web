@@ -29,12 +29,12 @@ async function initApp() {
         let renderContact = await page.renderContact();
         main.appendChild(await renderContact);
     }
-    if (location.pathname.includes('booking')) {
+    if (location.pathname.includes('bookings')) {
         let page = await import('./pages/booking_page.js');
         let renderBooking = await page.renderBooking();
         main.appendChild(await renderBooking);
     }
-    if (location.pathname.includes('course')) {
+    if (location.pathname.includes('courses')) {
         let page = await import('./pages/course_page.js');
         let renderCourse = await page.renderCourse();
         main.appendChild(await renderCourse);
@@ -48,6 +48,11 @@ async function initApp() {
         let page = await import('./pages/product_course.js');
         let renderProductCourse = await page.renderProductCourse();
         main.appendChild(await renderProductCourse);
+    }
+    if (location.pathname.includes('form')) {
+        let page = await import('./pages/form_page.js');
+        let renderForm = await page.renderForm();
+        main.appendChild(await renderForm);
     }
 
     // await changeColor();

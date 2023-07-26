@@ -7,16 +7,20 @@ export async function renderContact() {
     template.classList.add('contact-page');
     template.innerHTML = `
     <section class="contact-slide1">
-        <div class="container">
-            <div class="row contact-slide1-row1 text-align-center">
+        <div class="container position-rel">
+            <div class="row contact-slide1-row1 text-align-center z-index-111">
                 <h1 class="uppercase font-weight-200">Contact with us by one of these ways</h1>
-                <p class="uppercase gradient-text colorful-text">Choose one!</p>
+                <p class="uppercase gradient-text l-colorful-text mb-colorful-text">Choose one!</p>
+            </div>
+            <div class="position-abs slides-bg-wrapper contact-slide1-bg z-index-1">
+                <div class="uppercase background-text">Contact</div>
+                <div class="blue dot contact-slide1-dot1"></div>
             </div>
         </div>
     </section>
     <section class="contact-slide2">
         <div class="container">
-            <div class="row contact-slide2-row1 grid-block">
+            <div class="row contact-slide2-row1 grid-block z-index-111">
                 <div class="text-align-center">
                     <div class="contact-icon">
                         <svg 

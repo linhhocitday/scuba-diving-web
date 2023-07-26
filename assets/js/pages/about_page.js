@@ -61,7 +61,7 @@ export async function renderAbout() {
                 </div>
             </div>
             <div class="position-abs slides-bg-wrapper about-slide1-bg z-index-1">
-                <div class="uppercase position-abs scroll-text">Scroll</div>
+                <div class="uppercase position-abs scroll-text l-visible mb-hidden">Scroll</div>
                 <div class="blue dot about-slide1-dot1"></div>
             </div>
         </div>
@@ -70,8 +70,8 @@ export async function renderAbout() {
     <section class="about-slide2">
         <div class="container position-rel">
             <div class="row">
-                <div class="about-slide2-row1 flex-block z-index-111 flex-align-justify">
-                    <div class="col7">
+                <div class="about-slide2-row1 block l-flex-block z-index-111 flex-align-justify">
+                    <div class="l-col7 ab-mb-mg">
                         <div class="ab-slide2-row1-pd">
                             <h1 class="uppercase font-weight-200">Our mission</h1>
                             <p class="small-text"><b>BLUR</b> was established in 2002 by Mr.Linh, a passionate adventurers who wanted to live and work differently. With over 20 years of experience in diving and tourism, <b>BLUR</b> has become one of the largest dive centers in Vietnam.</p>
@@ -79,9 +79,9 @@ export async function renderAbout() {
                             <p class="small-text">Our mission is to provide exceptional customer satisfaction and unforgettable diving and snorkeling experiences in Vietnam.</p>
                             </div>
                     </div>
-                    <div class="col5">
+                    <div class="l-col5">
                         <div class="ab-slide2-row1-pd">
-                            <div class="image pd-top-2-1" style="background-image: url(/assets/images/big_boss.jpg)"></div>
+                            <div class="image pd-top-100 l-pd-top-2-1" style="background-image: url(/assets/images/big_boss.jpg)"></div>
                         </div>
                     </div>
                 </div>

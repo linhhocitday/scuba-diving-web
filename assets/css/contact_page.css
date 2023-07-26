@@ -2,11 +2,6 @@
   padding: 100px 0;
 }
 
-.contact-slide1-row1 h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
 .contact-slide2 {
   padding: 60px 0 200px;
 }
@@ -19,4 +14,16 @@
 .contact-icon {
   max-width: 20%;
   margin: 0 auto 40px;
+}
+
+.contact-slide1-bg .background-text {
+  font-size: 320px;
+  left: 36%;
+}
+
+.contact-slide1-dot1 {
+  width: 420px;
+  height: 420px;
+  left: -24%;
+  transform: translate(0, -100%);
 }

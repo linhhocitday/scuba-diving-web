@@ -194,7 +194,9 @@ async function inputValue(p) {
 
         setLocalStorage(p);
 
-        location.href = '#';
+        let pathname = location.pathname;
+        pathname = pathname.split('/')[2].replace('detail=', '');
+        location.href = `/form/course=${pathname}`;
     });
 }
 
@@ -205,72 +207,71 @@ export async function renderProductCourse(p) {
     let template = document.createElement('div');
     template.innerHTML = `
     <section class="product-slide1">
-        <div class="container position-rel">
-            <div class="row z-index-111">
-                <div class="course-product text-align-center"></div>
-            </div>
-            <div class="position-abs slides-bg-wrapper product-slide1-bg z-index-1">
-                <div class="uppercase background-text">Detail</div>
-                <div class="blue dot product-slide1-dot1"></div>
-                <div class="red dot product-slide1-dot2"></div>
-            </div>
+    <div class="container position-rel">
+        <div class="row z-index-111">
+            <div class="course-product text-align-center"></div>
         </div>
-    </section>
+        <div class="position-abs slides-bg-wrapper product-slide1-bg z-index-1">
+            <div class="uppercase background-text">Detail</div>
+            <div class="blue dot product-slide1-dot1"></div>
+            <div class="red dot product-slide1-dot2"></div>
+        </div>
+    </div>
+</section>
 
-    <section class="product-slide2 position-rel">
-        <div class="container z-index-111">
-            <div class="row product-slide2-row1">
-                <h2 class="uppercase font-weight-200 text-align-center">We need some basic information</h2>
-                <div class="uppercase text-align-center gradient-text">To make a transaction</div>
-                <div class="product-input-wrapper flex-block">
-                    <div class="product-destination-choices">
-                        <div class="uppercase input-label">Destination:</div>
-                        <div class="destination-choices">
-                            <div class="flex-block destination-choice-wrapper">
-                                <input type="radio" id="dn" name="destination" checked="checked" class="position-abs destination-input" />
-                                <label for="dn" class="custom-checkbox position-rel block dn checked-dot"></label>
-                                <label for="dn" class="destination-choice-text">Da Nang</label>
-                            </div>
-                            <div class="flex-block destination-choice-wrapper">
-                                <input type="radio" id="nt" name="destination" class="position-abs destination-input" />
-                                <label for="nt" class="custom-checkbox position-rel block nt"></label>
-                                <label for="nt" class="destination-choice-text">Nha Trang</label>
-                            </div>
-                            <div class="flex-block destination-choice-wrapper">
-                                <input type="radio" id="pq" name="destination" class="position-abs destination-input" />
-                                <label for="pq" class="custom-checkbox position-rel block pq"></label>
-                                <label for="pq" class="destination-choice-text">Phu Quoc</label>
-                            </div>
+<section class="product-slide2 position-rel">
+    <div class="container z-index-111">
+        <div class="row product-slide2-row1">
+            <h2 class="uppercase font-weight-200 text-align-center">We need some basic information</h2>
+            <div class="uppercase text-align-center gradient-text">To make a transaction</div>
+            <div class="product-input-wrapper block l-flex-block">
+                <div class="product-destination-choices mb-mg">
+                    <div class="uppercase input-label">Destination:</div>
+                    <div class="destination-choices">
+                        <div class="flex-block destination-choice-wrapper">
+                            <input type="radio" id="dn" name="destination" checked="checked" class="position-abs destination-input" />
+                            <label for="dn" class="custom-checkbox position-rel block dn checked-dot"></label>
+                            <label for="dn" class="destination-choice-text">Da Nang</label>
+                        </div>
+                        <div class="flex-block destination-choice-wrapper">
+                            <input type="radio" id="nt" name="destination" class="position-abs destination-input" />
+                            <label for="nt" class="custom-checkbox position-rel block nt"></label>
+                            <label for="nt" class="destination-choice-text">Nha Trang</label>
+                        </div>
+                        <div class="flex-block destination-choice-wrapper">
+                            <input type="radio" id="pq" name="destination" class="position-abs destination-input" />
+                            <label for="pq" class="custom-checkbox position-rel block pq"></label>
+                            <label for="pq" class="destination-choice-text">Phu Quoc</label>
                         </div>
                     </div>
-                    <div class="product-departure-choices">
-                        <label for="departure" class="uppercase block input-label">Departure:</label>
-                        <input type="date" id="departure" class="product-input" />
-                        <p><i class="departure-alert alert-text"></i></p>
+                </div>
+                <div class="product-departure-choices mb-mg">
+                    <label for="departure" class="uppercase block input-label">Departure:</label>
+                    <input type="date" id="departure" class="product-input" />
+                    <p><i class="departure-alert alert-text"></i></p>
+                </div>
+                <div class="mb-mg">
+                    <div for="participants" class="uppercase block input-label">No of participants:</div>
+                    <div id="participants" class="product-input flex-block flex-align-justify no-pd">
+                        <div class="decrease amount-btn">-</div>
+                        <div class="people-number"></div>
+                        <div class="increase amount-btn">+</div>
                     </div>
-                    <div>
-                        <div for="participants" class="uppercase block input-label">No of participants:</div>
-                        <!--<input type="number" id="participants" class="product-input" min="1" value="1">-->
-                        <div id="participants" class="product-input flex-block flex-align-justify no-pd">
-                            <div class="decrease amount-btn">-</div>
-                            <div class="people-number"></div>
-                            <div class="increase amount-btn">+</div>
-                        </div>
-                        <p><i class="participants-alert alert-text"></i></p>
-                    </div>
-                    <div>
-                        <div class="uppercase input-label">Total: <strong id="total-price"></strong></div>
-                        <a class="uppercase product-booking-btn">Book now</a>
-                    </div>
+                    <p><i class="participants-alert alert-text"></i></p>
+                </div>
+                <div>
+                    <div class="uppercase input-label mb-font">Total: <strong id="total-price"></strong></div>
+                    <a class="uppercase product-booking-btn text-align-center">Book now</a>
                 </div>
             </div>
         </div>
-        <div class="position-abs slides-bg-wrapper product-slide2-bg">
-            <div class="product-jellyfish-wrapper">
-                <div class="image pd-top-1-2" style="background-image: url(/assets/images/jelly_fish.png)"></div>
-            </div>
+    </div>
+    <div class="position-abs slides-bg-wrapper product-slide2-bg">
+        <div class="product-jellyfish-wrapper">
+            <div class="image pd-top-1-2" style="background-image: url(/assets/images/jelly_fish.png)"></div>
         </div>
-    </section>
+    </div>
+</section>
     `;
 
     courseChoices();

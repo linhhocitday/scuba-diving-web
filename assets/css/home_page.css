@@ -6,21 +6,6 @@
   padding: 200px 0;
 }
 
-/* .slide1 {
-  padding: 72px 0 528px;
-} */
-
-/* .home-h1 {
-  margin-bottom: 40px;
-  font-size: 72px;
-  letter-spacing: 4px;
-  line-height: 80px;
-} */
-
-.intro-text {
-  margin-bottom: 28px;
-}
-
 .see-more-btn {
   background-color: inherit;
   border: 1px solid rgba(255, 250, 243, 0.6);
@@ -34,11 +19,6 @@
 .see-more-btn:hover {
   background-color: rgba(255, 250, 243, 0.1);
 }
-
-/* .row1-slide1 {
-  grid-template: auto / 3fr 2fr;
-  grid-gap: 40px;
-} */
 
 .home-s1-bg-div {
   top: 0;
@@ -56,11 +36,6 @@
   left: 20%;
 }
 
-/* .home-s1-bg-grid {
-  grid-template: auto / 6fr 5fr;
-  grid-gap: 40px;
-} */
-
 .home-s1-jellyfish-wrapper {
   max-width: 800px;
   width: 100%;
@@ -71,29 +46,6 @@
 
 .home-s1-jellyfish {
   background-size: contain;
-}
-
-.row1-slide2 {
-  max-width: 1024px;
-  width: 100%;
-  margin: 0 auto;
-  grid-template: auto / 7fr 4fr;
-  grid-gap: 40px;
-}
-
-.intro-para {
-  font-size: 20px;
-  line-height: 32px;
-}
-
-.slide2-intro-text .colorful-text {
-  margin-bottom: 4px;
-}
-
-.slide2-intro-text h2 {
-  font-size: 32px;
-  line-height: 40px;
-  margin-bottom: 40px;
 }
 
 .bg-wrapper-slide2 div.background-text {
@@ -122,15 +74,6 @@
   margin: 0 auto;
 }
 
-.row1-slide3-wrapper {
-  grid-template: auto / 3fr 1fr 3fr;
-  grid-gap: 40px;
-}
-
-.slide3-text-middle {
-  top: -12%;
-}
-
 .slide3-text-middle div:nth-child(2) {
   padding: 20px 0 10px;
 }
@@ -143,16 +86,6 @@
 
 .slide3-text-middle h2 {
   padding: 32px 0 48px;
-  font-size: 28px;
-}
-
-.slide3-img-wrapper div:nth-child(2) {
-  padding: 64px 0 10px;
-}
-
-.slide3-img-wrapper h3 {
-  width: 72%;
-  margin: 0 auto;
   font-size: 28px;
 }
 
@@ -180,39 +113,8 @@
   margin: 0 auto;
 }
 
-.row1-slide4-wrapper h2 {
-  font-size: 40px;
-  margin-bottom: 72px;
-}
-
-.check-this-out-text {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.slide4-small-text {
-  margin-bottom: 80px;
-}
-
-.fish {
-  margin: 0 -24px;
-  padding: 24px 0;
-}
-
 .fish-pd-flex {
   padding: 0 24px;
-}
-
-.fish-infor-wrapper h3 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.slide4-line {
-  height: 1px;
-  max-width: 80px;
-  width: 100%;
-  margin-bottom: 28px;
 }
 
 .bg-wrapper-slide4 .background-text {
@@ -245,15 +147,6 @@
   margin-bottom: 10px;
 }
 
-.row1-slide5 h2 {
-  font-size: 40px;
-  margin-bottom: 100px;
-}
-
-.slide5-choice-grid {
-  grid-template: auto / 1fr 1fr;
-}
-
 .slide5-dark-bg {
   top: 0;
   left: 0;
@@ -263,45 +156,13 @@
   transition: backdrop-filter 0.4s;
 }
 
-.slide5-dark-bg h3 {
-  transition: font-weight 0.4s, font-size 0.4s;
-}
-
-.slide5-dark-bg > .slide5-choice {
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  transition: transform 0.4s;
-}
-
 .slide5-dark-bg:hover {
   background-color: rgba(9, 9, 9, 0.6);
   backdrop-filter: blur(10px);
 }
 
-.slide5-dark-bg:hover .slide5-choice {
-  transform: translate(-50%, -45%);
-}
-
-.slide5-dark-bg:hover h3.font-weight-600 {
-  font-weight: 200;
-  font-size: 32px;
-}
-
 .slide5-dark-bg:hover .slide5-hidden-list {
   opacity: 1;
-}
-
-.slide5-dark-bg h3 {
-  font-size: 40px;
-  margin-bottom: 12px;
-}
-
-.slide5-dark-bg a.uppercase {
-  padding: 20px 40px;
-  border: 1px solid #fffaf3;
-  font-size: 20px;
-  transition: background-color 0.4s;
 }
 
 .slide5-dark-bg a.uppercase:hover {
@@ -313,19 +174,10 @@
   transition: opacity 0.2s;
 }
 
-.slide5-hidden-list .small-text {
-  margin-bottom: 32px;
-}
-
 .slide5-infor-wrapper {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
-}
-
-.slide5-location {
-  font-size: 20px;
-  margin-bottom: 8px;
 }
 
 .slide5-icon-padding {
@@ -351,36 +203,8 @@
   left: 80%;
 }
 
-.row1-slide6 h2 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.row1-slide6 .colorful-text {
-  margin-bottom: 80px;
-}
-
 .row1-slide6 .team-image {
   margin-bottom: 100px;
-}
-
-.instructor {
-  margin-bottom: 80px;
-}
-
-.instructors {
-  grid-template: auto / repeat(4, 1fr);
-  grid-gap: 20px;
-}
-
-.instructor h3 {
-  font-size: 32px;
-}
-
-.staff-job {
-  margin: 20px 0 10px;
-  font-size: 18px;
-  display: inline-block;
 }
 
 .hidden-speech-bg {
@@ -392,14 +216,6 @@
   bottom: 0;
   opacity: 0;
   transition: opacity 0.2s;
-}
-
-.hidden-speech {
-  left: 0;
-  right: 0;
-  bottom: -40%;
-  padding: 20px;
-  transition: bottom 0.4s;
 }
 
 .img-wrapper:hover .hidden-speech-bg {
