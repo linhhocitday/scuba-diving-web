@@ -1,0 +1,12 @@
+.form-slide1 {
+  padding: 100px 0;
+}
+
+.form-slide1 .l-grid-block {
+  grid-template: auto / 2fr 1fr;
+  grid-gap: 20px;
+}
+
+.form-slide1 .blur-background-wrapper {
+  padding: 32px;
+}

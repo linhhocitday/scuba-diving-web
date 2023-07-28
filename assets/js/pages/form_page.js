@@ -90,17 +90,22 @@ async function getId(p) {
 export async function renderForm(p) {
   let template = document.createElement("div");
   template.innerHTML = `
-    <section>
+    <section class="form-slide1">
         <div class="container">
-            <div class="row">
-                <h1>Hello</h1>
+            <div class="row l-grid-block">
+            <div class="white-bg-8 blur-background-wrapper">
+                <h1 class="uppercase">Fill in this form to complete the transaction</h1>
+            </div>
+            <div class="white-bg-8 blur-background-wrapper">
                 <div class="cart-infor"></div>
+            </div>
+                
             </div>
         </div>
     </section>
     `;
 
-  getId(template);
+  await getId(template);
 
   return template;
 }

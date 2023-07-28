@@ -30,6 +30,8 @@ module.exports = {
                 <link rel="stylesheet" href="/assets/css/contact_page.css" />
                 <!-- product page css -->
                 <link rel="stylesheet" href="/assets/css/product_page.css" />
+                <!-- form page css -->
+                <link rel="stylesheet" href="/assets/css/form_page.css" />
                 <!-- color changing css -->
                 <link rel="stylesheet" href="/assets/css/day_changing.css" />
 
