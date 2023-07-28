@@ -1,49 +1,72 @@
 import { 
-    apiUrl,
-    endPoint,
-    fetchData,
     removeLoader,
 } from "../helper.js";
-
-async function instructors(p) {
-    let getInstructor = {
-        apiUrl: apiUrl,
-        endPoint: endPoint.diving,
-        method: 'GET',
-        async callback(p) {
-            await removeLoader();
-            await renderInstructor(p);
-        }
-    }
-
-    async function renderInstructor(p) {
-        document.querySelector('.instructors').innerHTML = '';
-        for (let instructor of p) {
-            let {name} = instructor;
-
-            let div = document.createElement('div');
-            div.classList.add('instructor');
-            
-            div.innerHTML = `
-            <p>${name}</p>
-            `;
-
-            document.querySelector('.instructors').appendChild(div);
-        }
-    }
-
-    await fetchData(getInstructor);
-}
 
 export async function renderContact() {
     let template = document.createElement('div');
     template.classList.add('contact-page');
     template.innerHTML = `
-    <div class="container">
-        <h1>Contact page</h1>
-        <div class="instructors">${instructors()}</div>
-    </div>
+    <section class="contact-slide1">
+        <div class="container position-rel">
+            <div class="row contact-slide1-row1 text-align-center z-index-111">
+                <h1 class="uppercase font-weight-200">Contact with us by one of these ways</h1>
+                <p class="uppercase gradient-text l-colorful-text mb-colorful-text">Choose one!</p>
+            </div>
+            <div class="position-abs slides-bg-wrapper contact-slide1-bg z-index-1">
+                <div class="uppercase background-text">Contact</div>
+                <div class="blue dot contact-slide1-dot1"></div>
+            </div>
+        </div>
+    </section>
+    <section class="contact-slide2">
+        <div class="container">
+            <div class="row contact-slide2-row1 grid-block z-index-111">
+                <div class="text-align-center">
+                    <div class="contact-icon">
+                        <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke-width="1.5" 
+                        stroke="currentColor" 
+                        class="w-6 h-6">
+                            <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="uppercase">Call us</h2>
+                        <p>12034567</p>
+                    </div>
+                </div>
+                <div class="text-align-center">
+                    <div class="contact-icon">
+                        <svg 
+                        xmlns="http://www.w3.org/2000/svg" 
+                        fill="none" 
+                        viewBox="0 0 24 24" 
+                        stroke-width="1.5" 
+                        stroke="currentColor" 
+                        class="w-6 h-6">
+                            <path 
+                            stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="uppercase">Send email</h2>
+                        <p>bluriovn@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     `;
+
+    removeLoader();
 
     return template;
 }

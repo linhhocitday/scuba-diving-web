@@ -1,0 +1,71 @@
+.product-description {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.product-slide1-bg .background-text {
+  font-size: 400px;
+  left: 36%;
+  transform: translate(0, -32%);
+}
+
+.product-slide1-dot1 {
+  width: 400px;
+  height: 400px;
+  left: -20%;
+  transform: translate(0, -120%);
+}
+
+.product-slide1-dot2 {
+  width: 320px;
+  height: 320px;
+  left: 80%;
+  transform: translate(0, -140%);
+}
+
+.no-pd {
+  padding: 0;
+}
+
+.amount-btn:hover {
+  color: #fffaf3;
+}
+
+.product-input:focus {
+  border: 1px solid rgb(255, 250, 243);
+}
+
+.alert-text {
+  color: #de0a5e;
+  font-size: 14px;
+}
+
+.product-booking-btn:hover {
+  background-color: rgba(255, 250, 243, 0.2);
+}
+
+.destination-choices input {
+  opacity: 0;
+}
+
+.destination-choice-wrapper {
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checked-dot {
+  background-color: #fffaf3;
+}
+
+.product-slide2-bg {
+  z-index: 1111;
+}
+
+.product-jellyfish-wrapper .image {
+  background-size: contain;
+}
+
+#departure {
+  color-scheme: dark;
+}

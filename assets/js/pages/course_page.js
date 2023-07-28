@@ -1,52 +1,87 @@
-import { 
-    apiUrl,
-    endPoint,
-    fetchData,
-    removeLoader,
-} from "../helper.js";
+import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
-async function instructors(p) {
-    let getInstructor = {
-        apiUrl: apiUrl,
-        endPoint: endPoint.diving,
-        method: 'GET',
-        async callback(p) {
-            await removeLoader();
-            await renderInstructor(p);
-        }
-    }
+//
+// render Course choices
+//
+async function courseChoices(p) {
+  let getCourse = {
+    apiUrl: apiUrl,
+    endPoint: endPoint.product,
+    method: "GET",
+    async callback(p) {
+      await removeLoader();
+      await renderCourseChoices(p);
+    },
+  };
 
-    async function renderInstructor(p) {
-        document.querySelector('.instructors').innerHTML = '';
-        for (let instructor of p) {
-            let {name} = instructor;
+  async function renderCourseChoices(p) {
+    document.querySelector(".booking-choices").innerHTML = "";
+    for (let i = 0; i < p.length; i++) {
+      let div = document.createElement("div");
+      div.classList.add(
+        "booking",
+        `course-grid-img-${p[i]["id"]}`,
+        "position-rel"
+      );
 
-            let div = document.createElement('div');
-            div.classList.add('instructor');
-            
-            div.innerHTML = `
-            <p>${name}</p>
+      div.innerHTML = `
+            <div class="block image booking-img" style="background-image: url(${p[i]["courseImage"]})"></div>
+            <a href="/learn-diving/detail=${p[i]["id"]}" class="gradient-bg booking-gradient-bg position-abs">
+                <div class="position-abs text-align-left">
+                    <p class="uppercase booking-hidden-text">Book now</p>
+                    <h3 class="uppercase">${p[i]["course"]}</h3>
+                </div>
+            </a>
             `;
 
-            document.querySelector('.instructors').appendChild(div);
-        }
+      document.querySelector(".booking-choices").appendChild(div);
     }
+  }
 
-    await fetchData(getInstructor);
+  await fetchData(getCourse);
 }
 
+//
+// main function
+//
 export async function renderCourse() {
-    let template = document.createElement('div');
-    template.classList.add('course-page');
-    template.innerHTML = `
-    <div class="container">
-        <h1>Course page</h1>
-        <div class="instructors">${instructors()}</div>
-    </div>
-    `;
-    
-    let courseText = document.querySelector('.course');
-    courseText.classList.add('white-text');
+  let template = document.createElement("div");
+  template.classList.add("booking-page");
+  template.innerHTML = `
+    <section class="booking-slide1">
+        <div class="container position-rel">
+            <div class="row booking-slide1-row1 z-index-111">
+                <div class="text-align-center">
+                    <h1 class="uppercase inline-block font-weight-200 z-index-111">Courses</h1>
+                    <div class="position-abs booking-jelly-fish">
+                        <div class="image pd-top-1-2" style="background-image: url(/assets/images/jelly_fish.png)"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="position-abs slides-bg-wrapper booking-slide1-bg z-index-1">
+                <div class="blue dot booking-slide1-dot1"></div>
+            </div>
+        </div>
+    </section>
 
-    return template;
+    <section class="booking-slide2">
+        <div class="container position-rel">
+            <div class="row text-align-center z-index-111">
+                <h2 class="uppercase font-weight-200">Which one is suitable for you</h2>
+                <p class="uppercase gradient-text inline-block">Choose one!</p>
+                <div class="booking-choices grid-block">${courseChoices()}</div>
+            </div>
+            <div class="position-abs slides-bg-wrapper booking-slide2-bg z-index-1">
+                <div class="uppercase background-text">Choices</div>
+                <div class="red dot booking-slide2-dot1"></div>
+                <div class="blue dot booking-slide2-dot2"></div>
+            </div>
+        </div>
+    </section>
+    `;
+
+  let courseText = document.querySelector(".courses");
+  courseText.classList.add("white-text");
+
+  return template;
 }

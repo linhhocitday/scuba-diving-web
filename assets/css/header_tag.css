@@ -1,20 +1,24 @@
-header {
+.header {
   position: sticky;
   top: 0;
   z-index: 1111111111;
 }
 
 .header-div {
-  padding: 20px 0;
+  padding: 4px 0;
 }
 
 .header-wrapper {
   justify-content: space-between;
-  padding: 12px 40px;
+  margin: 0 -10px;
 }
 
 .align-center {
   align-items: center;
+}
+
+.logo-a-tag {
+  padding: 10px;
 }
 
 .logo-wrapper {
@@ -32,6 +36,7 @@ header {
 .header-right-col .item a {
   padding: 10px;
   font-size: 14px;
+  transition: color 0.2s;
 }
 
 .header-right-col .item a:hover {
@@ -40,4 +45,54 @@ header {
 
 .header-right-col .item a.white-text {
   color: #fffaf3;
+}
+
+.hamburger {
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.hamburger:hover {
+  color: rgb(255, 250, 243);
+}
+
+.active {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100vh;
+  background-color: #1a1a1a;
+  z-index: 1111111111;
+}
+
+.header-res-bg {
+  display: none;
+}
+
+.dark-bg-responsive {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: rgba(9, 9, 9, 0.4);
+}
+
+.active .flex-column div.item {
+  margin: 0;
+  width: 100%;
+}
+
+.active .flex-column div.item a {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.active .flex-column div.item a:hover {
+  background-color: #161616;
 }

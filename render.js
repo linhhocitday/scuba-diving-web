@@ -1,6 +1,6 @@
 module.exports = {
-    html() {
-        return `
+  html() {
+    return `
         <!DOCTYPE html>
         <html lang="en">
             <head>
@@ -9,23 +9,29 @@ module.exports = {
                 <title>BLUR</title>
 
                 <!-- favicon -->
-                <link rel="icon" type="image/x-icon" href="assets/images/logo.png" />
+                <link rel="icon" type="image/x-icon" href="/assets/images/logo.png" />
 
                 <!-- my css -->
                 <!-- loading css -->
-                <link rel="stylesheet" href="assets/css/loading_scene.css" />
+                <link rel="stylesheet" href="/assets/css/loading_scene.css" />
                 <!-- main css -->
-                <link rel="stylesheet" href="assets/css/main.css" />
+                <link rel="stylesheet" href="/assets/css/main.css" />
                 <!-- responsive css -->
-                <link rel="stylesheet" href="assets/css/responsive.css" />
+                <link rel="stylesheet" href="/assets/css/responsive.css" />
                 <!-- header css -->
-                <link rel="stylesheet" href="assets/css/header_tag.css" />
-                <!-- main css -->
-                <link rel="stylesheet" href="assets/css/main_tag.css" />
-                <!-- footer css -->
-                <link rel="stylesheet" href="assets/css/footer_tag.css" />                
+                <link rel="stylesheet" href="/assets/css/header_tag.css" />
+                <!-- home css -->
+                <link rel="stylesheet" href="/assets/css/home_page.css" />
+                <!-- about page css -->
+                <link rel="stylesheet" href="/assets/css/about_page.css" />
+                <!-- booking page css -->
+                <link rel="stylesheet" href="/assets/css/booking_page.css" />
+                <!-- contact page css -->
+                <link rel="stylesheet" href="/assets/css/contact_page.css" />
+                <!-- product page css -->
+                <link rel="stylesheet" href="/assets/css/product_page.css" />
                 <!-- color changing css -->
-                <link rel="stylesheet" href="assets/css/day_changing.css" />
+                <link rel="stylesheet" href="/assets/css/day_changing.css" />
 
                 <!-- google font -->
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,5 +58,5 @@ module.exports = {
             </body>
         </html>
         `;
-    }
-}
+  },
+};

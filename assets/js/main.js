@@ -24,25 +24,35 @@ async function initApp() {
         let renderAbout = await page.renderAbout();
         main.appendChild(await renderAbout);
     }
-    if (location.pathname.includes('services')) {
-        let page = await import('./pages/services_page.js');
-        let renderServices = await page.renderServices();
-        main.appendChild(await renderServices);
-    }
     if (location.pathname.includes('contact')) {
         let page = await import('./pages/contact_page.js');
         let renderContact = await page.renderContact();
         main.appendChild(await renderContact);
     }
-    if (location.pathname.includes('booking')) {
+    if (location.pathname.includes('bookings')) {
         let page = await import('./pages/booking_page.js');
         let renderBooking = await page.renderBooking();
         main.appendChild(await renderBooking);
     }
-    if (location.pathname.includes('course')) {
+    if (location.pathname.includes('courses')) {
         let page = await import('./pages/course_page.js');
         let renderCourse = await page.renderCourse();
         main.appendChild(await renderCourse);
+    }
+    if (location.pathname.includes('go-diving/detail')) {
+        let page = await import('./pages/product_booking.js');
+        let renderProductBooking = await page.renderProductBooking();
+        main.appendChild(await renderProductBooking);
+    }
+    if (location.pathname.includes('learn-diving/detail')) {
+        let page = await import('./pages/product_course.js');
+        let renderProductCourse = await page.renderProductCourse();
+        main.appendChild(await renderProductCourse);
+    }
+    if (location.pathname.includes('form')) {
+        let page = await import('./pages/form_page.js');
+        let renderForm = await page.renderForm();
+        main.appendChild(await renderForm);
     }
 
     // await changeColor();

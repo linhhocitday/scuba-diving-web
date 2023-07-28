@@ -1,0 +1,59 @@
+.booking-slide1-row1 {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.booking-jelly-fish .image {
+  background-size: contain;
+}
+
+.booking-slide1-dot1 {
+  width: 400px;
+  height: 400px;
+  left: 80%;
+  transform: translate(0, 20%);
+}
+
+.booking-img {
+  height: 100%;
+}
+
+.booking .gradient-bg {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.booking-slide2-bg .background-text {
+  font-size: 320px;
+  left: 40%;
+  transform: translate(0, -50%);
+}
+
+.booking-slide2-dot1 {
+  width: 320px;
+  height: 320px;
+  left: 20%;
+  transform: translate(0, -180%);
+}
+
+.booking-slide2-dot2 {
+  width: 420px;
+  height: 420px;
+  left: -24%;
+  transform: translate(0, -180%);
+}
+
+.booking-hidden-text {
+  font-size: 20px;
+  transform: translate(0, 50%);
+  opacity: 0;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.booking-gradient-bg:hover .booking-hidden-text {
+  transform: translate(0, 0);
+  opacity: 1;
+}

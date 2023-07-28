@@ -1,6 +1,7 @@
 export const apiUrl = 'https://648704a8beba6297278faca3.mockapi.io/';
 export const endPoint = {
-	diving: 'diving'
+	diving: 'diving',
+	product: 'product'
 }
 
 export async function fetchData(params) {
@@ -19,14 +20,14 @@ export async function fetchData(params) {
 		await callback(data);
 	}
 	catch(error) {
-		console.log(error)
+		console.log(error);
 	}
 }
 
 export async function removeLoader() {
 	document.querySelectorAll('.loader').forEach(loader => {
 		setTimeout(() => {
-			loader.remove()
+			loader.remove();
 		}, 1800);
 	});
 }
