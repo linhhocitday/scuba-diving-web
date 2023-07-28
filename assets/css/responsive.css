@@ -12,6 +12,10 @@
 }
 
 /* home page */
+.pd-top-bttm-200 {
+  padding: 100px 0;
+}
+
 .home-s1-bg-div {
   position: relative;
 }
@@ -20,21 +24,17 @@
   display: none;
 }
 
-.mobile-grid-1-col {
-  grid-template: auto / 1fr;
-}
-
 .mobile-pd-top-6-7 {
   padding-top: calc(6 / 7 * 100%);
 }
 
 .slide1 {
-  padding: 36px 0 528px;
+  padding: 36px 0 140px;
 }
 
 .home-h1 {
   margin-bottom: 20px;
-  font-size: 52px;
+  font-size: 44px;
   letter-spacing: 4px;
 }
 
@@ -62,7 +62,12 @@
 
 .row1-slide3-wrapper {
   grid-template: auto / 1fr;
-  grid-gap: 40px;
+  grid-gap: 120px;
+}
+
+.slide3-text-middle h2 {
+  padding: 32px 0 0;
+  font-size: 28px;
 }
 
 .slide3-text-middle {
@@ -87,6 +92,10 @@
   width: 72%;
   margin: 0 auto;
   font-size: 24px;
+}
+
+.slide4 {
+  padding: 100px 0;
 }
 
 .row1-slide4-wrapper h2 {
@@ -164,6 +173,10 @@
   font-size: 14px;
 }
 
+.mb-pd-top-140 {
+  padding-top: 140%;
+}
+
 .slide5-dark-bg a.uppercase {
   padding: 12px 40px;
   border: 1px solid #fffaf3;
@@ -205,6 +218,18 @@
   margin: 12px 0 4px;
   font-size: 14px;
   display: inline-block;
+}
+
+.mb-order-1 {
+  order: 1;
+}
+
+.mb-order-2 {
+  order: 2;
+}
+
+.order-3 {
+  order: 3;
 }
 
 /* product page */
@@ -356,6 +381,7 @@
 
 .mb-hidden {
   visibility: hidden;
+  position: absolute;
 }
 
 .booking-choices {
@@ -486,6 +512,14 @@
   }
 
   /* home page */
+  .l-grid-block {
+    display: grid;
+  }
+
+  .pd-top-bttm-200 {
+    padding: 200px 0;
+  }
+
   .home-s1-bg-div {
     position: absolute;
   }
@@ -557,6 +591,11 @@
     grid-gap: 40px;
   }
 
+  .slide3-text-middle h2 {
+    padding: 32px 0 48px;
+    font-size: 28px;
+  }
+
   .l-pd-top-4-3 {
     padding-top: calc(4 / 3 * 100%);
   }
@@ -583,6 +622,10 @@
     width: 72%;
     margin: 0 auto;
     font-size: 28px;
+  }
+
+  .slide4 {
+    padding: 32px 0 140px;
   }
 
   .row1-slide4-wrapper h2 {
@@ -614,6 +657,10 @@
   .fish {
     margin: 0 -24px;
     padding: 24px 0;
+  }
+
+  .l-pd-top-100 {
+    padding-top: 100%;
   }
 
   .row1-slide5 h2 {
@@ -698,6 +745,14 @@
     margin: 20px 0 10px;
     font-size: 18px;
     display: inline-block;
+  }
+
+  .l-order-1 {
+    order: 1;
+  }
+
+  .l-order-2 {
+    order: 2;
   }
 
   /* product page */
@@ -817,6 +872,7 @@
 
   .l-visible {
     visibility: visible;
+    position: relative;
   }
 
   .booking-choices {

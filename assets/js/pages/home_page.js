@@ -1,93 +1,86 @@
-import { 
-    apiUrl,
-    endPoint,
-    fetchData,
-    removeLoader
-} from "../helper.js";
+import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
-import { 
-    fish, 
-} from "../fake_data.js";
+import { fish } from "../fake_data.js";
 
 //
 // fishes render
 //
 async function fishes(fish) {
-    let fishes = document.createElement('div');
-    fishes.classList.add('fishes');
-    fishes.innerHTML = '';
+  let fishes = document.createElement("div");
+  fishes.classList.add("fishes");
+  fishes.innerHTML = "";
 
-    for (let species of fish) {
-        let aFish = document.createElement('div');
-        aFish.classList.add('fish');
-        aFish.innerHTML = `
+  for (let species of fish) {
+    let aFish = document.createElement("div");
+    aFish.classList.add("fish");
+    aFish.innerHTML = `
         <div class="block l-flex-block fish-infor-wrapper flex-align-justify">
             <div class="l-col5 mb-mg">
                 <div class="fish-pd-flex">
-                    <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(${species['image']})"></div>
+                    <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(${species["image"]})"></div>
                 </div>
             </div>
             <div class="l-col7">
                 <div class="fish-pd-flex">
-                    <h3 class="font-weight-200 uppercase">${species['name']}</h3>
+                    <h3 class="font-weight-200 uppercase">${species["name"]}</h3>
                     <div class="gradient-line slide4-line"></div>
-                    <div class="small-text">${species['intro']}</div>
+                    <div class="small-text">${species["intro"]}</div>
                 </div>
             </div>
         </div>
         `;
 
-        fishes.appendChild(aFish);
-    }
-    return fishes;
+    fishes.appendChild(aFish);
+  }
+  return fishes;
 }
 
 //
 // instructors render
 //
 async function instructors(p) {
-    let getInstructor = {
-        apiUrl: apiUrl,
-        endPoint: endPoint.diving,
-        method: 'GET',
-        async callback(p) {
-            await removeLoader();
-            await renderInstructor(p);
-        }
-    }
+  let getInstructor = {
+    apiUrl: apiUrl,
+    endPoint: endPoint.diving,
+    method: "GET",
+    async callback(p) {
+      await removeLoader();
+      await renderInstructor(p);
+    },
+  };
 
-    async function renderInstructor(p) {
-        document.querySelector('.instructors').innerHTML = '';
-        for (let i = 0; i < 4; i++) {
-            let div = document.createElement('div');
-            div.classList.add('instructor');
+  async function renderInstructor(p) {
+    document.querySelector(".instructors").innerHTML = "";
+    for (let i = 0; i < 4; i++) {
+      let div = document.createElement("div");
+      div.classList.add("instructor");
 
-            div.innerHTML = `
+      div.innerHTML = `
             <div class="position-rel img-wrapper over-flow-hidden" id="staff-image-${i}">
-                <div class="hidden-speech-bg position-abs"><div class="hidden-speech position-abs">${p[i]['instructorSpeech']}</div></div>
-                <div class="image pd-top-100" style="background-image: url(${p[i]['avatar']})"></div>
+                <div class="hidden-speech-bg position-abs"><div class="hidden-speech position-abs">${p[i]["instructorSpeech"]}</div></div>
+                <div class="image pd-top-100" style="background-image: url(${p[i]["avatar"]})"></div>
             </div>
-            <p class="staff-job uppercase gradient-text">${p[i]['job']}</p>
-            <h3 class="font-weight-400">${p[i]['name']}</h3>
+            <p class="staff-job uppercase gradient-text">${p[i]["job"]}</p>
+            <h3 class="font-weight-400">${p[i]["name"]}</h3>
             `;
 
-            document.querySelector('.instructors').appendChild(div);
-        }
+      document.querySelector(".instructors").appendChild(div);
     }
+  }
 
-    await fetchData(getInstructor);
+  await fetchData(getInstructor);
 }
 
 //
 // main function
 //
 export async function renderHome() {
-    let template = document.createElement('div');
-    template.classList.add('home-page');
-    template.innerHTML = `
+  let template = document.createElement("div");
+  template.classList.add("home-page");
+  template.innerHTML = `
     <div class="position-abs home-s1-bg-div">
         <div class="container">
-            <div div class="home-s1-bg-grid grid-block mobile-grid-1-col">
+            <div div class="home-s1-bg-grid l-grid-block block">
                 <div class="ellipse home-s1-ell position-rel mobile-display-none"></div>
                 <div class="home-s1-bg-wrapper">
                     <div class="image home-s1-bg pd-top-4-3 mobile-pd-top-6-7" style="background-image: url(/assets/images/home_s1_bg.jpg)"></div>
@@ -101,7 +94,7 @@ export async function renderHome() {
 
     <section class="slide1">
         <div class="container">
-            <div class="row mb-max-width row1-slide1 grid-block mobile-grid-1-col">
+            <div class="row mb-max-width row1-slide1 l-grid-block block">
                 <div class="position-rel text-align-center l-text-align-left">
                     <h1 class="uppercase home-h1 font-weight-200 l-width-50vw z-index-11">Undersea exploration</h1>
                     <div class="l-width-30vw z-index-11">
@@ -109,7 +102,7 @@ export async function renderHome() {
                             Welcome to BLUR! Our goal is to provide you with everything you
                             need to explore the ocean and proficient in scuba diving.
                         </p>
-                        <a class="uppercase see-more-btn white-color-100" href="/booking">
+                        <a class="uppercase see-more-btn white-color-100" href="/bookings">
                             Book now
                         </a>
                     </div>
@@ -144,19 +137,19 @@ export async function renderHome() {
         <div class="container position-rel">
             <div class="row row1-slide3">
                 <div class="row1-slide3-wrapper grid-block z-index-111">
-                    <div class="slide3-img-wrapper">
+                    <div class="slide3-img-wrapper mb-order-2 l-order-1">
                         <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(/assets/images/slide3_pic1.jpg)"></div>
                         <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Mistical creatures</div>
                         <h3 class="uppercase text-align-center font-weight-200">Right in front of your eyes</h3>
                     </div>
-                    <div class="position-rel slide3-text-middle">
+                    <div class="position-rel slide3-text-middle mb-order-1 l-order-2">
                         <div class="vertical-line l-visible mb-hidden" style="height: 200px"></div>
                         <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Connect</div>
                         <div class="horizontal-line"></div>
                         <h2 class="uppercase font-weight-600 text-align-center">With the ocean</h2>
                         <div class="vertical-line l-visible mb-hidden" style="height: 600px"></div>
                     </div>
-                    <div class="slide3-img-wrapper">
+                    <div class="slide3-img-wrapper order-3">
                         <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(/assets/images/slide3_pic2.jpg)"></div>
                         <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Visiting</div>
                         <h3 class="uppercase text-align-center font-weight-200">The stunning coral reefs yourself</h3>
@@ -195,7 +188,7 @@ export async function renderHome() {
                 <h2 class="uppercase text-align-center font-weight-200">Wanna find out what species they are?</h2>
                 <div class="grid-block slide5-choice-grid">
                     <div class="position-rel over-flow-hidden">
-                        <div class="image pd-top-100" style="background-image: url(/assets/images/slide5_pic1.jpg)"></div>
+                        <div class="image mb-pd-top-140 l-pd-top-100" style="background-image: url(/assets/images/slide5_pic1.jpg)"></div>
                         <div class="position-abs slide5-dark-bg">
                             <div class="position-abs text-align-center slide5-choice">
                                 <h3 class="uppercase font-weight-600">Go diving</h3>
@@ -229,13 +222,13 @@ export async function renderHome() {
                                             <div class="font-weight-200 mb-font-14 l-font-16">Per person, included all taxes and equipments.</div>
                                         </div>
                                     </div>
-                                    <a href="/booking" class="uppercase">More details</a>
+                                    <a href="/bookings" class="uppercase">More details</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="position-rel over-flow-hidden">
-                        <div class="image pd-top-100" style="background-image: url(/assets/images/slide5_pic2.jpg)"></div>
+                        <div class="image mb-pd-top-140 l-pd-top-100" style="background-image: url(/assets/images/slide5_pic2.jpg)"></div>
                         <div class="position-abs slide5-dark-bg">
                             <div class="position-abs text-align-center slide5-choice">
                                 <h3 class="uppercase font-weight-600">Dive course</h3>
@@ -269,7 +262,7 @@ export async function renderHome() {
                                             <div class="font-weight-200 mb-font-14 l-font-16">Per person, included all taxes and equipments.</div>
                                         </div>
                                     </div>
-                                    <a href="/course" class="uppercase">More details</a>
+                                    <a href="/courses" class="uppercase">More details</a>
                                 </div>
                             </div>
                         </div>
@@ -299,12 +292,12 @@ export async function renderHome() {
     </section>
     `;
 
-    // active => white
-    let homeText = document.querySelector('.home');
-    homeText.classList.add('white-text');
+  // active => white
+  let homeText = document.querySelector(".home");
+  homeText.classList.add("white-text");
 
-    // fishes render 
-    template.querySelector('.fishes-wrapper').appendChild(await fishes(fish))
+  // fishes render
+  template.querySelector(".fishes-wrapper").appendChild(await fishes(fish));
 
-    return template;
+  return template;
 }

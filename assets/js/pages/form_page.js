@@ -1,41 +1,95 @@
-import { 
-    removeLoader,
-} from "../helper.js";
+import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
+//
+// get cart data
+//
 let clientCart = {};
 
-if (localStorage.getItem('cart')) {
-    clientCart = JSON.parse(localStorage.getItem('cart'));
+if (localStorage.getItem("cart")) {
+  clientCart = JSON.parse(localStorage.getItem("cart"));
 }
 
-async function getId(p) {
-    let pathname = location.pathname;
-    pathname = pathname.split('/')[2].replace('=', '-')
-    console.log(clientCart[pathname]);
+//
+// reverse date
+//
+async function reverseDate(date) {
+  let newDate = date.split("-").reverse().join("-");
+  return newDate;
+}
 
-    let cartInfor = p.querySelector('.cart-infor');
-    cartInfor.innerHTML = `
+//
+// change number => money (usd)
+//
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
+async function getId(p) {
+  let pathname = location.pathname;
+  pathname = pathname.split("/")[2].replace("=", "-");
+  console.log(clientCart[pathname]);
+
+  let cartId = pathname.split("-")[1];
+  let service = pathname.split("-")[0];
+
+  let cartInfor = p.querySelector(".cart-infor");
+  cartInfor.innerHTML = `
     <div>
         <div>Destination:</div>
-        <div>${clientCart[pathname]['destination']}</div>
+        <div id="${clientCart[pathname]["destination"]}"></div>
     </div>
     <div>
         <div>Departure:</div>
-        <div>${clientCart[pathname]['departure']}</div>
+        <div>${await reverseDate(clientCart[pathname]["departure"])}</div>
     </div>
     <div>
         <div>Participants:</div>
-        <div>${clientCart[pathname]['participants']}</div>
+        <div>${clientCart[pathname]["participants"]}</div>
     </div>
+    <div>Total: <b class="total-price"></b></div>
     `;
+
+  let destination = cartInfor.querySelector(
+    `#${clientCart[pathname]["destination"]}`
+  );
+
+  if (clientCart[pathname]["destination"] == "dn") {
+    destination.innerHTML = "Da Nang";
+  }
+  if (clientCart[pathname]["destination"] == "nt") {
+    destination.innerHTML = "Nha Trang";
+  }
+  if (clientCart[pathname]["destination"] == "pq") {
+    destination.innerHTML = "Phu Quoc";
+  }
+
+  let getPrice = {
+    apiUrl: apiUrl,
+    endPoint: endPoint.product + "/" + cartId,
+    method: "GET",
+    async callback(p) {
+      await removeLoader();
+      await renderPrice(p);
+    },
+  };
+
+  async function renderPrice(p) {
+    let price = p[`${service}Price`];
+    cartInfor.querySelector(".total-price").innerHTML = formatter.format(
+      price * clientCart[pathname]["participants"]
+    );
+  }
+
+  await fetchData(getPrice);
 }
 
 //
 // main function
 //
 export async function renderForm(p) {
-    let template = document.createElement('div');
-    template.innerHTML = `
+  let template = document.createElement("div");
+  template.innerHTML = `
     <section>
         <div class="container">
             <div class="row">
@@ -46,9 +100,7 @@ export async function renderForm(p) {
     </section>
     `;
 
-    getId(template)
+  getId(template);
 
-    await removeLoader();
-
-    return template;
+  return template;
 }

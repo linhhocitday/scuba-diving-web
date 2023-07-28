@@ -1,6 +1,6 @@
 module.exports = {
-    html() {
-        return `
+  html() {
+    return `
         <!DOCTYPE html>
         <html lang="en">
             <head>
@@ -30,8 +30,6 @@ module.exports = {
                 <link rel="stylesheet" href="/assets/css/contact_page.css" />
                 <!-- product page css -->
                 <link rel="stylesheet" href="/assets/css/product_page.css" />
-                <!-- footer css -->
-                <link rel="stylesheet" href="/assets/css/footer_tag.css" />                
                 <!-- color changing css -->
                 <link rel="stylesheet" href="/assets/css/day_changing.css" />
 
@@ -60,5 +58,5 @@ module.exports = {
             </body>
         </html>
         `;
-    }
-}
+  },
+};

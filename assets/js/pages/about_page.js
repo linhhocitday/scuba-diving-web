@@ -1,54 +1,48 @@
-import { 
-    apiUrl,
-    endPoint,
-    fetchData,
-    removeLoader,
-} from "../helper.js";
-
+import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
 //
 // render staff information
 //
 async function instructors(p) {
-    let getInstructor = {
-        apiUrl: apiUrl,
-        endPoint: endPoint.diving,
-        method: 'GET',
-        async callback(p) {
-            await removeLoader();
-            await renderInstructor(p);
-        }
-    }
+  let getInstructor = {
+    apiUrl: apiUrl,
+    endPoint: endPoint.diving,
+    method: "GET",
+    async callback(p) {
+      await removeLoader();
+      await renderInstructor(p);
+    },
+  };
 
-    async function renderInstructor(p) {
-        document.querySelector('.about-instructors').innerHTML = '';
-        for (let i = 0; i < p.length; i++) {
-            let div = document.createElement('div');
-            div.classList.add('about-instructor');
-            
-            div.innerHTML = `
+  async function renderInstructor(p) {
+    document.querySelector(".about-instructors").innerHTML = "";
+    for (let i = 0; i < p.length; i++) {
+      let div = document.createElement("div");
+      div.classList.add("about-instructor");
+
+      div.innerHTML = `
             <div class="position-rel about-img-wrapper over-flow-hidden" id="about-staff-image-${i}">
-                <div class="about-hidden-speech-bg position-abs"><div class="about-hidden-speech position-abs">${p[i]['instructorSpeech']}</div></div>
-                <div class="image pd-top-100" style="background-image: url(${p[i]['avatar']})"></div>
+                <div class="about-hidden-speech-bg position-abs"><div class="about-hidden-speech position-abs">${p[i]["instructorSpeech"]}</div></div>
+                <div class="image pd-top-100" style="background-image: url(${p[i]["avatar"]})"></div>
             </div>
-            <p class="about-staff-job uppercase gradient-text">${p[i]['job']}</p>
-            <h3 class="font-weight-400">${p[i]['name']}</h3>
+            <p class="about-staff-job uppercase gradient-text">${p[i]["job"]}</p>
+            <h3 class="font-weight-400">${p[i]["name"]}</h3>
             `;
 
-            document.querySelector('.about-instructors').appendChild(div);
-        }
+      document.querySelector(".about-instructors").appendChild(div);
     }
+  }
 
-    await fetchData(getInstructor);
+  await fetchData(getInstructor);
 }
 
 //
 // main function
 //
 export async function renderAbout() {
-    let template = document.createElement('div');
-    template.classList.add('about-page');
-    template.innerHTML = `
+  let template = document.createElement("div");
+  template.classList.add("about-page");
+  template.innerHTML = `
     <section class="about-slide1">
         <div class="container position-rel">
             <div class="row about-slide1-row1 z-index-111">
@@ -61,7 +55,6 @@ export async function renderAbout() {
                 </div>
             </div>
             <div class="position-abs slides-bg-wrapper about-slide1-bg z-index-1">
-                <div class="uppercase position-abs scroll-text l-visible mb-hidden">Scroll</div>
                 <div class="blue dot about-slide1-dot1"></div>
             </div>
         </div>
@@ -110,8 +103,8 @@ export async function renderAbout() {
 
     `;
 
-    let aboutText = document.querySelector('.about');
-    aboutText.classList.add('white-text');
+  let aboutText = document.querySelector(".about");
+  aboutText.classList.add("white-text");
 
-    return template;
+  return template;
 }

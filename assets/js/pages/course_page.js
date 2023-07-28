@@ -1,55 +1,53 @@
-import { 
-    apiUrl,
-    endPoint,
-    fetchData,
-    removeLoader,
-} from "../helper.js";
-
+import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
 //
 // render Course choices
 //
 async function courseChoices(p) {
-    let getCourse = {
-        apiUrl: apiUrl,
-        endPoint: endPoint.product,
-        method: 'GET',
-        async callback(p) {
-            await removeLoader();
-            await renderCourseChoices(p);
-        }
-    }
+  let getCourse = {
+    apiUrl: apiUrl,
+    endPoint: endPoint.product,
+    method: "GET",
+    async callback(p) {
+      await removeLoader();
+      await renderCourseChoices(p);
+    },
+  };
 
-    async function renderCourseChoices(p) {
-        document.querySelector('.booking-choices').innerHTML = '';
-        for (let i = 0; i < p.length; i++) {
-            let div = document.createElement('div');
-            div.classList.add('booking', `course-grid-img-${p[i]['id']}`, 'position-rel');
-            
-            div.innerHTML = `
-            <div class="block image booking-img" style="background-image: url(${p[i]['courseImage']})"></div>
-            <a href="/learn-diving/detail=${p[i]['id']}" class="gradient-bg booking-gradient-bg position-abs">
+  async function renderCourseChoices(p) {
+    document.querySelector(".booking-choices").innerHTML = "";
+    for (let i = 0; i < p.length; i++) {
+      let div = document.createElement("div");
+      div.classList.add(
+        "booking",
+        `course-grid-img-${p[i]["id"]}`,
+        "position-rel"
+      );
+
+      div.innerHTML = `
+            <div class="block image booking-img" style="background-image: url(${p[i]["courseImage"]})"></div>
+            <a href="/learn-diving/detail=${p[i]["id"]}" class="gradient-bg booking-gradient-bg position-abs">
                 <div class="position-abs text-align-left">
                     <p class="uppercase booking-hidden-text">Book now</p>
-                    <h3 class="uppercase">${p[i]['course']}</h3>
+                    <h3 class="uppercase">${p[i]["course"]}</h3>
                 </div>
             </a>
             `;
 
-            document.querySelector('.booking-choices').appendChild(div);
-        }
+      document.querySelector(".booking-choices").appendChild(div);
     }
+  }
 
-    await fetchData(getCourse);
+  await fetchData(getCourse);
 }
 
 //
 // main function
 //
 export async function renderCourse() {
-    let template = document.createElement('div');
-    template.classList.add('booking-page');
-    template.innerHTML = `
+  let template = document.createElement("div");
+  template.classList.add("booking-page");
+  template.innerHTML = `
     <section class="booking-slide1">
         <div class="container position-rel">
             <div class="row booking-slide1-row1 z-index-111">
@@ -61,7 +59,6 @@ export async function renderCourse() {
                 </div>
             </div>
             <div class="position-abs slides-bg-wrapper booking-slide1-bg z-index-1">
-                <div class="uppercase position-abs scroll-text l-visible mb-hidden">Scroll</div>
                 <div class="blue dot booking-slide1-dot1"></div>
             </div>
         </div>
@@ -83,8 +80,8 @@ export async function renderCourse() {
     </section>
     `;
 
-    let courseText = document.querySelector('.courses');
-    courseText.classList.add('white-text');
+  let courseText = document.querySelector(".courses");
+  courseText.classList.add("white-text");
 
-    return template;
+  return template;
 }

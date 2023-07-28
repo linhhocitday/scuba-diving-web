@@ -2,10 +2,6 @@
   font-size: 24px;
 }
 
-.pd-top-bttm-200 {
-  padding: 200px 0;
-}
-
 .see-more-btn {
   background-color: inherit;
   border: 1px solid rgba(255, 250, 243, 0.6);
@@ -84,11 +80,6 @@
   margin: 0 auto;
 }
 
-.slide3-text-middle h2 {
-  padding: 32px 0 48px;
-  font-size: 28px;
-}
-
 .slide3-dot1 {
   width: 500px;
   height: 500px;
@@ -101,10 +92,6 @@
   height: 300px;
   left: 44%;
   transform: translate(0, 40%);
-}
-
-.slide4 {
-  padding: 32px 0 140px;
 }
 
 .row1-slide4 {

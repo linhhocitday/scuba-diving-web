@@ -23,8 +23,8 @@ export async function renderFooter() {
                     <h3 class="uppercase font-weight-200">Get help</h3>
                     <ul>
                         <li class="white-color-60"><a href="/contact">Contact us</a></li>
-                        <li class="white-color-60"><a href="/booking">Booking</a></li>
-                        <li class="white-color-60"><a href="/course">Take course</a></li>
+                        <li class="white-color-60"><a href="/bookings">Booking</a></li>
+                        <li class="white-color-60"><a href="/courses">Take course</a></li>
                     </ul>
                 </div>
                 <div class="social-media">

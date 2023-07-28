@@ -1,211 +1,217 @@
-import { 
-    apiUrl,
-    endPoint,
-    fetchData,
-    removeLoader,
-} from "../helper.js";
-
+import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
 let clientCart = {};
 
-if (localStorage.getItem('cart')) {
-    clientCart = JSON.parse(localStorage.getItem('cart'));
+if (localStorage.getItem("cart")) {
+  clientCart = JSON.parse(localStorage.getItem("cart"));
 }
 
 async function setLocalStorage(p) {
-    let destination = p.querySelector('input:checked').id;
-    let departure = p.querySelector('#departure').value;
-    let participants = p.querySelector('.people-number').textContent;
+  let destination = p.querySelector("input:checked").id;
+  let departure = p.querySelector("#departure").value;
+  let participants = p.querySelector(".people-number").textContent;
 
-    let choseItem = {
-        destination: destination,
-        departure: departure,
-        participants: participants,
-    }
+  let choseItem = {
+    destination: destination,
+    departure: departure,
+    participants: participants,
+  };
 
-    let pathname = location.pathname;
-    pathname = pathname.split('/')[2].replace('detail=', '');
+  let pathname = location.pathname;
+  pathname = pathname.split("/")[2].replace("detail=", "");
 
-    let key = `course-${pathname}`
+  let key = `course-${pathname}`;
 
-    clientCart[key] = choseItem;
+  clientCart[key] = choseItem;
 
-    console.log(clientCart);
+  console.log(clientCart);
 
-    localStorage.setItem('cart', JSON.stringify(clientCart));
+  localStorage.setItem("cart", JSON.stringify(clientCart));
 }
 
 //
 // render clientCart
 //
 async function renderClientCart(p) {
-    let {clientCart, template} = p;
-    console.log(clientCart);
+  let { clientCart, template } = p;
+  console.log(clientCart);
 
-    let pathname = location.pathname;
-    pathname = pathname.split('/')[2].replace('detail=', '');
-    let key = `course-${pathname}`
+  let pathname = location.pathname;
+  pathname = pathname.split("/")[2].replace("detail=", "");
+  let key = `course-${pathname}`;
 
-    let checkedInput = template.querySelector(`input#${clientCart[key]['destination']}`);
-    checkedInput.checked = 'checked';
-    template.querySelector('.checked-dot').classList.remove('checked-dot');
-    template.querySelector(`.${clientCart[key]['destination']}`).classList.add('checked-dot');
+  let checkedInput = template.querySelector(
+    `input#${clientCart[key]["destination"]}`
+  );
+  checkedInput.checked = "checked";
+  template.querySelector(".checked-dot").classList.remove("checked-dot");
+  template
+    .querySelector(`.${clientCart[key]["destination"]}`)
+    .classList.add("checked-dot");
 
-    let departure = template.querySelector('#departure');
-    departure.value = clientCart[key]['departure'];
+  let departure = template.querySelector("#departure");
+  departure.value = clientCart[key]["departure"];
 
-    let participants = template.querySelector('.people-number');
-    participants.innerHTML = clientCart[key]['participants'];
+  let participants = template.querySelector(".people-number");
+  participants.innerHTML = clientCart[key]["participants"];
 }
 
 //
 // change number => money (usd)
 //
-const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD'
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
 });
 
 //
 // render topic title
 //
 async function courseChoices(p) {
-    let pathname = location.pathname;
-    pathname = pathname.split('/')[2].replace('detail=', '');
-    let getCourseProduct = {
-        apiUrl: apiUrl,
-        endPoint: endPoint.product + '/' + pathname,
-        method: 'GET',
-        async callback(p) {
-            await removeLoader();
-            await renderCourseDetails(p);
-        }
-    }
+  let pathname = location.pathname;
+  pathname = pathname.split("/")[2].replace("detail=", "");
+  let getCourseProduct = {
+    apiUrl: apiUrl,
+    endPoint: endPoint.product + "/" + pathname,
+    method: "GET",
+    async callback(p) {
+      await removeLoader();
+      await renderCourseDetails(p);
+    },
+  };
 
-    async function renderCourseDetails(p) {
-        let product = document.querySelector('.course-product');
+  async function renderCourseDetails(p) {
+    let product = document.querySelector(".course-product");
 
-        product.innerHTML = `
-        <h1 class="product-name uppercase font-weight-600">${p['course']}</h1>
-        <p class="product-price uppercase gradient-text">${formatter.format(p['coursePrice'])} / pax</p>
-        <p class="product-description small-text">${p['courseDescription']}</p>
+    product.innerHTML = `
+        <h1 class="product-name uppercase font-weight-600">${p["course"]}</h1>
+        <p class="product-price uppercase gradient-text">${formatter.format(
+          p["coursePrice"]
+        )} / pax</p>
+        <p class="product-description small-text">${p["courseDescription"]}</p>
         `;
 
-        let pathname = location.pathname;
-        pathname = pathname.split('/')[2].replace('detail=', '');
-        let key = `course-${pathname}`
+    let pathname = location.pathname;
+    pathname = pathname.split("/")[2].replace("detail=", "");
+    let key = `course-${pathname}`;
 
-        let total = document.querySelector('#total-price');
-        let price = formatter.format(p['coursePrice'])
-        if (clientCart[key]) price = formatter.format(p['coursePrice']*Number(clientCart[key]['participants']));
-        total.innerHTML = price;
+    let total = document.querySelector("#total-price");
+    let price = formatter.format(p["coursePrice"]);
+    if (clientCart[key])
+      price = formatter.format(
+        p["coursePrice"] * Number(clientCart[key]["participants"])
+      );
+    total.innerHTML = price;
 
-        document.querySelector('.decrease').addEventListener('click', () => {
-            total.innerHTML = formatter.format(p['coursePrice']*Number(clientCart[key]['participants']));
-        });
-    
-        document.querySelector('.increase').addEventListener('click', () => {
-            total.innerHTML = formatter.format(p['coursePrice']*Number(clientCart[key]['participants']));
-        });
-    }
-    await fetchData(getCourseProduct);
+    document.querySelector(".decrease").addEventListener("click", () => {
+      total.innerHTML = formatter.format(
+        p["coursePrice"] * Number(clientCart[key]["participants"])
+      );
+    });
+
+    document.querySelector(".increase").addEventListener("click", () => {
+      total.innerHTML = formatter.format(
+        p["coursePrice"] * Number(clientCart[key]["participants"])
+      );
+    });
+  }
+  await fetchData(getCourseProduct);
 }
 
 //
 // custom radio input
 //
 async function checkedDestination(p) {
-    let input = p.querySelectorAll('.destination-input');
-    for (let i of input) {
-        i.addEventListener('click', () => {
-            p.querySelector('.checked-dot').classList.remove('checked-dot');
-            p.querySelector(`.${i.id}`).classList.add('checked-dot');
-            setLocalStorage(p);
-        });
-    }
+  let input = p.querySelectorAll(".destination-input");
+  for (let i of input) {
+    i.addEventListener("click", () => {
+      p.querySelector(".checked-dot").classList.remove("checked-dot");
+      p.querySelector(`.${i.id}`).classList.add("checked-dot");
+      setLocalStorage(p);
+    });
+  }
 }
 
 //
-// limit date input, set default date, get and save date data 
+// limit date input, set default date, get and save date data
 //
 async function limitDate(p) {
-    let departure = p.querySelector('#departure');
+  let departure = p.querySelector("#departure");
 
-    let date = new Date();
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    if (month < 10) month = '0'+ month;
-    let day = date.getDate() + 1;
-    if (day < 10) day = '0'+ day;
+  let date = new Date();
+  let year = date.getFullYear();
+  let month = date.getMonth() + 1;
+  if (month < 10) month = "0" + month;
+  let day = date.getDate() + 1;
+  if (day < 10) day = "0" + day;
 
+  departure.min = `${year}-${month}-${day}`;
+  departure.value = `${year}-${month}-${day}`;
 
-    departure.min = `${year}-${month}-${day}`;
-    departure.value = `${year}-${month}-${day}`;
-
-    departure.addEventListener('change', () => {
-        setLocalStorage(p);
-    });
+  departure.addEventListener("change", () => {
+    setLocalStorage(p);
+  });
 }
 
 //
 // add function for minus and plus button
-// 
+//
 async function changeNumberBtn(p) {
-    let participants = p.querySelector('.people-number');
+  let participants = p.querySelector(".people-number");
 
-    let pathname = location.pathname;
-    pathname = pathname.split('/')[2].replace('detail=', '');
-    let key = `course-${pathname}`
+  let pathname = location.pathname;
+  pathname = pathname.split("/")[2].replace("detail=", "");
+  let key = `course-${pathname}`;
 
-    let number = 1;
-    if (clientCart[key]) number = Number(clientCart[key]['participants']);
+  let number = 1;
+  if (clientCart[key]) number = Number(clientCart[key]["participants"]);
+  participants.innerHTML = number;
+
+  p.querySelector(".decrease").addEventListener("click", () => {
+    if (number == 1) {
+      return false;
+    }
+    number -= 1;
     participants.innerHTML = number;
 
-    p.querySelector('.decrease').addEventListener('click', () => {
-        if (number == 1) {
-            return false;
-        }
-        number -= 1;
-        participants.innerHTML = number;
+    setLocalStorage(p);
+  });
 
-        setLocalStorage(p);
-    });
+  p.querySelector(".increase").addEventListener("click", () => {
+    number += 1;
+    participants.innerHTML = number;
 
-    p.querySelector('.increase').addEventListener('click', () => {
-        number += 1;
-        participants.innerHTML = number;
-
-        setLocalStorage(p);
-    });
+    setLocalStorage(p);
+  });
 }
 
 //
 // get form information
 //
 async function inputValue(p) {
-    let btn = p.querySelector('.product-booking-btn');
-    btn.addEventListener('click', () => {
-        let departure = p.querySelector('#departure').value;
-        
-        if (!departure) {
-            p.querySelector('.departure-alert').innerHTML = '*Time must be available';
-            return false;
-        }
+  let btn = p.querySelector(".product-booking-btn");
+  btn.addEventListener("click", () => {
+    let departure = p.querySelector("#departure").value;
 
-        setLocalStorage(p);
+    if (!departure) {
+      p.querySelector(".departure-alert").innerHTML = "*Time must be available";
+      return false;
+    }
 
-        let pathname = location.pathname;
-        pathname = pathname.split('/')[2].replace('detail=', '');
-        location.href = `/form/course=${pathname}`;
-    });
+    setLocalStorage(p);
+
+    let pathname = location.pathname;
+    pathname = pathname.split("/")[2].replace("detail=", "");
+    location.href = `/form/course=${pathname}`;
+  });
 }
 
 //
 // main function
 //
 export async function renderProductCourse(p) {
-    let template = document.createElement('div');
-    template.innerHTML = `
+  let template = document.createElement("div");
+  template.innerHTML = `
     <section class="product-slide1">
     <div class="container position-rel">
         <div class="row z-index-111">
@@ -274,25 +280,25 @@ export async function renderProductCourse(p) {
 </section>
     `;
 
-    courseChoices();
+  courseChoices();
 
-    await limitDate(template);
+  await limitDate(template);
 
-    await checkedDestination(template);
+  await checkedDestination(template);
 
-    await changeNumberBtn(template);
+  await changeNumberBtn(template);
 
-    await inputValue(template);
+  await inputValue(template);
 
-    let pathname = location.pathname;
-    pathname = pathname.split('/')[2].replace('detail=', '');
-    let key = `course-${pathname}`
-    if (clientCart[key]) {
-        await renderClientCart({
-            clientCart: clientCart,
-            template: template
-        });
-    }
+  let pathname = location.pathname;
+  pathname = pathname.split("/")[2].replace("detail=", "");
+  let key = `course-${pathname}`;
+  if (clientCart[key]) {
+    await renderClientCart({
+      clientCart: clientCart,
+      template: template,
+    });
+  }
 
-    return template;
+  return template;
 }
