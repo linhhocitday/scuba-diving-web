@@ -94,6 +94,19 @@ async function getId(p) {
 }
 
 //
+// add submit btn function
+//
+async function submitBtn(p) {
+  p.querySelector(".form-submit-btn").addEventListener("click", () => {
+    let firstName = p.querySelector("#first-name").value;
+    let lastName = p.querySelector("#last-name").value;
+    let email = p.querySelector("#email").value;
+    let number = p.querySelector("#number").value;
+    console.log(number);
+  });
+}
+
+//
 // main function
 //
 export async function renderForm(p) {
@@ -138,6 +151,8 @@ export async function renderForm(p) {
     `;
 
   await getId(template);
+
+  await submitBtn(template);
 
   return template;
 }
