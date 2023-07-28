@@ -333,3 +333,8 @@ ul li {
   letter-spacing: 1px;
   transform: translate(-50%, 0);
 }
+
+.alert-text {
+  color: #de0a5e;
+  font-size: 14px;
+}

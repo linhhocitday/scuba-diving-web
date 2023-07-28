@@ -36,11 +36,6 @@
   border: 1px solid rgb(255, 250, 243);
 }
 
-.alert-text {
-  color: #de0a5e;
-  font-size: 14px;
-}
-
 .product-booking-btn:hover {
   background-color: rgba(255, 250, 243, 0.2);
 }

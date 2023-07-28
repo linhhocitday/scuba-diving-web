@@ -35,19 +35,20 @@ async function getId(p) {
 
   let cartInfor = p.querySelector(".cart-infor");
   cartInfor.innerHTML = `
-    <div>
-        <div>Destination:</div>
+    <div class="service-infor"></div>
+    <div class="data-wrapper">
+        <div class="data-name uppercase font-weight-600">Destination:</div>
         <div id="${clientCart[pathname]["destination"]}"></div>
     </div>
-    <div>
-        <div>Departure:</div>
+    <div class="data-wrapper">
+        <div class="data-name uppercase font-weight-600">Departure:</div>
         <div>${await reverseDate(clientCart[pathname]["departure"])}</div>
     </div>
-    <div>
-        <div>Participants:</div>
+    <div class="data-wrapper">
+        <div class="data-name uppercase font-weight-600">Participants:</div>
         <div>${clientCart[pathname]["participants"]}</div>
     </div>
-    <div>Total: <b class="total-price"></b></div>
+    <div class="total-wrapper">Total: <b class="total-price"></b></div>
     `;
 
   let destination = cartInfor.querySelector(
@@ -79,9 +80,30 @@ async function getId(p) {
     cartInfor.querySelector(".total-price").innerHTML = formatter.format(
       price * clientCart[pathname]["participants"]
     );
+
+    let serviceInfor = cartInfor.querySelector(".service-infor");
+    serviceInfor.innerHTML = `
+    <h2 class="uppercase">${p[service]}</h2>
+    <div class="default-price">${formatter.format(
+      p[`${service}Price`]
+    )} / pax</div>
+    `;
   }
 
   await fetchData(getPrice);
+}
+
+//
+// add submit btn function
+//
+async function submitBtn(p) {
+  p.querySelector(".form-submit-btn").addEventListener("click", () => {
+    let firstName = p.querySelector("#first-name").value;
+    let lastName = p.querySelector("#last-name").value;
+    let email = p.querySelector("#email").value;
+    let number = p.querySelector("#number").value;
+    console.log(number);
+  });
 }
 
 //
@@ -90,17 +112,51 @@ async function getId(p) {
 export async function renderForm(p) {
   let template = document.createElement("div");
   template.innerHTML = `
-    <section>
-        <div class="container">
-            <div class="row">
-                <h1>Hello</h1>
-                <div class="cart-infor"></div>
+    <section class="form-slide1">
+        <div class="container  position-rel">
+            <div class="row grid-block z-index-111">
+                <div class="white-bg-8 blur-background-wrapper right-col l-order-1 mb-order-2">
+                    <h1 class="uppercase font-weight-200">Let's fill in this form to complete the transaction</h1>
+                    <div class="uppercase gradient-text mb-colorful-text l-colorful-text">Please enter your details</div>
+                    <div class="l-grid-block infor-wrapper">
+                        <div class="position-rel">
+                            <label for="first-name" class="uppercase">First name</label>
+                            <input type="text" id="first-name" placeholder="Michael" />
+                            <i class="alert-text position-abs first-name-alert"></i>
+                        </div>
+                        <div class="position-rel">
+                            <label for="last-name" class="uppercase">Last name</label>
+                            <input type="text" id="last-name" placeholder="Jackson" />
+                            <i class="alert-text position-abs last-name-alert"></i>
+                        </div>
+                    </div>
+                    <div class="infor-wrapper position-rel">
+                        <label for="email" class="uppercase">Your email</label>
+                        <input type="text" id="email" placeholder="jackson@gmail.com" />
+                        <i class="alert-text position-abs email-alert"></i>
+                    </div>
+                    <div class="infor-wrapper position-rel">
+                        <label for="number" class="uppercase">Your phone number</label>
+                        <input type="tel" id="number" placeholder="0912345678" />
+                        <i class="alert-text position-abs number-alert"></i>
+                    </div>
+                    <a class="form-submit-btn text-align-center">Submit</a>
+                </div>
+                <div class="white-bg-8 blur-background-wrapper left-col l-order-2 mb-order-1">
+                    <div class="cart-infor"></div>
+                </div>
+            </div>
+            <div class="position-abs slides-bg-wrapper form-slide1-bg z-index-1">
+                <div class="blue dot form-slide1-dot1"></div>
+                <div class="red dot form-slide1-dot2"></div>
             </div>
         </div>
     </section>
     `;
 
-  getId(template);
+  await getId(template);
+
+  await submitBtn(template);
 
   return template;
 }
