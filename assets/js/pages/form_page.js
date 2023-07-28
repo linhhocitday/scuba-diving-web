@@ -119,22 +119,26 @@ export async function renderForm(p) {
                     <h1 class="uppercase font-weight-200">Let's fill in this form to complete the transaction</h1>
                     <div class="uppercase gradient-text mb-colorful-text l-colorful-text">Please enter your details</div>
                     <div class="l-grid-block infor-wrapper">
-                        <div>
+                        <div class="position-rel">
                             <label for="first-name" class="uppercase">First name</label>
                             <input type="text" id="first-name" placeholder="Michael" />
+                            <i class="alert-text position-abs first-name-alert"></i>
                         </div>
-                        <div>
+                        <div class="position-rel">
                             <label for="last-name" class="uppercase">Last name</label>
                             <input type="text" id="last-name" placeholder="Jackson" />
+                            <i class="alert-text position-abs last-name-alert"></i>
                         </div>
                     </div>
-                    <div class="infor-wrapper">
+                    <div class="infor-wrapper position-rel">
                         <label for="email" class="uppercase">Your email</label>
                         <input type="text" id="email" placeholder="jackson@gmail.com" />
+                        <i class="alert-text position-abs email-alert"></i>
                     </div>
-                    <div class="infor-wrapper">
+                    <div class="infor-wrapper position-rel">
                         <label for="number" class="uppercase">Your phone number</label>
                         <input type="tel" id="number" placeholder="0912345678" />
+                        <i class="alert-text position-abs number-alert"></i>
                     </div>
                     <a class="form-submit-btn text-align-center">Submit</a>
                 </div>
