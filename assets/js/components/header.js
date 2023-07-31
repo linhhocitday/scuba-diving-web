@@ -101,15 +101,23 @@ async function renderClientCart(p) {
             return false;
           }
 
-          delete clientCart[k];
+          if (
+            confirm(
+              `Are you sure you want to delete ${
+                p[k.split("-")[1] - 1][k.split("-")[0]]
+              } in your cart?`
+            ) == true
+          ) {
+            delete clientCart[k];
 
-          localStorage.setItem("cart", JSON.stringify(clientCart));
+            localStorage.setItem("cart", JSON.stringify(clientCart));
 
-          if (!Object.keys(clientCart).length) {
-            localStorage.removeItem("cart", clientCart);
+            if (!Object.keys(clientCart).length) {
+              localStorage.removeItem("cart", clientCart);
+            }
+
+            renderClientCart();
           }
-
-          renderClientCart();
         });
 
         hiddenCart.appendChild(cartItem);
@@ -152,13 +160,6 @@ async function hamburger(p) {
     bg.classList.remove("dark-bg-responsive");
     body.style.overflow = "auto";
   });
-}
-
-async function amountBtnCheck() {
-  let amountBtn = document.querySelector(".amount-btn");
-  if (amountBtn) {
-    console.log(amountBtn);
-  }
 }
 
 export async function renderHeader() {
@@ -230,8 +231,6 @@ export async function renderHeader() {
     hiddenList: ".hidden-cart",
     activeClass: "hidden-cart-active",
   });
-
-  await amountBtnCheck();
 
   return template;
 }

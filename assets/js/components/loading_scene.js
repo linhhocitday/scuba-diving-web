@@ -1,16 +1,16 @@
 function waitScene() {
-    const logo = document.querySelectorAll('#logo-svg-loading path');
+  const logo = document.querySelectorAll("#logo-svg-loading path");
 
-    for (let i = 0; i < logo.length; i++) {
-        console.log(`letter ${i} is ${logo[i].getTotalLength()}`);
-    }
+  for (let i = 0; i < logo.length; i++) {
+    console.log(`letter ${i} is ${logo[i].getTotalLength()}`);
+  }
 }
 
 export const loading = {
-    logo() {
-        let div = document.createElement('div');
-        div.classList.add('loading-bg', 'loader', 'black-bg-100');
-        div.innerHTML = `
+  logo() {
+    let div = document.createElement("div");
+    div.classList.add("loading-bg", "loader", "black-bg-100");
+    div.innerHTML = `
         <div class="middle-block blur-bg-logo-night"></div>
         <svg
             id="logo-svg-loading"
@@ -35,8 +35,10 @@ export const loading = {
             />
         </svg>
         `;
-        waitScene();
+    document.querySelector("body").style.overflow = "hidden";
 
-        return div;
-    }
-}
+    waitScene();
+
+    return div;
+  },
+};
