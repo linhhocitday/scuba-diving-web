@@ -7,8 +7,65 @@
   display: none;
 }
 
+.hidden-cart {
+  display: none;
+}
+
+.hidden-cart-active {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  height: 100vh;
+  background-color: #1a1a1a;
+  z-index: 1111111111;
+  padding: 20px 0;
+  overflow-y: auto;
+}
+
+/* .cart-item {
+  grid-template: auto / 4fr 1fr;
+  grid-gap: 20px;
+} */
+
+.item-link {
+  padding: 20px;
+}
+
+.item-link .item-infor-wrapper {
+  max-width: 200px;
+}
+
+.trash-can-wrapper {
+  margin-top: -10px;
+  margin-right: -10px;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  cursor: pointer;
+}
+
+.cart-item h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.cart-item .cart-item-infor {
+  margin-top: 4px;
+  font-size: 14px;
+}
+
 .flex-column {
   flex-direction: column;
+}
+
+.cart-icon {
+  width: 48px;
+  padding: 10px;
+  cursor: pointer;
+  margin-left: 4px;
+  transition: color 0.2s;
 }
 
 /* home page */
@@ -518,7 +575,7 @@
   margin-bottom: 8px;
 }
 
-.form-slide1 div.gradient-text {
+.form-slide1 .right-col div.gradient-text {
   font-size: 18px;
   margin-bottom: 60px;
 }
@@ -554,13 +611,17 @@
 }
 
 .data-name {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 8px;
+}
+
+.data {
+  font-size: 20px;
 }
 
 .form-slide1 .cart-infor .service-infor div.default-price {
   font-size: 18px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 1024px) {
@@ -573,8 +634,42 @@
     display: block;
   }
 
+  .hidden-cart-active {
+    width: 480px;
+    padding: 40px 0;
+  }
+
+  /* .cart-item {
+    grid-template: auto / 8fr 1fr;
+  } */
+
+  .item-link {
+    padding: 20px 40px;
+  }
+
+  .item-link .item-infor-wrapper {
+    max-width: 320px;
+  }
+
+  .trash-can-wrapper {
+    top: 20px;
+    right: 40px;
+  }
+
+  .cart-item h3 {
+    font-size: 24px;
+  }
+
+  .cart-item .cart-item-infor {
+    font-size: 16px;
+  }
+
   .flex-row {
     flex-direction: row;
+  }
+
+  .cart-icon {
+    margin-left: 32px;
   }
 
   /* home page */
@@ -1086,7 +1181,7 @@
     font-size: 32px;
   }
 
-  .form-slide1 div.gradient-text {
+  .form-slide1 .right-col div.gradient-text {
     font-size: 20px;
     margin-bottom: 80px;
   }
@@ -1121,12 +1216,16 @@
   }
 
   .data-name {
-    font-size: 20px;
+    font-size: 16px;
     margin-bottom: 8px;
+  }
+
+  .data {
+    font-size: 24px;
   }
 
   .form-slide1 .cart-infor .service-infor div.default-price {
     font-size: 18px;
-    margin-bottom: 80px;
+    margin-bottom: 48px;
   }
 }

@@ -293,8 +293,8 @@ export async function renderHome() {
     `;
 
   // active => white
-  let homeText = document.querySelector(".home");
-  homeText.classList.add("white-text");
+  //   let homeText = document.querySelector(".home");
+  //   homeText.classList.add("white-text");
 
   // fishes render
   template.querySelector(".fishes-wrapper").appendChild(await fishes(fish));

@@ -43,6 +43,10 @@
   color: rgb(255, 250, 243);
 }
 
+.cart-icon:hover {
+  color: rgb(255, 250, 243);
+}
+
 .header-right-col .item a.white-text {
   color: #fffaf3;
 }
@@ -62,10 +66,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 40%;
+  width: 280px;
   height: 100vh;
   background-color: #1a1a1a;
   z-index: 1111111111;
+  padding: 20vh 0;
 }
 
 .header-res-bg {
@@ -95,4 +100,46 @@
 
 .active .flex-column div.item a:hover {
   background-color: #161616;
+}
+
+.cart-item:hover {
+  background-color: #161616;
+}
+
+.hidden-cart i.text-align-center {
+  color: rgba(255, 250, 243, 0.6);
+  margin-top: 20vh;
+  font-size: 14px;
+}
+
+.cart-icon .notice-dot-wrapper {
+  top: 0;
+  right: 0;
+  transform: translate(-32%, 32%);
+}
+
+.cart-icon .notice-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #ba1a1a;
+}
+
+.cart-amount {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  line-height: 14px;
+  color: #fffaf3;
+}
+
+.trash-can {
+  color: rgba(255, 250, 243, 0.6);
+  transition: color 0.2s;
+  padding: 10px;
+}
+
+.trash-can:hover {
+  color: #fffaf3;
 }

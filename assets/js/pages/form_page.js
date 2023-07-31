@@ -37,18 +37,24 @@ async function getId(p) {
   cartInfor.innerHTML = `
     <div class="service-infor"></div>
     <div class="data-wrapper">
-        <div class="data-name uppercase font-weight-600">Destination:</div>
-        <div id="${clientCart[pathname]["destination"]}"></div>
+        <div class="data-name uppercase">Destination:</div>
+        <div class="data font-weight-600" id="${
+          clientCart[pathname]["destination"]
+        }"></div>
     </div>
     <div class="data-wrapper">
-        <div class="data-name uppercase font-weight-600">Departure:</div>
-        <div>${await reverseDate(clientCart[pathname]["departure"])}</div>
+        <div class="data-name uppercase">Departure:</div>
+        <div class="data font-weight-600">${await reverseDate(
+          clientCart[pathname]["departure"]
+        )}</div>
     </div>
     <div class="data-wrapper">
-        <div class="data-name uppercase font-weight-600">Participants:</div>
-        <div>${clientCart[pathname]["participants"]}</div>
+        <div class="data-name uppercase">Participants:</div>
+        <div class="data font-weight-600">${
+          clientCart[pathname]["participants"]
+        }</div>
     </div>
-    <div class="total-wrapper">Total: <b class="total-price"></b></div>
+    <div class="total-wrapper font-weight-200">Total: <b class="total-price"></b></div>
     `;
 
   let destination = cartInfor.querySelector(
@@ -84,7 +90,7 @@ async function getId(p) {
     let serviceInfor = cartInfor.querySelector(".service-infor");
     serviceInfor.innerHTML = `
     <h2 class="uppercase">${p[service]}</h2>
-    <div class="default-price">${formatter.format(
+    <div class="default-price gradient-text">${formatter.format(
       p[`${service}Price`]
     )} / pax</div>
     `;
