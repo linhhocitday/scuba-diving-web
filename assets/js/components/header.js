@@ -7,9 +7,17 @@ if (localStorage.getItem("cart")) {
 }
 
 //
+// reverse date
+//
+async function reverseDate(date) {
+  let newDate = date.split("-").reverse().join("-");
+  return newDate;
+}
+
+//
 // render client cart
 //
-async function renderClientCart(p) {
+export async function renderClientCart(p) {
   let getService = {
     apiUrl: apiUrl,
     endPoint: endPoint.product,
@@ -48,13 +56,15 @@ async function renderClientCart(p) {
           k.split("-")[1]
         }">
               <div class="item-infor-wrapper">
-                  <h3>${p[k.split("-")[1] - 1][k.split("-")[0]]}</h3>
+                  <h3 class="uppercase">${
+                    p[k.split("-")[1] - 1][k.split("-")[0]]
+                  }</h3>
                   <div class="cart-item-infor">Destination: <b class="${
                     v["destination"]
                   }"></b></div>
-                  <div class="cart-item-infor">Departure: <b>${
+                  <div class="cart-item-infor">Departure: <b>${await reverseDate(
                     v["departure"]
-                  }</b></div>
+                  )}</b></div>
                   <div class="cart-item-infor">Participants: <b>${
                     v["participants"]
                   }</b></div>
@@ -96,16 +106,16 @@ async function renderClientCart(p) {
             location.pathname == `/form/${k.split("-")[0]}=${k.split("-")[1]}`
           ) {
             alert(
-              "You can not delete an item while finishing the transaction."
+              "You can not delete an item while finishing its transaction."
             );
             return false;
           }
 
           if (
             confirm(
-              `Are you sure you want to delete ${
+              `Are you sure you want to delete "${
                 p[k.split("-")[1] - 1][k.split("-")[0]]
-              } in your cart?`
+              }" in your cart?`
             ) == true
           ) {
             delete clientCart[k];

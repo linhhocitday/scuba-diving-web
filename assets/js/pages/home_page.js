@@ -244,7 +244,7 @@ export async function renderHome() {
                                             </div>
                                         </div>
                                         <div class="col10">
-                                            <div class="slide5-location font-weight-500">Da Nang / Nha Trang</div>
+                                            <div class="slide5-location font-weight-500">Da Nang / Nha Trang / Phu Quoc</div>
                                             <div class="font-weight-200 mb-font-14 l-font-16">We operate  lessons at 2 locations.</div>
                                         </div>
                                     </div>

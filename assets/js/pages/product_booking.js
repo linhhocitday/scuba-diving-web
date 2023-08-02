@@ -142,7 +142,7 @@ async function limitDate(p) {
   let year = date.getFullYear();
   let month = date.getMonth() + 1;
   if (month < 10) month = "0" + month;
-  let day = date.getDate() + 1;
+  let day = date.getDate();
   if (day < 10) day = "0" + day;
 
   departure.min = `${year}-${month}-${day}`;
@@ -193,8 +193,10 @@ async function inputValue(p) {
   btn.addEventListener("click", () => {
     let departure = p.querySelector("#departure").value;
 
+    let timeAlert = p.querySelector(".departure-alert");
+    timeAlert.innerHTML = "";
     if (!departure) {
-      p.querySelector(".departure-alert").innerHTML = "*Time must be available";
+      timeAlert.innerHTML = "*Time must be available";
       return false;
     }
 
