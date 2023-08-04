@@ -1,5 +1,7 @@
 import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
+import { parallax } from "../components/parallax.js";
+
 //
 // render staff information
 //
@@ -50,7 +52,7 @@ export async function renderAbout() {
                     <h2 class="uppercase inline-block font-weight-200">Our</h2>
                     <h2 class="uppercase inline-block font-weight-200 z-index-111">Story</h2>
                     <div class="position-abs about-jelly-fish">
-                        <div class="image pd-top-1-2" style="background-image: url(/assets/images/jelly_fish.png)"></div>
+                        <div class="image pd-top-1-2 l-scroll" data-rate="0.4" style="background-image: url(/assets/images/jelly_fish.png)"></div>
                     </div>
                 </div>
             </div>
@@ -63,7 +65,7 @@ export async function renderAbout() {
     <section class="about-slide2">
         <div class="container position-rel">
             <div class="row">
-                <div class="about-slide2-row1 block l-flex-block z-index-111 flex-align-justify">
+                <div class="about-slide2-row1 block l-flex-block z-index-111 flex-justify">
                     <div class="l-col7 ab-mb-mg">
                         <div class="ab-slide2-row1-pd">
                             <h1 class="uppercase font-weight-200">Our mission</h1>
@@ -74,12 +76,14 @@ export async function renderAbout() {
                     </div>
                     <div class="l-col5">
                         <div class="ab-slide2-row1-pd">
-                            <div class="image pd-top-100 l-pd-top-2-1" style="background-image: url(/assets/images/big_boss.jpg)"></div>
+                            <div class="image pd-top-100 l-pd-top-2-1 l-scroll" data-rate="-0.3" style="background-image: url(/assets/images/big_boss.jpg)"></div>
                         </div>
                     </div>
                 </div>
                 <div class="position-abs slides-bg-wrapper about-slide2-bg z-index-1">
-                    <div class="uppercase background-text">Mission</div>
+                    <div class="uppercase">
+                        <div class="l-scroll background-text" data-rate="0.2">Mission</div>
+                    </div>
                     <div class="blue dot about-slide2-dot1"></div>
                 </div>
             </div>
@@ -94,7 +98,9 @@ export async function renderAbout() {
                 <div class="about-instructors grid-block">${instructors()}</div>
             </div>
             <div class="position-abs slides-bg-wrapper about-slide3-bg z-index-1">
-                <div class="uppercase background-text">Team</div>
+                <div class="uppercase">
+                    <div class="l-scroll background-text" data-rate="0.2">Team</div>
+                </div>
                 <div class="red dot about-slide3-dot1"></div>
                 <div class="red dot about-slide3-dot2"></div>
             </div>
@@ -105,6 +111,8 @@ export async function renderAbout() {
 
   let aboutText = document.querySelector(".about");
   aboutText.classList.add("white-text");
+
+  await parallax(template);
 
   return template;
 }

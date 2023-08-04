@@ -27,6 +27,10 @@
   margin-top: 18px;
 }
 
+.about-slide2-bg .uppercase {
+  transform: translate(0, -60%);
+}
+
 .about-slide2-bg .background-text {
   font-size: 280px;
 }
@@ -57,10 +61,13 @@
   bottom: 0;
 }
 
+.about-slide3-bg .uppercase {
+  transform: translate(0, -120%);
+}
+
 .about-slide3-bg .background-text {
   font-size: 320px;
   left: 38%;
-  transform: translate(0, -56%);
 }
 
 .about-slide3-dot1 {

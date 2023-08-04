@@ -1,11 +1,11 @@
-import { 
-    removeLoader,
-} from "../helper.js";
+import { removeLoader } from "../helper.js";
+
+import { parallax } from "../components/parallax.js";
 
 export async function renderContact() {
-    let template = document.createElement('div');
-    template.classList.add('contact-page');
-    template.innerHTML = `
+  let template = document.createElement("div");
+  template.classList.add("contact-page");
+  template.innerHTML = `
     <section class="contact-slide1">
         <div class="container position-rel">
             <div class="row contact-slide1-row1 text-align-center z-index-111">
@@ -13,7 +13,9 @@ export async function renderContact() {
                 <p class="uppercase gradient-text l-colorful-text mb-colorful-text">Choose one!</p>
             </div>
             <div class="position-abs slides-bg-wrapper contact-slide1-bg z-index-1">
-                <div class="uppercase background-text">Contact</div>
+                <div class="uppercase">
+                    <div class="l-scroll background-text" data-rate="0.2">Contact</div>
+                </div>
                 <div class="blue dot contact-slide1-dot1"></div>
             </div>
         </div>
@@ -65,8 +67,9 @@ export async function renderContact() {
         </div>
     </section>
     `;
+  await parallax(template);
 
-    removeLoader();
+  await removeLoader();
 
-    return template;
+  return template;
 }

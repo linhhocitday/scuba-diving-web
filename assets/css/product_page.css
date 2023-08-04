@@ -4,10 +4,13 @@
   margin: 0 auto;
 }
 
+.product-slide1-bg .uppercase {
+  transform: translate(0, -32%);
+}
+
 .product-slide1-bg .background-text {
   font-size: 400px;
   left: 36%;
-  transform: translate(0, -32%);
 }
 
 .product-slide1-dot1 {

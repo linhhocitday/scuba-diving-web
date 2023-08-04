@@ -2,6 +2,8 @@ import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
 import { fish } from "../fake_data.js";
 
+import { parallax } from "../components/parallax.js";
+
 //
 // fishes render
 //
@@ -83,10 +85,10 @@ export async function renderHome() {
             <div div class="home-s1-bg-grid l-grid-block block">
                 <div class="ellipse home-s1-ell position-rel mobile-display-none"></div>
                 <div class="home-s1-bg-wrapper">
-                    <div class="image home-s1-bg pd-top-4-3 mobile-pd-top-6-7" style="background-image: url(/assets/images/home_s1_bg.jpg)"></div>
+                    <div class="image home-s1-bg pd-top-4-3 mobile-pd-top-6-7" style="background-image: url(./assets/images/home_s1_bg.jpg)"></div>
                 </div>
                 <div class="position-abs home-s1-jellyfish-wrapper z-index-111 mobile-display-none">
-                    <div class="image pd-top-100 home-s1-jellyfish" style="background-image: url(/assets/images/jelly_fish.png)"></div>
+                    <div class="image pd-top-100 home-s1-jellyfish l-scroll" data-rate="-0.2" style="background-image: url(./assets/images/home_jelly_fish.png)"></div>
                 </div>
             </div>
         </div>
@@ -111,7 +113,7 @@ export async function renderHome() {
         </div>
     </section>
 
-    <section class="pd-top-bttm-200">
+    <section class="pd-top-bttm-200 l-pd-300">
         <div class="container position-rel">
             <div class="row row1-slide2 z-index-111 grid-block">
                 <div>
@@ -126,7 +128,9 @@ export async function renderHome() {
                 </div>
             </div>
             <div class="position-abs slides-bg-wrapper bg-wrapper-slide2 z-index-1">
-                <div class="uppercase background-text">About</div>
+                <div class="uppercase">
+                    <div class="l-scroll background-text" data-rate="0.2">About</div>
+                </div>
                 <div class="red dot slide2-dot1"></div>
                 <div class="blue dot slide2-dot2"></div>
             </div>
@@ -137,10 +141,12 @@ export async function renderHome() {
         <div class="container position-rel">
             <div class="row row1-slide3">
                 <div class="row1-slide3-wrapper grid-block z-index-111">
-                    <div class="slide3-img-wrapper mb-order-2 l-order-1">
-                        <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(/assets/images/slide3_pic1.jpg)"></div>
-                        <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Mistical creatures</div>
-                        <h3 class="uppercase text-align-center font-weight-200">Right in front of your eyes</h3>
+                    <div class="position-rel mb-order-2 l-order-1 home-slide3-go-up">
+                        <div class="slide3-img-wrapper l-scroll" data-rate="-0.3">
+                            <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(/assets/images/slide3_pic1.jpg)"></div>
+                            <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Mistical creatures</div>
+                            <h3 class="uppercase text-align-center font-weight-200">Right in front of your eyes</h3>
+                        </div>
                     </div>
                     <div class="position-rel slide3-text-middle mb-order-1 l-order-2">
                         <div class="vertical-line l-visible mb-hidden" style="height: 200px"></div>
@@ -149,10 +155,12 @@ export async function renderHome() {
                         <h2 class="uppercase font-weight-600 text-align-center">With the ocean</h2>
                         <div class="vertical-line l-visible mb-hidden" style="height: 600px"></div>
                     </div>
-                    <div class="slide3-img-wrapper order-3">
-                        <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(/assets/images/slide3_pic2.jpg)"></div>
-                        <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Visiting</div>
-                        <h3 class="uppercase text-align-center font-weight-200">The stunning coral reefs yourself</h3>
+                    <div class="position-rel order-3 home-slide3-go-down">
+                        <div class="slide3-img-wrapper l-scroll" data-rate="0.2">
+                            <div class="image pd-top-100 l-pd-top-4-3" style="background-image: url(/assets/images/slide3_pic2.jpg)"></div>
+                            <div class="uppercase text-align-center gradient-text mb-colorful-text l-colorful-text">Visiting</div>
+                            <h3 class="uppercase text-align-center font-weight-200">The stunning coral reefs yourself</h3>
+                        </div>
                     </div>
                 </div>
                 <div class="position-abs slides-bg-wrapper bg-wrapper-slide3 z-index-1">
@@ -173,7 +181,9 @@ export async function renderHome() {
                     <div class="fishes-wrapper"></div>
                 </div>
                 <div class="position-abs slides-bg-wrapper bg-wrapper-slide4 z-index-1">
-                    <div class="uppercase background-text">Species</div>
+                    <div class="uppercase">
+                        <div class="l-scroll background-text" data-rate="0.2">Species</div>
+                    </div>
                     <div class="blue dot slide4-dot1"></div>
                     <div class="red dot slide4-dot2"></div>
                 </div>
@@ -270,7 +280,9 @@ export async function renderHome() {
                 </div>
             </div>
             <div class="position-abs slides-bg-wrapper bg-wrapper-slide5 z-index-1">
-                <div class="uppercase background-text">Services</div>
+                <div class="uppercase">
+                    <div class="l-scroll background-text" data-rate="0.2">Services</div>
+                </div>
                 <div class="red dot slide5-dot1"></div>
                 <div class="blue dot slide5-dot2"></div>
             </div>
@@ -285,7 +297,9 @@ export async function renderHome() {
                 <div class="instructors grid-block">${instructors()}</div>
             </div>
             <div class="position-abs slides-bg-wrapper bg-wrapper-slide6 z-index-1">
-                <div class="uppercase background-text">Staff</div>
+                <div class="uppercase">
+                    <div class="l-scroll background-text" data-rate="0.2">Staff</div>
+                </div>
                 <div class="red dot slide6-dot1"></div>
             </div>
         </div>
@@ -298,6 +312,8 @@ export async function renderHome() {
 
   // fishes render
   template.querySelector(".fishes-wrapper").appendChild(await fishes(fish));
+
+  await parallax(template);
 
   return template;
 }

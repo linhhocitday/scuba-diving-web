@@ -26,10 +26,13 @@
   bottom: 0;
 }
 
+.booking-slide2-bg .uppercase {
+  transform: translate(0, -60%);
+}
+
 .booking-slide2-bg .background-text {
   font-size: 320px;
   left: 40%;
-  transform: translate(0, -50%);
 }
 
 .booking-slide2-dot1 {

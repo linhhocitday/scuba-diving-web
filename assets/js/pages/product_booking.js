@@ -1,5 +1,7 @@
 import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
+import { parallax } from "../components/parallax.js";
+
 let clientCart = {};
 
 if (localStorage.getItem("cart")) {
@@ -139,10 +141,14 @@ async function limitDate(p) {
   let departure = p.querySelector("#departure");
 
   let date = new Date();
-  let year = date.getFullYear();
-  let month = date.getMonth() + 1;
+
+  let nextDay = new Date(date);
+  nextDay.setDate(date.getDate() + 1);
+
+  let year = nextDay.getFullYear();
+  let month = nextDay.getMonth() + 1;
   if (month < 10) month = "0" + month;
-  let day = date.getDate();
+  let day = nextDay.getDate();
   if (day < 10) day = "0" + day;
 
   departure.min = `${year}-${month}-${day}`;
@@ -220,7 +226,9 @@ export async function renderProductBooking(p) {
                 <div class="booking-product text-align-center"></div>
             </div>
             <div class="position-abs slides-bg-wrapper product-slide1-bg z-index-1">
-                <div class="uppercase background-text">Detail</div>
+                <div class="uppercase">
+                    <div class="l-scroll background-text" data-rate="0.2">Detail</div>
+                </div>
                 <div class="blue dot product-slide1-dot1"></div>
                 <div class="red dot product-slide1-dot2"></div>
             </div>
@@ -276,7 +284,7 @@ export async function renderProductBooking(p) {
         </div>
         <div class="position-abs slides-bg-wrapper product-slide2-bg">
             <div class="product-jellyfish-wrapper">
-                <div class="image pd-top-1-2" style="background-image: url(/assets/images/jelly_fish.png)"></div>
+                <div class="image pd-top-1-2 l-scroll" data-rate="-0.2" style="background-image: url(/assets/images/jelly_fish.png)"></div>
             </div>
         </div>
     </section>
@@ -301,6 +309,8 @@ export async function renderProductBooking(p) {
       template: template,
     });
   }
+
+  await parallax(template);
 
   return template;
 }

@@ -1,5 +1,7 @@
 import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
+import { parallax } from "../components/parallax.js";
+
 //
 // render booking choices
 //
@@ -54,7 +56,7 @@ export async function renderBooking() {
                 <div class="text-align-center">
                     <h1 class="uppercase inline-block font-weight-200 z-index-111">Booking</h1>
                     <div class="position-abs booking-jelly-fish">
-                        <div class="image pd-top-1-2" style="background-image: url(/assets/images/jelly_fish.png)"></div>
+                        <div class="image pd-top-1-2 l-scroll" data-rate="0.4" style="background-image: url(/assets/images/jelly_fish.png)"></div>
                     </div>
                 </div>
             </div>
@@ -72,7 +74,9 @@ export async function renderBooking() {
                 <div class="booking-choices grid-block">${bookingChoices()}</div>
             </div>
             <div class="position-abs slides-bg-wrapper booking-slide2-bg z-index-1">
-                <div class="uppercase background-text">Choices</div>
+                <div class="uppercase">
+                    <div class="l-scroll background-text" data-rate="0.2">Choices</div>
+                </div>
                 <div class="red dot booking-slide2-dot1"></div>
                 <div class="blue dot booking-slide2-dot2"></div>
             </div>
@@ -82,6 +86,8 @@ export async function renderBooking() {
 
   let bookingText = document.querySelector(".book");
   bookingText.classList.add("white-text");
+
+  await parallax(template);
 
   return template;
 }

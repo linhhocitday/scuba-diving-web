@@ -681,6 +681,10 @@
     padding: 200px 0;
   }
 
+  .l-pd-300 {
+    padding: 300px 0;
+  }
+
   .home-s1-bg-div {
     position: absolute;
   }
@@ -783,6 +787,14 @@
     width: 72%;
     margin: 0 auto;
     font-size: 28px;
+  }
+
+  .home-slide3-go-up {
+    transform: translateY(60%);
+  }
+
+  .home-slide3-go-down {
+    transform: translateY(-48%);
   }
 
   .slide4 {
@@ -983,7 +995,7 @@
 
   .product-jellyfish-wrapper {
     left: 64%;
-    transform: translate(0, 188%);
+    transform: translate(0, 264%);
   }
 
   .product-input-wrapper {
@@ -1081,15 +1093,15 @@
 
   /* about page */
   .about-slide1 {
-    padding: 200px 0 100px;
+    padding: 200px 0;
   }
 
   .about-slide2 {
-    padding: 200px 0;
+    padding: 200px 0 100px;
   }
 
   .about-slide3 {
-    padding: 200px 0;
+    padding: 40px 0 200px;
   }
 
   .about-slide1-row1 h2 {

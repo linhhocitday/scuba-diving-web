@@ -35,7 +35,7 @@
 .home-s1-jellyfish-wrapper {
   max-width: 800px;
   width: 100%;
-  transform: rotate(24deg);
+  transform: rotate(-60deg);
   top: -64%;
   left: 48%;
 }
@@ -44,10 +44,13 @@
   background-size: contain;
 }
 
+.bg-wrapper-slide2 div.uppercase {
+  transform: translate(0, -100%);
+}
+
 .bg-wrapper-slide2 div.background-text {
   font-size: 280px;
   right: -40%;
-  transform: translate(0, -64%);
 }
 
 .slide2-dot1 {
@@ -104,10 +107,13 @@
   padding: 0 24px;
 }
 
+.bg-wrapper-slide4 .uppercase {
+  transform: translate(0, -180%);
+}
+
 .bg-wrapper-slide4 .background-text {
   font-size: 320px;
   left: -12%;
-  transform: translate(0, -56%);
 }
 
 .slide4-dot1 {
@@ -171,10 +177,13 @@
   padding-right: 20px;
 }
 
+.bg-wrapper-slide5 .uppercase {
+  transform: translate(0, -300%);
+}
+
 .bg-wrapper-slide5 .background-text {
   font-size: 280px;
   left: 42%;
-  transform: translate(0, -52%);
 }
 
 .slide5-dot1 {
@@ -213,10 +222,13 @@
   bottom: 0;
 }
 
+.bg-wrapper-slide6 .uppercase {
+  transform: translate(0, -280%);
+}
+
 .bg-wrapper-slide6 .background-text {
   font-size: 360px;
   left: -12%;
-  transform: translate(0, -60%);
 }
 
 .slide6-dot1 {

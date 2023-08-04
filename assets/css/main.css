@@ -38,6 +38,10 @@ ul li {
   justify-content: space-between;
 }
 
+.flex-justify {
+  justify-content: space-between;
+}
+
 .col2 {
   flex: 0 0 16.67%;
   max-width: 16.67%;
@@ -120,7 +124,7 @@ ul li {
 .background-text {
   font-family: "Anton", sans-serif;
   position: relative;
-  color: rgba(33, 36, 49, 0.2);
+  color: rgba(33, 36, 49, 0.4);
 }
 
 .font-weight-100 {
