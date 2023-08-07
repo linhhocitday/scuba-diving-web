@@ -147,6 +147,10 @@ ul li {
   font-weight: 600;
 }
 
+.font-weight-900 {
+  font-weight: 900;
+}
+
 .small-text {
   letter-spacing: 1px;
   line-height: 24px;

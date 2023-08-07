@@ -276,7 +276,7 @@ export async function renderProductCourse(p) {
                     <p><i class="participants-alert alert-text"></i></p>
                 </div>
                 <div>
-                    <div class="uppercase input-label mb-font">Total: <strong id="total-price"></strong></div>
+                    <div class="uppercase input-label mb-font">Total: <strong id="total-price" class="font-weight-600"></strong></div>
                     <a class="uppercase product-booking-btn text-align-center">Book now</a>
                 </div>
             </div>

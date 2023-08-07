@@ -56,16 +56,16 @@ export async function renderClientCart(p) {
           k.split("-")[1]
         }">
               <div class="item-infor-wrapper">
-                  <h3 class="uppercase">${
+                  <h3 class="uppercase font-weight-600">${
                     p[k.split("-")[1] - 1][k.split("-")[0]]
                   }</h3>
                   <div class="cart-item-infor">Destination: <b class="${
                     v["destination"]
-                  }"></b></div>
-                  <div class="cart-item-infor">Departure: <b>${await reverseDate(
+                  } font-weight-600"></b></div>
+                  <div class="cart-item-infor">Departure: <b class="font-weight-600">${await reverseDate(
                     v["departure"]
                   )}</b></div>
-                  <div class="cart-item-infor">Participants: <b>${
+                  <div class="cart-item-infor">Participants: <b class="font-weight-600">${
                     v["participants"]
                   }</b></div>
               </div>

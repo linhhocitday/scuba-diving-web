@@ -32,13 +32,15 @@ module.exports = {
                 <link rel="stylesheet" href="/assets/css/product_page.css" />
                 <!-- form page css -->
                 <link rel="stylesheet" href="/assets/css/form_page.css" />
+                <!-- thanks page css -->
+                <link rel="stylesheet" href="/assets/css/thanks_page.css" />
                 <!-- color changing css -->
                 <link rel="stylesheet" href="/assets/css/day_changing.css" />
 
                 <!-- google font -->
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-                <link href="https://fonts.googleapis.com/css2?family=Anton&family=Urbanist:wght@100;200;400;500;600&display=swap" 
+                <link href="https://fonts.googleapis.com/css2?family=Anton&family=Urbanist:wght@100;200;400;500;600;900&display=swap" 
                 rel="stylesheet" />
 
                 <!-- font awesome-->

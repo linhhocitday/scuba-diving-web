@@ -31,7 +31,7 @@ async function courseChoices(p) {
             <a href="/learn-diving/detail=${p[i]["id"]}" class="gradient-bg booking-gradient-bg position-abs">
                 <div class="position-abs text-align-left">
                     <p class="uppercase booking-hidden-text">Book now</p>
-                    <h3 class="uppercase">${p[i]["course"]}</h3>
+                    <h3 class="uppercase font-weight-600">${p[i]["course"]}</h3>
                 </div>
             </a>
             `;

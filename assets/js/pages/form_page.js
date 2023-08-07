@@ -115,7 +115,7 @@ async function getId(p) {
           clientCart[pathname]["participants"]
         }</div>
     </div>
-    <div class="total-wrapper font-weight-200">Total: <b class="total-price"></b></div>
+    <div class="total-wrapper font-weight-200">Total: <b class="total-price font-weight-600"></b></div>
     `;
 
   let destination = cartInfor.querySelector(
@@ -150,7 +150,7 @@ async function getId(p) {
 
     let serviceInfor = cartInfor.querySelector(".service-infor");
     serviceInfor.innerHTML = `
-    <h2 class="uppercase">${p[service]}</h2>
+    <h2 class="uppercase font-weight-600">${p[service]}</h2>
     <div class="default-price gradient-text">${formatter.format(
       p[`${service}Price`]
     )} / pax</div>

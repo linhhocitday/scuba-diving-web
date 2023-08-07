@@ -1,0 +1,32 @@
+.back-btn-wrapper {
+  margin: -20px;
+}
+
+.back-btn {
+  margin-bottom: 60px;
+  color: rgba(255, 250, 243, 0.6);
+  transition: color 0.2s;
+  padding: 20px;
+}
+
+.back-btn:hover {
+  color: #fffaf3;
+}
+
+.fa-arrow-left {
+  margin-right: 20px;
+}
+
+.thanks-slide1-dot1 {
+  width: 280px;
+  height: 280px;
+  /* left: 80%; */
+  transform: translate(0, 40%);
+}
+
+.thanks-slide1-dot2 {
+  width: 400px;
+  height: 400px;
+  left: 80%;
+  transform: translate(0, 40%);
+}
