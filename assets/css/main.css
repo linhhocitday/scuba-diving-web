@@ -274,6 +274,10 @@ ul li {
   color: #80a3d6;
 }
 
+.red-color-100 {
+  color: #de0a5e;
+}
+
 .gradient-text {
   background: rgb(0, 43, 255);
   background: linear-gradient(

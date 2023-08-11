@@ -6,12 +6,87 @@ if (localStorage.getItem("cart")) {
   clientCart = JSON.parse(localStorage.getItem("cart"));
 }
 
+let clientInfor = {};
+
+if (localStorage.getItem("client")) {
+  clientInfor = JSON.parse(localStorage.getItem("client"));
+}
+
 //
 // reverse date
 //
 async function reverseDate(date) {
   let newDate = date.split("-").reverse().join("-");
   return newDate;
+}
+
+//
+// create a dialog
+//
+async function dialog(p) {
+  let { template, message, buttons, k } = p;
+
+  // create dark background
+  let darkBackground = document.createElement("div");
+  darkBackground.classList.add("darkBackground");
+  template.appendChild(darkBackground);
+
+  // add dark background a function
+  darkBackground.addEventListener("click", () => {
+    dialog.remove();
+    darkBackground.remove();
+  });
+
+  // create the dialog
+  let dialog = document.createElement("div");
+  dialog.classList.add("dialog");
+  dialog.innerHTML = `
+      <div class="x-icon text-align-right"><i class="fa-solid fa-xmark"></i></div>
+      <div class="message text-align-center">${message}</div>
+      <div class="button-wrapper text-align-center">${buttons}</div>
+  `;
+  template.appendChild(dialog);
+
+  let xIcon = dialog.querySelector(".x-icon");
+  xIcon.addEventListener("click", () => {
+    dialog.remove();
+    darkBackground.remove();
+  });
+
+  // add function to cancel button
+  if (dialog.querySelector(".cancel")) {
+    let cancel = dialog.querySelector(".cancel");
+    cancel.addEventListener("click", () => {
+      dialog.remove();
+      darkBackground.remove();
+    });
+  }
+
+  // add function to agree button
+  if (dialog.querySelector(".agree")) {
+    let agree = dialog.querySelector(".agree");
+    agree.addEventListener("click", async () => {
+      await delete clientCart[k];
+      await renderClientCart();
+
+      await delete clientInfor[k];
+
+      await localStorage.setItem("cart", JSON.stringify(clientCart));
+
+      await localStorage.setItem("client", JSON.stringify(clientInfor));
+
+      if (!Object.keys(clientCart).length) {
+        await localStorage.removeItem("cart", clientCart);
+      }
+
+      if (!Object.keys(clientInfor).length) {
+        await localStorage.removeItem("client", clientInfor);
+      }
+
+      await dialog.remove();
+      await darkBackground.remove();
+    });
+  }
 }
 
 //
@@ -101,33 +176,52 @@ export async function renderClientCart(p) {
           place.innerHTML = "Phu Quoc";
         }
 
+        let body = document.querySelector("body");
         cartItem.querySelector(".trash-can").addEventListener("click", () => {
           if (
             location.pathname == `/form/${k.split("-")[0]}=${k.split("-")[1]}`
           ) {
-            alert(
-              "You can not delete an item while finishing its transaction."
-            );
+            // alert(
+            //   "You can not delete an item while finishing its transaction."
+            // );
+
+            dialog({
+              template: body,
+              message: `<div>You <span class="red-color-100 font-weight-600">can not</span> delete an item while finishing its transaction.</div>`,
+              buttons: `<button class="cancel uppercase">Got it</button>`,
+              clientCart: clientCart,
+            });
             return false;
           }
 
-          if (
-            confirm(
-              `Are you sure you want to delete "${
-                p[k.split("-")[1] - 1][k.split("-")[0]]
-              }" in your cart?`
-            ) == true
-          ) {
-            delete clientCart[k];
+          // if (
+          //   confirm(
+          //     `Are you sure you want to delete "${
+          //       p[k.split("-")[1] - 1][k.split("-")[0]]
+          //     }" in your cart?`
+          //   ) == true
+          // ) {
+          //   delete clientCart[k];
 
-            localStorage.setItem("cart", JSON.stringify(clientCart));
+          //   localStorage.setItem("cart", JSON.stringify(clientCart));
 
-            if (!Object.keys(clientCart).length) {
-              localStorage.removeItem("cart", clientCart);
-            }
+          //   if (!Object.keys(clientCart).length) {
+          //     localStorage.removeItem("cart", clientCart);
+          //   }
 
-            renderClientCart();
-          }
+          //   renderClientCart();
+          // }
+          dialog({
+            template: body,
+            message: `Are you sure you want to <span class="red-color-100 font-weight-600">delete</span> "${
+              p[k.split("-")[1] - 1][k.split("-")[0]]
+            }" in your cart?`,
+            buttons: `
+              <button class="cancel uppercase">Cancel</button>
+              <button class="agree uppercase">Yes</button>
+              `,
+            k: k,
+          });
         });
 
         hiddenCart.appendChild(cartItem);

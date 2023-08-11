@@ -1,0 +1,43 @@
+.darkBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11111111111;
+  background-color: rgba(9, 9, 9, 0.4);
+}
+
+.x-icon {
+  margin: -10px;
+}
+
+.x-icon i {
+  padding: 10px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  color: rgba(255, 250, 243, 0.6);
+  transition: color 0.2s;
+}
+
+.x-icon i:hover {
+  color: rgb(255, 250, 243);
+}
+
+.message {
+  margin-bottom: 40px;
+  font-size: 20px;
+}
+
+.button-wrapper button:hover {
+  background-color: rgba(255, 250, 243, 0.4);
+  border: 1px solid rgb(255, 250, 243);
+}
+
+.button-wrapper button.agree {
+  border: 1px solid rgba(255, 250, 243, 0.4);
+}
+
+.button-wrapper button.cancel {
+  border: 1px solid rgb(255, 250, 243);
+}

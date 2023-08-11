@@ -3,7 +3,7 @@ import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 import { renderClientCart } from "../components/header.js";
 
 //
-// get cart data
+// get cart data from localStorage
 //
 let clientCart = {};
 
@@ -12,7 +12,7 @@ if (localStorage.getItem("cart")) {
 }
 
 //
-// get client information
+// get client information from localStorage
 //
 let clientInfor = {};
 
@@ -76,7 +76,7 @@ async function reverseDate(date) {
 }
 
 //
-// change number => money (usd)
+// change number => money (USD)
 //
 const formatter = new Intl.NumberFormat("en-US", {
   style: "currency",
@@ -84,7 +84,7 @@ const formatter = new Intl.NumberFormat("en-US", {
 });
 
 //
-// render cart
+// render target service in cart: name + reservations + price
 //
 async function getId(p) {
   let pathname = location.pathname;
@@ -161,24 +161,35 @@ async function getId(p) {
 }
 
 //
-// add submit btn function
+// add function to submit btn
 //
 async function submitBtn(p) {
   p.querySelector(".form-submit-btn").addEventListener("click", () => {
-    let firstName = formatName(p.querySelector("#first-name").value);
+    //
+    // first name input blank => alert
+    //
+    let firstName = formatName(p.querySelector("#first-name").value); // format first name => First Name
+
     let firstNameAlert = p.querySelector(".first-name-alert");
     firstNameAlert.innerHTML = "";
     if (!firstName) {
       firstNameAlert.innerHTML = "*Your first name can not be blank";
     }
 
-    let lastName = formatName(p.querySelector("#last-name").value);
+    //
+    // last name input blank => alert
+    //
+    let lastName = formatName(p.querySelector("#last-name").value); // format last name => Last Name
+
     let lastNameAlert = p.querySelector(".last-name-alert");
     lastNameAlert.innerHTML = "";
     if (!lastName) {
       lastNameAlert.innerHTML = "*Your last name can not be blank";
     }
 
+    //
+    // invalid email => alert
+    //
     let email = p.querySelector("#email").value;
     let emailAlert = p.querySelector(".email-alert");
     emailAlert.innerHTML = "";
@@ -187,6 +198,9 @@ async function submitBtn(p) {
       emailAlert.innerHTML = "*Invalid email address";
     }
 
+    //
+    // invalid number => alert
+    //
     let number = p.querySelector("#number").value;
     let numberAlert = p.querySelector(".number-alert");
     numberAlert.innerHTML = "";
@@ -194,35 +208,48 @@ async function submitBtn(p) {
       numberAlert.innerHTML = "*Invalid phone number";
     }
 
+    //
+    // does not meet one of the requirements => can not move to the next page
+    //
     if (!firstName || !lastName || !email.match(validEmail) || !number) {
       return false;
     }
 
-    setClientInfor(p);
-
-    for (let [k, v] of Object.entries(clientCart)) {
-      delete clientCart[k];
-
-      localStorage.setItem("cart", JSON.stringify(clientCart));
-
-      if (!Object.keys(clientCart).length) {
-        localStorage.removeItem("cart", clientCart);
-      }
-
-      renderClientCart();
-    }
-
-    for (let [k, v] of Object.entries(clientInfor)) {
-      delete clientInfor[k];
-      localStorage.setItem("client", JSON.stringify(clientInfor));
-
-      if (!Object.keys(clientInfor).length) {
-        localStorage.removeItem("client", clientInfor);
-      }
-    }
-
+    //
+    // get pathname => get target key => delete target key in clientCart and clientInfor
+    //
     let pathname = location.pathname;
     pathname = pathname.split("/")[2];
+
+    let key = pathname.replace("=", "-");
+
+    //
+    // delete target service in cart
+    //
+    delete clientCart[key];
+
+    localStorage.setItem("cart", JSON.stringify(clientCart));
+
+    if (!Object.keys(clientCart).length) {
+      localStorage.removeItem("cart", clientCart);
+    }
+
+    renderClientCart();
+
+    //
+    // delete target client information
+    //
+    delete clientInfor[key];
+
+    localStorage.setItem("client", JSON.stringify(clientInfor));
+
+    if (!Object.keys(clientInfor).length) {
+      localStorage.removeItem("client", clientInfor);
+    }
+
+    //
+    // add next location link
+    //
     location.href = `/thanks/${pathname}`;
   });
 }
@@ -257,9 +284,9 @@ async function changeActive(p) {
   }
 
   for (let i of input) {
-    i.addEventListener("mouseup", () => {
+    i.oninput = () => {
       setClientInfor(p);
-    });
+    };
   }
 }
 
@@ -299,23 +326,23 @@ export async function renderForm(p) {
                     <h1 class="uppercase font-weight-200">Let's fill in this form to complete the transaction</h1>
                     <div class="uppercase gradient-text mb-colorful-text l-colorful-text">Please enter your details</div>
                     <div class="l-grid-block infor-wrapper">
-                        <div class="position-rel">
+                        <div class="position-rel mb-mg-bottom">
                             <label for="first-name" class="uppercase">First name</label>
                             <input type="text" id="first-name" placeholder="Michael" />
                             <i class="alert-text position-abs first-name-alert"></i>
                         </div>
-                        <div class="position-rel">
+                        <div class="position-rel mb-mg-bottom">
                             <label for="last-name" class="uppercase">Last name</label>
                             <input type="text" id="last-name" placeholder="Jackson" />
                             <i class="alert-text position-abs last-name-alert"></i>
                         </div>
                     </div>
-                    <div class="infor-wrapper position-rel">
+                    <div class="infor-wrapper position-rel mb-mg-bottom">
                         <label for="email" class="uppercase">Your email</label>
                         <input type="text" id="email" placeholder="jackson@gmail.com" />
                         <i class="alert-text position-abs email-alert email-alert"></i>
                     </div>
-                    <div class="infor-wrapper position-rel">
+                    <div class="infor-wrapper position-rel mb-mg-bottom">
                         <label for="number" class="uppercase">Your phone number</label>
                         <input type="tel" id="number" placeholder="0912345678" maxlength="16" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" />
                         <i class="alert-text position-abs number-alert"></i>

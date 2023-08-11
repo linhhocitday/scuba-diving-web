@@ -34,6 +34,8 @@ module.exports = {
                 <link rel="stylesheet" href="/assets/css/form_page.css" />
                 <!-- thanks page css -->
                 <link rel="stylesheet" href="/assets/css/thanks_page.css" />
+                <!-- dialog css -->
+                <link rel="stylesheet" href="/assets/css/dialog.css" />
                 <!-- color changing css -->
                 <link rel="stylesheet" href="/assets/css/day_changing.css" />
 

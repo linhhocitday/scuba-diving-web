@@ -559,6 +559,10 @@
   padding: 60px 0 100px;
 }
 
+.mb-mg-bottom {
+  margin-bottom: 40px;
+}
+
 .form-slide1 input {
   padding: 12px 20px;
   background-color: inherit;
@@ -567,7 +571,6 @@
   color: #fffaf3;
   width: 100%;
   font-size: 16px;
-  margin-bottom: 40px;
 }
 
 .form-slide1 h1 {
@@ -635,6 +638,30 @@
 
 .thanks-slide1 {
   padding: 28px 0 80px;
+}
+
+/* dialog */
+.dialog {
+  max-width: 280px;
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 111111111111;
+  background-color: #1a1a1a;
+  padding: 20px;
+}
+
+.button-wrapper button {
+  width: 48%;
+  padding: 12px 4px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 250, 243, 0.4);
+  color: #fffaf3;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s, border 0.2s;
 }
 
 @media (min-width: 1024px) {
@@ -1196,10 +1223,13 @@
     padding: 100px 0 200px;
   }
 
+  .mb-mg-bottom {
+    margin-bottom: 8px;
+  }
+
   .form-slide1 input {
     padding: 18px 20px;
     font-size: 20px;
-    margin-bottom: 8px;
   }
 
   .form-slide1 h1 {
@@ -1264,5 +1294,16 @@
 
   .thanks-slide1 {
     padding: 28px 0 200px;
+  }
+
+  /* dialog */
+  .dialog {
+    max-width: 600px;
+    padding: 32px;
+  }
+
+  .button-wrapper button {
+    padding: 20px 8px;
+    font-size: 16px;
   }
 }

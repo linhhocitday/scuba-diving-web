@@ -17,7 +17,7 @@ export async function renderThanks(p) {
         <div class="container position-rel">
             <div class="z-index-111">
                 <div class="back-btn-wrapper">
-                    <a class="back-btn block"></a>
+                    <a class="back-btn inline-block"></a>
                 </div>
                 <div class="row text-align-center">
                     <h1 class="uppercase font-weight-900">Thank you</h1>

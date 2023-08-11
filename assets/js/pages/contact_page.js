@@ -39,7 +39,7 @@ export async function renderContact() {
                         </svg>
                     </div>
                     <div>
-                        <h2 class="uppercase">Call us</h2>
+                        <h2 class="uppercase font-weight-600">Call us</h2>
                         <p>12034567</p>
                     </div>
                 </div>
@@ -59,7 +59,7 @@ export async function renderContact() {
                         </svg>
                     </div>
                     <div>
-                        <h2 class="uppercase">Send email</h2>
+                        <h2 class="uppercase font-weight-600">Send email</h2>
                         <p>bluriovn@gmail.com</p>
                     </div>
                 </div>
