@@ -1,7 +1,5 @@
 import { apiUrl, endPoint, fetchData, removeLoader } from "../helper.js";
 
-import { renderClientCart } from "../components/header.js";
-
 //
 // get cart data from localStorage
 //
@@ -43,8 +41,6 @@ function setClientInfor(p) {
   let key = pathname;
 
   clientInfor[key] = client;
-
-  console.log(clientInfor);
 
   localStorage.setItem("client", JSON.stringify(clientInfor));
 }
@@ -234,8 +230,6 @@ async function submitBtn(p) {
       localStorage.removeItem("cart", clientCart);
     }
 
-    renderClientCart();
-
     //
     // delete target client information
     //
@@ -284,7 +278,18 @@ async function changeActive(p) {
   }
 
   for (let i of input) {
-    i.oninput = () => {
+    i.oninput = (e) => {
+      //
+      // validate phone number
+      //
+      if (i.getAttribute("id") == "number") {
+        if (!/^[0-9]*$/g.test(e.target.value)) {
+          let value = e.target.value.replace(/[^0-9.]/g, "");
+          i.value = value;
+          return false;
+        }
+      }
+
       setClientInfor(p);
     };
   }
@@ -344,7 +349,7 @@ export async function renderForm(p) {
                     </div>
                     <div class="infor-wrapper position-rel mb-mg-bottom">
                         <label for="number" class="uppercase">Your phone number</label>
-                        <input type="tel" id="number" placeholder="0912345678" maxlength="16" oninput="this.value = this.value.replace(/[^0-9.]/g, '')" />
+                        <input type="tel" id="number" placeholder="0912345678" maxlength="16" />
                         <i class="alert-text position-abs number-alert"></i>
                     </div>
                     <a class="form-submit-btn text-align-center">Submit</a>

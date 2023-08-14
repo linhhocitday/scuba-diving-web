@@ -92,7 +92,7 @@ async function dialog(p) {
 //
 // render client cart
 //
-export async function renderClientCart(p) {
+async function renderClientCart(p) {
   let getService = {
     apiUrl: apiUrl,
     endPoint: endPoint.product,
@@ -211,6 +211,7 @@ export async function renderClientCart(p) {
 
           //   renderClientCart();
           // }
+
           dialog({
             template: body,
             message: `Are you sure you want to <span class="red-color-100 font-weight-600">delete</span> "${
@@ -238,7 +239,7 @@ export async function renderClientCart(p) {
 async function cartIcon(p) {
   let cartIcon = p.querySelector(".cart-icon");
   cartIcon.addEventListener("click", () => {
-    console.log(clientCart);
+    renderClientCart();
   });
 }
 
@@ -322,6 +323,9 @@ export async function renderHeader() {
 
   await cartIcon(template);
 
+  //
+  // click on hamburger => menu
+  //
   await hamburger({
     template: template,
     btn: ".hamburger",
@@ -329,6 +333,9 @@ export async function renderHeader() {
     activeClass: "active",
   });
 
+  //
+  // click on cart icon => cart
+  //
   await hamburger({
     template: template,
     btn: ".cart-icon",
