@@ -640,6 +640,10 @@
   padding: 28px 0 80px;
 }
 
+.mb-mg-10vh {
+  margin: 10vh 0;
+}
+
 /* dialog */
 .dialog {
   max-width: 280px;
@@ -1294,6 +1298,10 @@
 
   .thanks-slide1 {
     padding: 28px 0 200px;
+  }
+
+  .mb-mg-10vh {
+    margin: 0;
   }
 
   /* dialog */

@@ -10,9 +10,9 @@ export async function renderFooter() {
                 <div class="footer-inform">
                     <h3 class="uppercase font-weight-200">Our location</h3>
                     <ul>
-                        <li class="white-color-60"><a href="${maps[0]["daNang"]}">Da Nang</a></li>
-                        <li class="white-color-60"><a href="${maps[1]["nhaTrang"]}">Nha Trang</a></li>
-                        <li class="white-color-60"><a href="${maps[2]["phuQuoc"]}">Phu Quoc</a></li>
+                        <li class="white-color-60"><a target="_blank" href="${maps[0]["daNang"]}">Da Nang</a></li>
+                        <li class="white-color-60"><a target="_blank" href="${maps[1]["nhaTrang"]}">Nha Trang</a></li>
+                        <li class="white-color-60"><a target="_blank" href="${maps[2]["phuQuoc"]}">Phu Quoc</a></li>
                     </ul>
                 </div>
                 <div class="footer-inform">

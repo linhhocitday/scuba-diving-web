@@ -19,7 +19,7 @@ export async function renderThanks(p) {
                 <div class="back-btn-wrapper">
                     <a class="back-btn inline-block"></a>
                 </div>
-                <div class="row text-align-center">
+                <div class="row text-align-center mb-mg-10vh">
                     <h1 class="uppercase font-weight-900">Thank you</h1>
                     <div class="gradient-text l-colorful-text mb-colorful-text">Your reservation is confirmed.</div>
                 </div>
